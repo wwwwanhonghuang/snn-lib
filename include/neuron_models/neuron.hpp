@@ -14,9 +14,10 @@ namespace snnlib{
 
             NeuronDynamicsModel neuron_dynamics_model;
 
-            virtual void initialize(){
-                
-            }
+            virtual void initialize() = 0;
+            virtual void setMembranePotential(double v, int index) = 0;
+            virtual void setMembranePotential(const std::vector<double>& v) = 0;
+
             void forward_states_to_buffer(const std::vector<double>& I, double t, double* P, double dt){
                 for(int i = 0; i < n_neurons; i++){
                     std::vector<double> dx = neuron_dynamics_model(I[i], &x[i * n_states], t, P, dt);
@@ -43,11 +44,12 @@ namespace snnlib{
         protected:
             int n_states;
             int n_parameters;
+            std::vector<double> x;
+            std::vector<double> x_buffer;
             
 
         private:
-            std::vector<double> x;
-            std::vector<double> x_buffer;
+            
             
             void _evolve_state(const std::vector<double>& I, double t, double* P, double dt){
                 for(int i = 0; i < n_neurons; i++){

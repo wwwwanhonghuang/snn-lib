@@ -11,7 +11,6 @@ namespace snnlib{
             return; 
         }
         _record_connection_weights(output_stream, connection);
-
     }
 
     void WeightRecorder::_record_connection_weights(std::ostream& output_stream, std::shared_ptr<snnlib::AbstractSNNConnection> connection) {

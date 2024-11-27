@@ -3,9 +3,11 @@
 #include <unordered_map>
 #include <string>
 #include <iostream>
+#include <cassert>
+
 #include "neuron_models/neuron.hpp"
 #include "connections/connection.hpp"
-#include <cassert>
+#include "recorder/simulation_state_recorder.hpp"
 
 namespace snnlib{
     struct SNNNetwork{
@@ -112,7 +114,7 @@ namespace snnlib{
                 int neuron_id = neuron_id_map[neuron_record_item.first];
                 std::vector<double> input_current(neuron_record_item.second->n_neurons, 0);
                 
-                // calculate I
+                // calculate current input to this neuron. 
                 for(int i = 0; i < neuron_id_map.size(); i++){
                     if(!connection_matrix[i][neuron_id]) continue;
                     std::shared_ptr<snnlib::AbstractSNNConnection> current_connection = connection_matrix[i][neuron_id];
@@ -120,9 +122,9 @@ namespace snnlib{
                     std::cout << "       >> found connection " << connection_name_map[current_connection] << 
                         " connect to neuron " << neuron_record_item.first << std::endl;
                     std::cout << "       >> synpase output size = " << synpase_out.size() 
-                    << " expect presynapse neuron count = " << synpase_out.size() / neuron_record_item.second->n_neurons
-                    << " real presynapse neuron count = " << current_connection->synapses->presynapse_neurons->n_neurons
-                    << std::endl;
+                        << " expect presynapse neuron count = " << synpase_out.size() / neuron_record_item.second->n_neurons
+                        << " real presynapse neuron count = " << current_connection->synapses->presynapse_neurons->n_neurons
+                        << std::endl;
                     assert(current_connection->synapses->presynapse_neurons->n_neurons == synpase_out.size() / neuron_record_item.second->n_neurons);
 
                     int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
@@ -137,11 +139,15 @@ namespace snnlib{
                         }
                     }
                 }
+
+                snnlib::SimulationStateRecorder recorder;
+                recorder.record_input_current_to_file(std::string("data/logs/t_") + std::to_string(t) + std::string("_") + 
+                neuron_record_item.first + std::string(".input_current"), input_current);
                 std::cout << "   >> begin forward_states_to_buffer: " << std::endl;
+                
                 neuron_record_item.second->forward_states_to_buffer(input_current, t, &neuron_record_item.second->P[0], dt);
             }
 
-            
             for(auto& connection_record_item: connections){
                 connection_record_item.second->forward_states_to_buffer(std::vector<double>(), t, &connection_record_item.second->P[0], dt);
             }

@@ -344,6 +344,33 @@ src/network/network_builder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/network_builder.cpp.s
 .PHONY : src/network/network_builder.cpp.s
 
+src/neuron_models/initializer.o: src/neuron_models/initializer.cpp.o
+.PHONY : src/neuron_models/initializer.o
+
+# target to build an object file
+src/neuron_models/initializer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.o
+.PHONY : src/neuron_models/initializer.cpp.o
+
+src/neuron_models/initializer.i: src/neuron_models/initializer.cpp.i
+.PHONY : src/neuron_models/initializer.i
+
+# target to preprocess a source file
+src/neuron_models/initializer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.i
+.PHONY : src/neuron_models/initializer.cpp.i
+
+src/neuron_models/initializer.s: src/neuron_models/initializer.cpp.s
+.PHONY : src/neuron_models/initializer.s
+
+# target to generate assembly for a file
+src/neuron_models/initializer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.s
+.PHONY : src/neuron_models/initializer.cpp.s
+
 src/neuron_models/lif_neuron.o: src/neuron_models/lif_neuron.cpp.o
 .PHONY : src/neuron_models/lif_neuron.o
 
@@ -397,6 +424,33 @@ src/neuron_models/neuron.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.s
 .PHONY : src/neuron_models/neuron.cpp.s
+
+src/recorder/simulation_state_recorder.o: src/recorder/simulation_state_recorder.cpp.o
+.PHONY : src/recorder/simulation_state_recorder.o
+
+# target to build an object file
+src/recorder/simulation_state_recorder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.o
+.PHONY : src/recorder/simulation_state_recorder.cpp.o
+
+src/recorder/simulation_state_recorder.i: src/recorder/simulation_state_recorder.cpp.i
+.PHONY : src/recorder/simulation_state_recorder.i
+
+# target to preprocess a source file
+src/recorder/simulation_state_recorder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.i
+.PHONY : src/recorder/simulation_state_recorder.cpp.i
+
+src/recorder/simulation_state_recorder.s: src/recorder/simulation_state_recorder.cpp.s
+.PHONY : src/recorder/simulation_state_recorder.s
+
+# target to generate assembly for a file
+src/recorder/simulation_state_recorder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.s
+.PHONY : src/recorder/simulation_state_recorder.cpp.s
 
 src/recorder/weight_recorder.o: src/recorder/weight_recorder.cpp.o
 .PHONY : src/recorder/weight_recorder.o
@@ -535,12 +589,18 @@ help:
 	@echo "... src/network/network_builder.o"
 	@echo "... src/network/network_builder.i"
 	@echo "... src/network/network_builder.s"
+	@echo "... src/neuron_models/initializer.o"
+	@echo "... src/neuron_models/initializer.i"
+	@echo "... src/neuron_models/initializer.s"
 	@echo "... src/neuron_models/lif_neuron.o"
 	@echo "... src/neuron_models/lif_neuron.i"
 	@echo "... src/neuron_models/lif_neuron.s"
 	@echo "... src/neuron_models/neuron.o"
 	@echo "... src/neuron_models/neuron.i"
 	@echo "... src/neuron_models/neuron.s"
+	@echo "... src/recorder/simulation_state_recorder.o"
+	@echo "... src/recorder/simulation_state_recorder.i"
+	@echo "... src/recorder/simulation_state_recorder.s"
 	@echo "... src/recorder/weight_recorder.o"
 	@echo "... src/recorder/weight_recorder.i"
 	@echo "... src/recorder/weight_recorder.s"
