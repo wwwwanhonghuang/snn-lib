@@ -1,0 +1,3 @@
+#ifndef SNNLIB_MACROS
+#define SNNLIB_MACROS
+#endif

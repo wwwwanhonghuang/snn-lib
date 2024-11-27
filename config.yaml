@@ -1,0 +1,3 @@
+snn-main:
+  time-steps: 2
+  dt: 1e-4

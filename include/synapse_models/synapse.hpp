@@ -1,6 +1,7 @@
 #ifndef SYNAPSE_HPP
 #define SYNAPSE_HPP
 #include <vector>
+#include <memory>
 #include "interfaces/function.hpp"
 #include "neuron_models/neuron.hpp"
 
@@ -9,8 +10,8 @@ namespace snnlib{
     {
         public:
         SynapseDynamicsModel synapse_dynamics;
-        snnlib::AbstractSNNNeuron* presynapse_neurons;
-        snnlib::AbstractSNNNeuron* postsynapse_neurons;
+        std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons;
+        std::shared_ptr<snnlib::AbstractSNNNeuron> postsynapse_neurons;
         int n_presynapse_neurons(){
             if(presynapse_neurons) return presynapse_neurons->n_neurons;
             return 0; 
@@ -23,10 +24,12 @@ namespace snnlib{
         std::vector<double> states;
         std::vector<double> states_buffer;
 
-
+        virtual void initialize(){
+                
+        }
         virtual std::vector<double> I() = 0;
-        AbstractSNNSynapse(snnlib::AbstractSNNNeuron* presynapse_neurons, 
-            snnlib::AbstractSNNNeuron* postsynpase_neurons, int n_states_per_synapse)
+        AbstractSNNSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons, 
+            std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons, int n_states_per_synapse)
         : presynapse_neurons(presynapse_neurons), postsynapse_neurons(postsynpase_neurons) {
             this->n_states_per_synapse = n_states_per_synapse;
             states.assign(n_states_per_synapse * presynapse_neurons->n_neurons * postsynpase_neurons->n_neurons, 0);
@@ -34,7 +37,7 @@ namespace snnlib{
         }
         
         
-        virtual ~AbstractSNNSynapse() {}
+        virtual ~AbstractSNNSynapse() = default;
         void forward_states_to_buffer(double weight, const std::vector<double>& S, double t, double* P, double dt){
             for(int i = 0; i < n_presynapse_neurons(); i++){
                 for(int j = 0; j < n_postsynapse_neurons(); j++){
@@ -72,7 +75,8 @@ namespace snnlib{
             std::vector<double> x;
             
         public:
-            AbstractCurrentBaseSynpase(snnlib::AbstractSNNNeuron* presynapse_neurons, snnlib::AbstractSNNNeuron* postsynpase_neurons, int n_states_per_synapse):
+            AbstractCurrentBaseSynpase(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
+                std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons, int n_states_per_synapse):
                 AbstractSNNSynapse(presynapse_neurons, postsynpase_neurons, n_states_per_synapse){}
             double* current(){
                 return &x[0];
@@ -83,7 +87,8 @@ namespace snnlib{
     struct ConvolutionCurrentBasedSynapse: public AbstractCurrentBaseSynpase
     {
         SynapseKernel kernel;
-        ConvolutionCurrentBasedSynapse(snnlib::AbstractSNNNeuron* presynapse_neurons, snnlib::AbstractSNNNeuron* postsynpase_neurons):
+        ConvolutionCurrentBasedSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
+                            std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons):
             AbstractCurrentBaseSynpase(presynapse_neurons, postsynpase_neurons, 2){
 
             }

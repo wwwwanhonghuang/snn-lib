@@ -2,6 +2,8 @@
 #define NEURON_HPP
 #include <vector>
 #include <cstring>
+#include <stdexcept>
+
 #include "interfaces/function.hpp"
 namespace snnlib{
     struct AbstractSNNNeuron
@@ -11,6 +13,10 @@ namespace snnlib{
             std::vector<double> P;
 
             NeuronDynamicsModel neuron_dynamics_model;
+
+            virtual void initialize(){
+                
+            }
             void forward_states_to_buffer(const std::vector<double>& I, double t, double* P, double dt){
                 for(int i = 0; i < n_neurons; i++){
                     std::vector<double> dx = neuron_dynamics_model(I[i], &x[i * n_states], t, P, dt);

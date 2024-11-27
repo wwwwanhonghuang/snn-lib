@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Project name and the language used
-project(SNNMotion LANGUAGES CXX)
+project(SNNLIB LANGUAGES CXX)
 
 # Set the C++ compiler explicitly (optional if using clang++)
 set(CMAKE_CXX_COMPILER clang++)
@@ -20,34 +20,40 @@ set(OBJ_DIR ${BUILD_DIR}/obj)
 set(BIN_DIR ${BUILD_DIR}/bin)
 set(LIB_DIR ${BUILD_DIR}/lib)
 
+file(GLOB_RECURSE SOURCES "src/**/*.cpp")
+
+
 # Include directories
 include_directories(${INCLUDE_DIR})
 
 # Find all source files in the SRC_DIR
-file(GLOB SRC_FILES "${SRC_DIR}/*.cpp")
 
 # Define the output for the static library
 set(STATIC_LIB ${LIB_DIR}/libshared.a)
 
 # Define the main executable target
-set(SNN_MOTION_MAIN_SRC ${SRC_DIR}/snn-motion-main.cpp)
-set(SNN_MOTION_MAIN_TARGET ${BIN_DIR}/snn-motion-main)
+set(SNN_MAIN_SRC ${SRC_DIR}/snn-main.cpp)
+set(SNN_MAIN_TARGET ${BIN_DIR}/snn-main)
 
 # Create directories for outputs
 file(MAKE_DIRECTORY ${LIB_DIR} ${BIN_DIR})
 
+find_package(yaml-cpp REQUIRED)
+
 # Add a static library target
-add_library(shared STATIC ${SRC_FILES})
+add_library(shared STATIC ${SOURCES})
 set_target_properties(shared PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY ${LIB_DIR}
 )
 
 # Add the executable target
-add_executable(snn-motion-main ${SNN_MOTION_MAIN_SRC})
-target_link_libraries(snn-motion-main PRIVATE shared)
+add_executable(snn-main src/snn-main.cpp ${SOURCES})
+target_link_libraries(snn-main PRIVATE shared)
+target_link_libraries(snn-main PRIVATE yaml-cpp)
+
 
 # Set the output directory for the executable
-set_target_properties(snn-motion-main PROPERTIES
+set_target_properties(snn-main PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR}
 )
 

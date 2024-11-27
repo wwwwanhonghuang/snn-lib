@@ -1,1 +1,1 @@
-#include "neuro_models/lif_neuron.hpp"
+#include "neuron_models/lif_neuron.hpp"
