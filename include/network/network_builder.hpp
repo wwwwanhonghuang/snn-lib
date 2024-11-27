@@ -9,9 +9,7 @@
 
 namespace snnlib{
     struct NetworkBuilder
-    {
-
-        
+    {        
         NetworkBuilder(){
             _network = new snnlib::SNNNetwork();
         }
@@ -19,7 +17,6 @@ namespace snnlib{
             _network->initialization();
             return _network;
         }
-
 
         int add_neuron(std::string neuron_name, snnlib::AbstractSNNNeuron* neuron){
             int size = _network->neurons.size();
@@ -46,8 +43,8 @@ namespace snnlib{
             return _network->connections[connection_name];
         }
 
-        int get_synapse(std::string conn){
-
+        snnlib::AbstractSNNSynapse* get_synapse(std::string synapse_name){
+            return synapse_record[synapse_name];
         }
         private:
             snnlib::SNNNetwork* _network;

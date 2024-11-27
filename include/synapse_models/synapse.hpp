@@ -79,14 +79,14 @@ namespace snnlib{
             }
             virtual std::vector<double> I() = 0;
     };
+    
     struct ConvolutionCurrentBasedSynapse: public AbstractCurrentBaseSynpase
     {
         SynapseKernel kernel;
         ConvolutionCurrentBasedSynapse(snnlib::AbstractSNNNeuron* presynapse_neurons, snnlib::AbstractSNNNeuron* postsynpase_neurons):
             AbstractCurrentBaseSynpase(presynapse_neurons, postsynpase_neurons, 2){
-                
-            }
 
+            }
         std::vector<double> I(){
             return std::vector<double>(states.begin(), states.begin() + n_presynapse_neurons() * n_postsynapse_neurons());
         }
@@ -102,7 +102,6 @@ namespace snnlib{
                 return &x[0];
             }
             virtual std::vector<double> I() = 0;
-            
     };
 }
 #endif

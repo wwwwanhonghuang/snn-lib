@@ -34,7 +34,7 @@ void connect_neurons(snnlib::NetworkBuilder& network_builder){
     std::shared_ptr<snnlib::AbstractSNNConnection> connection_input_output = 
         std::make_shared<snnlib::AbstractSNNConnection>(network_builder.get_synapse("syn_input_output"));
     
-    network_builder.add_connection(connection_input_output.get());
+    network_builder.add_connection("conn-input-output", connection_input_output.get());
 }
 
 void simulation_main(snnlib::SNNNetwork* network, int time_steps){
