@@ -1,18 +1,18 @@
 #ifndef SNNLIB_MACROS
 #define SNNLIB_MACROS
-#define DEF_NEURON_STATE(index, name)         \
+#define DEF_DYN_SYSTEM_STATE(index, name)         \
     static int state_##name(double* x) {     \
         return x[index];                     \
     }
 
-#define DEF_NEURON_PARAM(index, name)       \
+#define DEF_DYN_SYSTEM_PARAM(index, name)       \
     static double param_##name(double* P) {                         \
         return P[index];                    \
     }
 
-#define NEURON_STATE(name) \
+#define DYN_SYSTEM_STATE(name) \
     double name = state_##name(x);
 
-#define NEURON_PARAMETER(name) \
+#define DYN_SYSTEM_PARAMETER(name) \
     double name = param_##name(P);
 #endif

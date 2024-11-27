@@ -36,8 +36,9 @@ void build_neurons(snnlib::NetworkBuilder& network_builder){
 
 void create_synapse(snnlib::NetworkBuilder& network_builder){
     std::shared_ptr<snnlib::AbstractSNNSynapse> input_output_synapse = 
-        std::make_shared<snnlib::ConvolutionCurrentBasedSynapse>(network_builder.get_neuron("inputs"), 
-            network_builder.get_neuron("outputs"));
+        std::make_shared<snnlib::CurrentBasedKernalSynapse>(network_builder.get_neuron("inputs"), 
+            network_builder.get_neuron("outputs"), "single_exponential",
+            0.1, 0, 0, 0);
     network_builder.record_synapse("syn_input_output", input_output_synapse);
 }
 
