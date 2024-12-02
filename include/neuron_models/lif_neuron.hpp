@@ -23,6 +23,9 @@ namespace snnlib{
         {
             neuron_dynamics_model = &LIFNeuron::neuron_dynamics;
             this->n_neurons = n_neurons;
+            for(int i = 0; i < n_neurons; i++){
+                x[i * n_states + OFFSET_STATE_last_t] = -1;
+            }
             P.assign({V_rest, V_th, V_reset, tau_m, R, t_ref});
         }
 

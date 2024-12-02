@@ -209,6 +209,33 @@ src/connections/connection.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/connections/connection.cpp.s
 .PHONY : src/connections/connection.cpp.s
 
+src/context/global_runtime_context/global_runtime_context.o: src/context/global_runtime_context/global_runtime_context.cpp.o
+.PHONY : src/context/global_runtime_context/global_runtime_context.o
+
+# target to build an object file
+src/context/global_runtime_context/global_runtime_context.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.o
+.PHONY : src/context/global_runtime_context/global_runtime_context.cpp.o
+
+src/context/global_runtime_context/global_runtime_context.i: src/context/global_runtime_context/global_runtime_context.cpp.i
+.PHONY : src/context/global_runtime_context/global_runtime_context.i
+
+# target to preprocess a source file
+src/context/global_runtime_context/global_runtime_context.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.i
+.PHONY : src/context/global_runtime_context/global_runtime_context.cpp.i
+
+src/context/global_runtime_context/global_runtime_context.s: src/context/global_runtime_context/global_runtime_context.cpp.s
+.PHONY : src/context/global_runtime_context/global_runtime_context.s
+
+# target to generate assembly for a file
+src/context/global_runtime_context/global_runtime_context.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.s
+.PHONY : src/context/global_runtime_context/global_runtime_context.cpp.s
+
 src/interfaces/function.o: src/interfaces/function.cpp.o
 .PHONY : src/interfaces/function.o
 
@@ -628,6 +655,9 @@ help:
 	@echo "... src/connections/connection.o"
 	@echo "... src/connections/connection.i"
 	@echo "... src/connections/connection.s"
+	@echo "... src/context/global_runtime_context/global_runtime_context.o"
+	@echo "... src/context/global_runtime_context/global_runtime_context.i"
+	@echo "... src/context/global_runtime_context/global_runtime_context.s"
 	@echo "... src/interfaces/function.o"
 	@echo "... src/interfaces/function.i"
 	@echo "... src/interfaces/function.s"

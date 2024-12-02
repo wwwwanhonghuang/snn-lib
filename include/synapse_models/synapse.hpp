@@ -12,11 +12,12 @@ namespace snnlib{
         SynapseDynamicsModel synapse_dynamics;
         std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons;
         std::shared_ptr<snnlib::AbstractSNNNeuron> postsynapse_neurons;
-       
+        
         int n_states_per_synapse;
         std::vector<double> x;
         std::vector<double> x_buffer;
         std::vector<double> P;
+        DEF_DYN_SYSTEM_STATE(0, I);
 
         int n_presynapse_neurons();
         int n_postsynapse_neurons();
@@ -69,7 +70,6 @@ namespace snnlib{
 
     struct CurrentBasedKernalSynapse: public AbstractSNNSynapse{
         bool kernel_param_tau;
-        DEF_DYN_SYSTEM_STATE(0, I);
         DEF_DYN_SYSTEM_STATE(1, aux);
 
         DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau);
@@ -91,13 +91,19 @@ namespace snnlib{
         }
         
         std::vector<double> output_I(){
-            return std::vector<double>(x.begin(), x.begin() + n_presynapse_neurons() * n_postsynapse_neurons());
-        }  
+            int pre_neurons = n_presynapse_neurons();
+            int post_neurons = n_postsynapse_neurons();
+            std::vector<double> I;
+
+            for(int i = 0; i < pre_neurons * post_neurons; i++){
+                I.push_back(x[i * n_states_per_synapse + 0]);
+            }
+            return I;
+        }
     };
 
     struct ConductanceBasedKernalSynapse: public AbstractSNNSynapse{
         bool kernel_param_tau;
-        DEF_DYN_SYSTEM_STATE(0, I);
         DEF_DYN_SYSTEM_STATE(1, aux);
         
 

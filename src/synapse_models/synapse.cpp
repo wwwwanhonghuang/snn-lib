@@ -23,27 +23,31 @@ namespace snnlib
     if (!P){
         std::cout << "Error: parameter P is null in synapse model." << std::endl;
         abort();
-    }
-    
-    // Iterate over presynaptic and postsynaptic neurons to update states (wS(t)) * K
-    for (int i = 0; i < n_presynapse_neurons(); i++) {
+    }    
+        // Iterate over presynaptic and postsynaptic neurons to update states (wS(t)) * K
+        for (int i = 0; i < n_presynapse_neurons(); i++) {
             for (int j = 0; j < n_postsynapse_neurons(); j++) {
                 int index = i * n_postsynapse_neurons() + j;  // Synapse index
                 
                 // Get the synaptic weight for this synapse
                 double weight = weights[index];
-
+                double input_value = S[index] * weight; // Scale the presynaptic spike train by the weight
                 // Calculate synaptic dynamics using the presynaptic spike, synaptic weight, and other parameters
+                // ! important. synpase state in layout (presyn_id, postsyn_id, states), which make a neurons' state stored contiguously.
                 std::vector<double> dx = synapse_dynamics(
-                    S[index] * weight,  // Scale the presynaptic spike train by the weight
+                    input_value,  
                     &x[index * n_states_per_synapse],  // Synaptic state
-                    t,  // Time
-                    P,  // Parameters
-                    dt  // Time step
+                    t,
+                    P,
+                    dt
                 );
 
+                
                 // Update states_buffer with new state values
                 for (int k = 0; k < n_states_per_synapse; k++) {
+                    // if(input_value != 0){
+                    //     std::cout << dx[k] << ",";
+                    // }
                     x_buffer[index * n_states_per_synapse + k] = dx[k];
                 }
             }
@@ -54,6 +58,7 @@ namespace snnlib
         for(int i = 0; i < n_presynapse_neurons(); i++){
             for(int j = 0; j < n_postsynapse_neurons(); j++){
                 int index = i * n_postsynapse_neurons() + j;
+               
                 std::vector<double> dx = synapse_dynamics(S[index],
                     &x[index * n_states_per_synapse], t, P, dt
                 );

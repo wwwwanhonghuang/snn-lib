@@ -1,5 +1,5 @@
 #include "neuron_models/lif_neuron.hpp"
-
+#include <cmath>
 namespace snnlib
 {
     
@@ -24,11 +24,10 @@ namespace snnlib
         DYN_SYSTEM_PARAMETER(R);
         DYN_SYSTEM_PARAMETER(t_ref);
 
-        double time_since_last_spike = t * dt - last_t;
+        double time_since_last_spike = last_t == -1 ? INFINITY: t * dt - last_t;
 
-        // Handle refractory period
         if (time_since_last_spike < t_ref) {
-            return {0.0, 0.0};  // No variation in V or last_t
+            return {0.0, 0.0};
         }
 
         double dV = (-(V - V_rest) + I * R) / tau_m * dt; 
