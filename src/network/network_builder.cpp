@@ -14,10 +14,10 @@ namespace snnlib{
         _network->initialize();
         return _network;
     }
+    
     int NetworkBuilder::add_neuron(std::string neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron){
         int size = _network->neurons.size();
         _network->neurons[neuron_name] = neuron;
-
         return size;
     }
 

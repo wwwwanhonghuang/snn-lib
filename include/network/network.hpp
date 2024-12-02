@@ -10,6 +10,8 @@
 #include "recorder/simulation_state_recorder.hpp"
 #include "neuron_models/initializer.hpp"
 
+#include "recorder/recorder.hpp"
+
 namespace snnlib{
     struct SNNNetwork{
         // name -> neuron mapping
@@ -35,7 +37,7 @@ namespace snnlib{
 
         void global_update();
 
-        void evolve_states(int t, double dt);
+        void evolve_states(int t, double dt, std::shared_ptr<snnlib::RecorderFacade> recorder_facade);
     };
 }
 #endif

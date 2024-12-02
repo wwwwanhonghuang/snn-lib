@@ -19,11 +19,12 @@
 
 #include "network/initializer/normal_weight_initializer.hpp"
 
+#include "recorder/recorder.hpp"
 #include "recorder/connection_recorder.hpp"
 #include "recorder/neuron_recorder.hpp"
 
-
 #include "connections/all_to_all_conntection.hpp"
+
 
 
 void build_neurons(snnlib::NetworkBuilder& network_builder){
@@ -51,10 +52,11 @@ void establish_connections(snnlib::NetworkBuilder& network_builder){
 }
 
 // Function to run the simulation
-void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt){
+void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt,  std::shared_ptr<snnlib::RecorderFacade> recorder_facade = nullptr){
     snnlib::SNNSimulator simulator;
-    simulator.simulate(network, time_steps, dt);
+    simulator.simulate(network, time_steps, dt, recorder_facade);
 }
+
 
 int main(){
     YAML::Node config;
@@ -77,11 +79,29 @@ int main(){
     build_neurons(network_builder);
     create_synapse(network_builder);
     establish_connections(network_builder);
-    std::shared_ptr<snnlib::SNNNetwork> network = network_builder.build_network();
-    snnlib::WeightRecorder recorder;
-    recorder.record_connection_weights_to_file(std::string("data/logs/") + "syn_input_output" + std::string(".weights"), network->connections["conn-input-output"]);
 
+    std::shared_ptr<snnlib::SNNNetwork> network = network_builder.build_network();
+
+    snnlib::ConnectionRecordCallback weight_recorder = [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+        if(t == 0)
+            snnlib::WeightRecorder::record_connection_weights_to_file(std::string("data/logs/") + connection_name + std::string(".weights"), connection);
+    };
+
+    snnlib::NeuroRecordCallback membrane_potential_recorder = [](const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, int dt) -> void{
+        snnlib::NeuronRecorder::record_membrane_potential_to_file(
+            std::string("data/logs/")  + neuron_name
+            + std::string("_t_") + std::to_string(t)
+            + std::string(".v"), neuron
+        );
+    };
+
+
+    // Build Recorder
+    std::shared_ptr<snnlib::RecorderFacade> recorder_facade = std::make_shared<snnlib::RecorderFacade>();
+    recorder_facade->add_connection_record_item("conn-input-output", weight_recorder);
+    recorder_facade->add_neuron_record_item("outputs", membrane_potential_recorder);
+    
     // Run simulation
-    run_simulation(network, time_steps, dt);
+    run_simulation(network, time_steps, dt, recorder_facade);
     config.reset();
 }

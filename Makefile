@@ -533,6 +533,33 @@ src/recorder/neuron_recorder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.s
 .PHONY : src/recorder/neuron_recorder.cpp.s
 
+src/recorder/recorder.o: src/recorder/recorder.cpp.o
+.PHONY : src/recorder/recorder.o
+
+# target to build an object file
+src/recorder/recorder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/recorder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.o
+.PHONY : src/recorder/recorder.cpp.o
+
+src/recorder/recorder.i: src/recorder/recorder.cpp.i
+.PHONY : src/recorder/recorder.i
+
+# target to preprocess a source file
+src/recorder/recorder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/recorder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.i
+.PHONY : src/recorder/recorder.cpp.i
+
+src/recorder/recorder.s: src/recorder/recorder.cpp.s
+.PHONY : src/recorder/recorder.s
+
+# target to generate assembly for a file
+src/recorder/recorder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/recorder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.s
+.PHONY : src/recorder/recorder.cpp.s
+
 src/recorder/simulation_state_recorder.o: src/recorder/simulation_state_recorder.cpp.o
 .PHONY : src/recorder/simulation_state_recorder.o
 
@@ -691,6 +718,9 @@ help:
 	@echo "... src/recorder/neuron_recorder.o"
 	@echo "... src/recorder/neuron_recorder.i"
 	@echo "... src/recorder/neuron_recorder.s"
+	@echo "... src/recorder/recorder.o"
+	@echo "... src/recorder/recorder.i"
+	@echo "... src/recorder/recorder.s"
 	@echo "... src/recorder/simulation_state_recorder.o"
 	@echo "... src/recorder/simulation_state_recorder.i"
 	@echo "... src/recorder/simulation_state_recorder.s"
