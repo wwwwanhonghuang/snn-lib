@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/74202/Desktop/snn-lib-cpp
+# Install script for directory: /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/Users/74202/Desktop/snn-lib-cpp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

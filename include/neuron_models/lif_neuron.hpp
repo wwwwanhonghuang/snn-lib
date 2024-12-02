@@ -26,17 +26,11 @@ namespace snnlib{
         }
 
         virtual void initialize();
-
-        inline virtual void setMembranePotential(double v, int index);
-        
-
-        virtual void setMembranePotential(const std::vector<double>& v);
         
         virtual double output_V(double* x, double* output_P, int t, int dt);
 
 
         static std::vector<double> neuron_dynamics(double I, double* x, double t, double* P, double dt);
-        void setMembranePotential(double mV);
     };
 
 }

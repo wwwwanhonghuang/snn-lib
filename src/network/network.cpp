@@ -139,6 +139,7 @@ namespace snnlib
                 }
             }
             connection_record_item.second->forward_states_to_buffer(S, t, &connection_record_item.second->synapses->P[0], dt);
+            
         }
     }
-} // namespace snnlib
+}

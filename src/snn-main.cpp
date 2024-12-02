@@ -7,6 +7,7 @@
 
 #include "neuron_models/neuron.hpp"
 #include "neuron_models/lif_neuron.hpp"
+#include "neuron_models/initializer.hpp"
 
 #include "network/network.hpp"
 #include "network/network_builder.hpp"
@@ -17,7 +18,9 @@
 
 #include "network/initializer/normal_weight_initializer.hpp"
 
-#include "recorder/weight_recorder.hpp"
+#include "recorder/connection_recorder.hpp"
+#include "recorder/neuron_recorder.hpp"
+
 
 #include "connections/all_to_all_conntection.hpp"
 
@@ -30,9 +33,13 @@ void build_neurons(snnlib::NetworkBuilder& network_builder){
     std::shared_ptr<snnlib::AbstractSNNNeuron> output_neurons = 
         std::make_shared<snnlib::LIFNeuron>(400);
 
-    network_builder.add_neuron("inputs", input_neurons);
-    network_builder.add_neuron("outputs", output_neurons);
     
+    snnlib::RestPotentialInitializer initializer;
+    initializer.initialize(input_neurons);
+    initializer.initialize(output_neurons);
+
+    network_builder.add_neuron("inputs", input_neurons);
+    network_builder.add_neuron("outputs", output_neurons);   
 }
 
 void create_synapse(snnlib::NetworkBuilder& network_builder){

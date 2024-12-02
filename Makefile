@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/74202/Desktop/snn-lib-cpp
+CMAKE_SOURCE_DIR = /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/74202/Desktop/snn-lib-cpp
+CMAKE_BINARY_DIR = /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/74202/Desktop/snn-lib-cpp/CMakeFiles /mnt/c/Users/74202/Desktop/snn-lib-cpp//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp/CMakeFiles /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/74202/Desktop/snn-lib-cpp/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -425,6 +425,33 @@ src/neuron_models/neuron.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.s
 .PHONY : src/neuron_models/neuron.cpp.s
 
+src/recorder/connection_recorder.o: src/recorder/connection_recorder.cpp.o
+.PHONY : src/recorder/connection_recorder.o
+
+# target to build an object file
+src/recorder/connection_recorder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.o
+.PHONY : src/recorder/connection_recorder.cpp.o
+
+src/recorder/connection_recorder.i: src/recorder/connection_recorder.cpp.i
+.PHONY : src/recorder/connection_recorder.i
+
+# target to preprocess a source file
+src/recorder/connection_recorder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.i
+.PHONY : src/recorder/connection_recorder.cpp.i
+
+src/recorder/connection_recorder.s: src/recorder/connection_recorder.cpp.s
+.PHONY : src/recorder/connection_recorder.s
+
+# target to generate assembly for a file
+src/recorder/connection_recorder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.s
+.PHONY : src/recorder/connection_recorder.cpp.s
+
 src/recorder/simulation_state_recorder.o: src/recorder/simulation_state_recorder.cpp.o
 .PHONY : src/recorder/simulation_state_recorder.o
 
@@ -451,33 +478,6 @@ src/recorder/simulation_state_recorder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.s
 .PHONY : src/recorder/simulation_state_recorder.cpp.s
-
-src/recorder/weight_recorder.o: src/recorder/weight_recorder.cpp.o
-.PHONY : src/recorder/weight_recorder.o
-
-# target to build an object file
-src/recorder/weight_recorder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/weight_recorder.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/weight_recorder.cpp.o
-.PHONY : src/recorder/weight_recorder.cpp.o
-
-src/recorder/weight_recorder.i: src/recorder/weight_recorder.cpp.i
-.PHONY : src/recorder/weight_recorder.i
-
-# target to preprocess a source file
-src/recorder/weight_recorder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/weight_recorder.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/weight_recorder.cpp.i
-.PHONY : src/recorder/weight_recorder.cpp.i
-
-src/recorder/weight_recorder.s: src/recorder/weight_recorder.cpp.s
-.PHONY : src/recorder/weight_recorder.s
-
-# target to generate assembly for a file
-src/recorder/weight_recorder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/weight_recorder.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/weight_recorder.cpp.s
-.PHONY : src/recorder/weight_recorder.cpp.s
 
 src/simulator/snn_simulator.o: src/simulator/snn_simulator.cpp.o
 .PHONY : src/simulator/snn_simulator.o
@@ -598,12 +598,12 @@ help:
 	@echo "... src/neuron_models/neuron.o"
 	@echo "... src/neuron_models/neuron.i"
 	@echo "... src/neuron_models/neuron.s"
+	@echo "... src/recorder/connection_recorder.o"
+	@echo "... src/recorder/connection_recorder.i"
+	@echo "... src/recorder/connection_recorder.s"
 	@echo "... src/recorder/simulation_state_recorder.o"
 	@echo "... src/recorder/simulation_state_recorder.i"
 	@echo "... src/recorder/simulation_state_recorder.s"
-	@echo "... src/recorder/weight_recorder.o"
-	@echo "... src/recorder/weight_recorder.i"
-	@echo "... src/recorder/weight_recorder.s"
 	@echo "... src/simulator/snn_simulator.o"
 	@echo "... src/simulator/snn_simulator.i"
 	@echo "... src/simulator/snn_simulator.s"

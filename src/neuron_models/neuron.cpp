@@ -1,4 +1,5 @@
 #include "neuron_models/neuron.hpp"
+#include <cassert>
 
 namespace snnlib
 {
@@ -30,6 +31,7 @@ namespace snnlib
     int AbstractSNNNeuron::get_n_states(){
         return n_states;
     }
+
     void AbstractSNNNeuron::_evolve_state(const std::vector<double>& I, double t, double* P, double dt){
         for(int i = 0; i < n_neurons; i++){
             std::vector<double> dx = neuron_dynamics_model(I[i], &x[i * n_states], t, P, dt);
