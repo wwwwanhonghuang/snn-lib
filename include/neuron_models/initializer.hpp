@@ -10,7 +10,7 @@ namespace snnlib
     struct RestPotentialInitializer : snnlib::AbstractNeuronMembranePotentialInitializer
     {
         void initialize(snnlib::AbstractSNNNeuron& neuron){
-            neuron.setMembranePotential(-65);
+            neuron.setMembranePotential(-65.0);
         }
     };
     

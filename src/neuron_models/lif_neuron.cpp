@@ -5,7 +5,7 @@ namespace snnlib
     
     void LIFNeuron::initialize(){};
 
-    void LIFNeuron::setMembranePotential(double v, int index){
+    inline void LIFNeuron::setMembranePotential(double v, int index){
         x[index * n_states + OFFSET_STATE_V] = v;
     }
     
