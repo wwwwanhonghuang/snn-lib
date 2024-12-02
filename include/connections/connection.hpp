@@ -5,7 +5,7 @@
 #include "network/initializer/initializer.hpp"
 
 namespace snnlib{
-    struct AbstractSNNConnectionWeightInitializer;
+    struct AbstractSNNConnectionInitializer;
 }
 namespace snnlib{
     struct AbstractSNNConnection
@@ -26,7 +26,7 @@ namespace snnlib{
                 weights.assign(synapses->n_presynapse_neurons() * synapses->n_postsynapse_neurons(), 0);
             };
 
-            void initialize_weights(std::shared_ptr<snnlib::AbstractSNNConnectionWeightInitializer> initializer);
+            void initialize_weights(std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> initializer);
             void forward_states_to_buffer(const std::vector<double>& S, double t, double* P, double dt);
             void update_states_from_buffer();
             virtual void initialize(){}

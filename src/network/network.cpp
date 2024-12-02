@@ -74,6 +74,12 @@ namespace snnlib
             connection_record_item.second->synapses->initialize();
             connection_record_item.second->initialize();
         }
+        for(auto& initializer_record: neuron_initializers){
+            initializer_record.second->initialize(neurons[initializer_record.first]);
+        }
+        for(auto& initializer_record: connection_initializers){
+            initializer_record.second->initialize(connections[initializer_record.first]);
+        }
     }
 
     void SNNNetwork::global_update(){

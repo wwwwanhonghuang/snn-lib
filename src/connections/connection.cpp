@@ -2,7 +2,7 @@
 
 namespace snnlib
 {
-    void AbstractSNNConnection::initialize_weights(std::shared_ptr<snnlib::AbstractSNNConnectionWeightInitializer> initializer){
+    void AbstractSNNConnection::initialize_weights(std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> initializer){
         initializer->initialize(std::shared_ptr<snnlib::AbstractSNNConnection>(this));   
     }
     void AbstractSNNConnection::forward_states_to_buffer(const std::vector<double>& S, double t, double* P, double dt){

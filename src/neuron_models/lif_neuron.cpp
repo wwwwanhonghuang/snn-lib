@@ -35,7 +35,6 @@ namespace snnlib
         if ((V + dV) >= V_th) {
             return {V_reset - V, t * dt - last_t};
         }
-
         return {dV, 0.0};
     }
     

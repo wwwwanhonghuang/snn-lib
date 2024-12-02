@@ -32,8 +32,6 @@ namespace snnlib
                 // Get the synaptic weight for this synapse
                 double weight = weights[index];
                 double input_value = S[index] * weight; // Scale the presynaptic spike train by the weight
-                // Calculate synaptic dynamics using the presynaptic spike, synaptic weight, and other parameters
-                // ! important. synpase state in layout (presyn_id, postsyn_id, states), which make a neurons' state stored contiguously.
                 std::vector<double> dx = synapse_dynamics(
                     input_value,  
                     &x[index * n_states_per_synapse],  // Synaptic state
@@ -45,9 +43,6 @@ namespace snnlib
                 
                 // Update states_buffer with new state values
                 for (int k = 0; k < n_states_per_synapse; k++) {
-                    // if(input_value != 0){
-                    //     std::cout << dx[k] << ",";
-                    // }
                     x_buffer[index * n_states_per_synapse + k] = dx[k];
                 }
             }
@@ -72,4 +67,4 @@ namespace snnlib
             x[i] = x_buffer[i];
         }
     }
-} // namespace snnlib
+}

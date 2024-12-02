@@ -4,7 +4,7 @@
 
 namespace snnlib{
     struct AbstractSNNConnection;
-    struct AbstractSNNConnectionWeightInitializer
+    struct AbstractSNNConnectionInitializer
     {
         virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection) = 0;
     };

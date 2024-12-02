@@ -6,7 +6,7 @@
 #include "network/initializer/initializer.hpp"
 
 namespace snnlib{
-    struct NormalWeightInitializer: AbstractSNNConnectionWeightInitializer
+    struct NormalWeightInitializer: AbstractSNNConnectionInitializer
     {
         public:
             virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
