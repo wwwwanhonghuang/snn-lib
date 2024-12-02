@@ -138,7 +138,7 @@ namespace snnlib
                         synapse->presynapse_neurons->output_V(&synapse->presynapse_neurons->x[i * synapse->presynapse_neurons->get_n_states()], NULL, t, dt);
                 }
             }
-            connection_record_item.second->forward_states_to_buffer(S, t, &connection_record_item.second->P[0], dt);
+            connection_record_item.second->forward_states_to_buffer(S, t, &connection_record_item.second->synapses->P[0], dt);
         }
     }
 } // namespace snnlib

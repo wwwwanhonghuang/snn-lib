@@ -92,8 +92,7 @@ namespace snnlib{
         
         std::vector<double> output_I(){
             return std::vector<double>(x.begin(), x.begin() + n_presynapse_neurons() * n_postsynapse_neurons());
-        }
-        
+        }  
     };
 
     struct ConductanceBasedKernalSynapse: public AbstractSNNSynapse{

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "synapse_models/synapse.hpp"
 
 namespace snnlib
@@ -12,12 +13,18 @@ namespace snnlib
     };
 
     void AbstractSNNSynapse::forward_states_to_buffer(
-            const std::vector<double>& weights, // synaptic weights
-            const std::vector<double>& S,      // presynaptic spike train
-            double t,                          // current time
-            double* P,                         // parameters
-            double dt                          // time step
+        const std::vector<double>& weights, // synaptic weights
+        const std::vector<double>& S,      // presynaptic spike train
+        double t,                          // current time
+        double* P,                         // parameters
+        double dt                          // time step
     ) {
+    
+    if (!P){
+        std::cout << "Error: parameter P is null in synapse model." << std::endl;
+        abort();
+    }
+    
     // Iterate over presynaptic and postsynaptic neurons to update states (wS(t)) * K
     for (int i = 0; i < n_presynapse_neurons(); i++) {
             for (int j = 0; j < n_postsynapse_neurons(); j++) {
