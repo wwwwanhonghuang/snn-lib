@@ -3,7 +3,8 @@
 #define DEF_DYN_SYSTEM_STATE(index, name)         \
     static int state_##name(double* x) {     \
         return x[index];                     \
-    }
+    } \
+    const int OFFSET_STATE_##name = index;
 
 #define DEF_DYN_SYSTEM_PARAM(index, name)       \
     static double param_##name(double* P) {                         \

@@ -28,7 +28,8 @@ namespace snnlib{
         virtual void initialize();
 
         virtual void setMembranePotential(double v, int index);
-        
+        void LIFNeuron::setMembranePotential(double mV);
+
         virtual void setMembranePotential(const std::vector<double>& v);
         
         virtual double output_V(double* x, double* output_P, int t, int dt);
@@ -37,5 +38,6 @@ namespace snnlib{
         static std::vector<double> neuron_dynamics(double I, double* x, double t, double* P, double dt);
         
     };
+
 }
 #endif

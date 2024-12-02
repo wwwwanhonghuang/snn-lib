@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp
+CMAKE_SOURCE_DIR = /mnt/c/Users/74202/Desktop/snn-lib-cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp
+CMAKE_BINARY_DIR = /mnt/c/Users/74202/Desktop/snn-lib-cpp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp/CMakeFiles /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/74202/Desktop/snn-lib-cpp/CMakeFiles /mnt/c/Users/74202/Desktop/snn-lib-cpp//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Micro/Desktop/MainResearch/snn-lib-cpp/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/74202/Desktop/snn-lib-cpp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

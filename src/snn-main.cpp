@@ -32,6 +32,7 @@ void build_neurons(snnlib::NetworkBuilder& network_builder){
 
     network_builder.add_neuron("inputs", input_neurons);
     network_builder.add_neuron("outputs", output_neurons);
+    
 }
 
 void create_synapse(snnlib::NetworkBuilder& network_builder){

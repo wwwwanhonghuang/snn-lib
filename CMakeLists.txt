@@ -20,6 +20,7 @@ set(OBJ_DIR ${BUILD_DIR}/obj)
 set(BIN_DIR ${BUILD_DIR}/bin)
 set(LIB_DIR ${BUILD_DIR}/lib)
 
+
 file(GLOB_RECURSE SOURCES "src/**/*.cpp")
 
 

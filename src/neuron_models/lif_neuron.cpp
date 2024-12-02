@@ -6,13 +6,19 @@ namespace snnlib
     void LIFNeuron::initialize(){};
 
     void LIFNeuron::setMembranePotential(double v, int index){
-        x[index] = v;
+        x[index * n_states + OFFSET_STATE_V] = v;
     }
     
-    void LIFNeuron::setMembranePotential(const std::vector<double>& v){
-        assert(v.size() <= x.size());
-        for(int i = 0; i < v.size(); i++){
-            x[i] = v[i];
+    void LIFNeuron::setMembranePotential(const std::vector<double>& mV){
+        assert(mV.size() <= x.size());
+        for(int i = 0; i < mV.size(); i++){
+            setMembranePotential(i, mV[i]);
+        }
+    }
+
+    void LIFNeuron::setMembranePotential(double mV){
+        for(int i = 0; i < n_neurons; i++){
+            setMembranePotential(i, mV);
         }
     }
     
