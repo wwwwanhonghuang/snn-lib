@@ -1,5 +1,6 @@
 #ifndef NEURON_INITIALIZER_HPP
 #define NEURON_INITIALIZER_HPP
+#include <memory>
 #include "neuron_models/neuron.hpp"
 namespace snnlib
 {
@@ -9,8 +10,8 @@ namespace snnlib
 
     struct RestPotentialInitializer : snnlib::AbstractNeuronMembranePotentialInitializer
     {
-        void initialize(snnlib::AbstractSNNNeuron& neuron){
-            neuron.setMembranePotential(-65.0);
+        void initialize(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron){
+            neuron->setMembranePotential(-65.0);
         }
     };
     

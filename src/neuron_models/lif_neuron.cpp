@@ -5,7 +5,7 @@ namespace snnlib
     
     void LIFNeuron::initialize(){};
     
-    double LIFNeuron::output_V(double* x, double* output_P, int t, int dt){
+    double LIFNeuron::output_V(double* x, double* output_P, int t, double dt){
         if(state_last_t(x) == t * dt){
             return 1.0;
         }else{

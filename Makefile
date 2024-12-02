@@ -425,6 +425,33 @@ src/neuron_models/neuron.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.s
 .PHONY : src/neuron_models/neuron.cpp.s
 
+src/neuron_models/possion_neuron.o: src/neuron_models/possion_neuron.cpp.o
+.PHONY : src/neuron_models/possion_neuron.o
+
+# target to build an object file
+src/neuron_models/possion_neuron.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.o
+.PHONY : src/neuron_models/possion_neuron.cpp.o
+
+src/neuron_models/possion_neuron.i: src/neuron_models/possion_neuron.cpp.i
+.PHONY : src/neuron_models/possion_neuron.i
+
+# target to preprocess a source file
+src/neuron_models/possion_neuron.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.i
+.PHONY : src/neuron_models/possion_neuron.cpp.i
+
+src/neuron_models/possion_neuron.s: src/neuron_models/possion_neuron.cpp.s
+.PHONY : src/neuron_models/possion_neuron.s
+
+# target to generate assembly for a file
+src/neuron_models/possion_neuron.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.s
+.PHONY : src/neuron_models/possion_neuron.cpp.s
+
 src/recorder/connection_recorder.o: src/recorder/connection_recorder.cpp.o
 .PHONY : src/recorder/connection_recorder.o
 
@@ -451,6 +478,33 @@ src/recorder/connection_recorder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.s
 .PHONY : src/recorder/connection_recorder.cpp.s
+
+src/recorder/neuron_recorder.o: src/recorder/neuron_recorder.cpp.o
+.PHONY : src/recorder/neuron_recorder.o
+
+# target to build an object file
+src/recorder/neuron_recorder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.o
+.PHONY : src/recorder/neuron_recorder.cpp.o
+
+src/recorder/neuron_recorder.i: src/recorder/neuron_recorder.cpp.i
+.PHONY : src/recorder/neuron_recorder.i
+
+# target to preprocess a source file
+src/recorder/neuron_recorder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.i
+.PHONY : src/recorder/neuron_recorder.cpp.i
+
+src/recorder/neuron_recorder.s: src/recorder/neuron_recorder.cpp.s
+.PHONY : src/recorder/neuron_recorder.s
+
+# target to generate assembly for a file
+src/recorder/neuron_recorder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.s
+.PHONY : src/recorder/neuron_recorder.cpp.s
 
 src/recorder/simulation_state_recorder.o: src/recorder/simulation_state_recorder.cpp.o
 .PHONY : src/recorder/simulation_state_recorder.o
@@ -598,9 +652,15 @@ help:
 	@echo "... src/neuron_models/neuron.o"
 	@echo "... src/neuron_models/neuron.i"
 	@echo "... src/neuron_models/neuron.s"
+	@echo "... src/neuron_models/possion_neuron.o"
+	@echo "... src/neuron_models/possion_neuron.i"
+	@echo "... src/neuron_models/possion_neuron.s"
 	@echo "... src/recorder/connection_recorder.o"
 	@echo "... src/recorder/connection_recorder.i"
 	@echo "... src/recorder/connection_recorder.s"
+	@echo "... src/recorder/neuron_recorder.o"
+	@echo "... src/recorder/neuron_recorder.i"
+	@echo "... src/recorder/neuron_recorder.s"
 	@echo "... src/recorder/simulation_state_recorder.o"
 	@echo "... src/recorder/simulation_state_recorder.i"
 	@echo "... src/recorder/simulation_state_recorder.s"

@@ -2,9 +2,9 @@
 
 namespace snnlib{
     NetworkBuilder::NetworkBuilder(){
-        _network = new snnlib::SNNNetwork();
+        _network = std::make_shared<snnlib::SNNNetwork>();
     }
-    SNNNetwork* NetworkBuilder::build_network(){
+    std::shared_ptr<SNNNetwork> NetworkBuilder::build_network(){
         _network->initialize();
         return _network;
     }

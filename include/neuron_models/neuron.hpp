@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <stdexcept>
-
+#include <iostream>
 #include "interfaces/function.hpp"
 #include "macros.def"
 #include <cassert>
@@ -20,7 +20,7 @@ namespace snnlib{
 
             virtual void initialize() = 0;
 
-            inline void setMembranePotential(double v, int index){
+            inline void setMembranePotential(int index, double v){
                 x[index * n_states + OFFSET_STATE_V] = v;
             }
             
@@ -37,7 +37,7 @@ namespace snnlib{
                 }
             }
             
-            virtual double output_V(double* x, double* output_P, int t, int dt) = 0;
+            virtual double output_V(double* x, double* output_P, int t, double dt) = 0;
             inline void forward_states_to_buffer(int neuron_index, double I, double t, double* P, double dt);
             void forward_states_to_buffer(const std::vector<double>& I, double t, double* P, double dt);
 

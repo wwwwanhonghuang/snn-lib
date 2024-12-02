@@ -5,6 +5,7 @@
 #include "neuron.hpp"
 
 #include "macros.def"
+
 namespace snnlib{
     struct LIFNeuron: public AbstractSNNNeuron
     {
@@ -27,7 +28,7 @@ namespace snnlib{
 
         virtual void initialize();
         
-        virtual double output_V(double* x, double* output_P, int t, int dt);
+        virtual double output_V(double* x, double* output_P, int t, double dt);
 
 
         static std::vector<double> neuron_dynamics(double I, double* x, double t, double* P, double dt);

@@ -7,6 +7,7 @@
 
 #include "neuron_models/neuron.hpp"
 #include "neuron_models/lif_neuron.hpp"
+#include "neuron_models/possion_neuron.hpp"
 #include "neuron_models/initializer.hpp"
 
 #include "network/network.hpp"
@@ -29,13 +30,13 @@ snnlib::WeightRecorder recorder;
 // TODO: initialization.
 void build_neurons(snnlib::NetworkBuilder& network_builder){
     std::shared_ptr<snnlib::AbstractSNNNeuron> input_neurons = 
-        std::make_shared<snnlib::LIFNeuron>(200);
+        std::make_shared<snnlib::PossionNeuron>(200, 80);
     std::shared_ptr<snnlib::AbstractSNNNeuron> output_neurons = 
         std::make_shared<snnlib::LIFNeuron>(400);
 
     
     snnlib::RestPotentialInitializer initializer;
-    initializer.initialize(input_neurons);
+    // initializer.initialize(input_neurons);
     initializer.initialize(output_neurons);
 
     network_builder.add_neuron("inputs", input_neurons);
@@ -60,25 +61,30 @@ void establish_connections(snnlib::NetworkBuilder& network_builder){
     network_builder.add_connection("conn-input-output", connection_input_output);
 }
 
-void run_simulation(snnlib::SNNNetwork* network, int time_steps, double dt){
+void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt){
     snnlib::SNNSimulator simulator;
     simulator.simulate(network, time_steps, dt);
 }
 
 int main(){
     YAML::Node config = YAML::LoadFile("config.yaml");
-
-    // building network
-    snnlib::NetworkBuilder network_builder;
-    build_neurons(network_builder);
-    create_synapse(network_builder);
-    establish_connections(network_builder);
-    snnlib::SNNNetwork* network = network_builder.build_network();
-
     // read configuration
     int time_steps = config["snn-main"]["time-steps"].as<int>();
     double dt = config["snn-main"]["dt"].as<double>();
 
-    // run simulation
+    std::cout << "time_steps = " << time_steps << std::endl;
+    std::cout << "dt = " << dt << std::endl;
+
+    // // building network
+    snnlib::NetworkBuilder network_builder;
+    build_neurons(network_builder);
+    create_synapse(network_builder);
+    establish_connections(network_builder);
+    std::shared_ptr<snnlib::SNNNetwork> network = network_builder.build_network();
+
+    
+    // // run simulation
     run_simulation(network, time_steps, dt);
+    config.reset();
+
 }

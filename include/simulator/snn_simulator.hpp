@@ -3,14 +3,21 @@
 #include <iostream>
 #include "network/network.hpp"
 
+#include "recorder/neuron_recorder.hpp"
+
 namespace snnlib {
     struct SNNSimulator
     {
-        /* data */
+        private:
+            snnlib::NeuronRecorder _neuron_recorder;
         public:
-            void simulate(snnlib::SNNNetwork* network, int time_steps, double dt){
+            SNNSimulator(){
+
+            }
+            void simulate(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt){
                 for(int t = 0; t < time_steps; t++){
                     std::cout << "* In time step " << t << std::endl;
+
                     network->evolve_states(t, dt);
                     network->global_update();
                 }

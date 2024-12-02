@@ -1,3 +1,3 @@
 snn-main:
-  time-steps: 2
+  time-steps: 200
   dt: 1e-4

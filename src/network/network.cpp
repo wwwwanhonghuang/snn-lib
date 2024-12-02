@@ -1,5 +1,5 @@
 #include "network/network.hpp"
-
+#include "recorder/neuron_recorder.hpp"
 namespace snnlib
 {
     bool SNNNetwork::is_neuron_connected(const std::string& presynapse_neuron_name, const std::string& postsynapse_neuron_name) {
@@ -85,8 +85,9 @@ namespace snnlib
         }
     }
 
-    void SNNNetwork::evolve_states(int t, int dt){
+    void SNNNetwork::evolve_states(int t, double dt){
         std::cout << " begin evolve states" << std::endl;
+
         for(auto& neuron_record_item: neurons){
             std::cout << "   >> neuron: " << neuron_record_item.first << 
                 " size = " << neuron_record_item.second->n_neurons << std::endl;
@@ -94,6 +95,12 @@ namespace snnlib
             int neuron_id = neuron_id_map[neuron_record_item.first];
             std::vector<double> input_current(neuron_record_item.second->n_neurons, 0);
             
+            snnlib::NeuronRecorder neuron_recorder;
+
+            neuron_recorder.record_membrane_potential_to_file(
+                std::string("data/logs/") + std::string("t_") + std::to_string(t) + std::string("_")
+                + neuron_record_item.first + ".v", neuron_record_item.second);
+
             // calculate current input to this neuron. 
             for(int i = 0; i < neuron_id_map.size(); i++){
                 if(!connection_matrix[i][neuron_id]) continue;

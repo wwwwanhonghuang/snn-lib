@@ -29,7 +29,7 @@ namespace snnlib{
 
         void global_update();
 
-        void evolve_states(int t, int dt);
+        void evolve_states(int t, double dt);
     };
 }
 #endif
