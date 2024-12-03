@@ -94,6 +94,8 @@ namespace snnlib
 
     void SNNNetwork::evolve_states(int t, double dt, std::shared_ptr<snnlib::RecorderFacade> recorder_facade){
         for(auto& neuron_record_item: neurons){
+            if(neuron_record_item.first == "outputs")
+                std::cout << "!!" << std::endl;
             int neuron_id = neuron_id_map[neuron_record_item.first];
             std::vector<double> input_current(neuron_record_item.second->n_neurons, 0);
             
