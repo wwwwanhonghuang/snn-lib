@@ -78,3 +78,27 @@ int main(){
     config.reset();
 }
 ```
+
+# Building 
+``` bash
+$ cd <path-to-repository-root>
+$ cmake .
+$ make
+# run the example program
+$ ./bin/snn-main
+```
+The share library is generated in <path-to-repository-root>/lib/libshared.a  
+
+Prerequisites:
+    - libyaml-cpp
+
+# Todo List
+## Framework Interface
+- [ ] Simplify the recorder building
+- [ ] Simplify the connection building
+
+## Performance
+- [ ] Enable OpenMP
+- [ ] CUDA support
+
+## Funtionality
