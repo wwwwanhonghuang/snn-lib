@@ -21,7 +21,7 @@ namespace snnlib {
         }
     }
 
-    void RecorderFacade::process_connection_recorder(std::string connection_name, std::shared_ptr<AbstractSNNConnection> connection, int t, int dt) {
+    void RecorderFacade::process_connection_recorder(const std::string& connection_name, std::shared_ptr<AbstractSNNConnection> connection, int t, int dt) {
         auto it = connection_recorder_callback.find(connection_name);
         if (it != connection_recorder_callback.end()) {
             for (const auto& callback : it->second) {

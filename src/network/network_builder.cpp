@@ -14,50 +14,37 @@ namespace snnlib{
         _network->initialize();
         return _network;
     }
-    
-    int NetworkBuilder::add_neuron(std::string neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron){
-        int size = _network->neurons.size();
-        _network->neurons[neuron_name] = neuron;
-        return size;
-    }
+   
 
-    int NetworkBuilder::add_neuron_with_initializer(std::string neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, std::shared_ptr<snnlib::AbstractNeuronInitializer> initinitializer){
-        int size = add_neuron(neuron_name, neuron);
-        _network->neuron_initializers[neuron_name] = initinitializer;
-        return size;
-    }
-    
-    int NetworkBuilder::add_neuron_with_initializer(std::string neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, std::string initinitializer_name){
-        if(initinitializer_name == "rest_potential_initializer"){
-            return add_neuron_with_initializer(neuron_name, neuron, neuron_rest_potential_initializer);
+    int NetworkBuilder::add_connection(
+        const std::string& connection_name,
+        std::shared_ptr<snnlib::AbstractSNNConnection> connection,
+        std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> initializer = nullptr,
+        const std::string& initializer_name = "") {
+        
+        int size = _network->connections.size();
+        _network->connections[connection_name] = connection;
+
+        if (initializer) {
+            // If an initializer object is provided, use it
+            _network->connection_initializers[connection_name] = initializer;
+        } else if (!initializer_name.empty()) {
+            // If an initializer name is provided, map it to the corresponding object
+            if (initializer_name == "connection_normal_initializer") {
+                _network->connection_initializers[connection_name] = connection_normal_weight_intializer;
+            } else {
+                std::cerr << "Error: unrecognized connection initializer " << initializer_name << std::endl;
+                assert(false);
+            }
         }
-        std::cout << "Error: unrecognized neuron initializer " << initinitializer_name << std::endl;
-        assert(false);
+
+        return size;
     }
 
     int NetworkBuilder::record_synapse(std::string synapse_name, std::shared_ptr<snnlib::AbstractSNNSynapse> synapse){
         int size = synapse_record.size();
         synapse_record[synapse_name] = synapse;
         return size;
-    }
-
-    int NetworkBuilder::add_connection(std::string connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection){
-        int size = _network->connections.size();
-        _network->connections[connection_name] = connection;
-        return size;
-    }
-
-    int NetworkBuilder::add_connection_with_initializer(std::string connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> initializer){
-        int size = add_connection(connection_name, connection);
-        _network->connection_initializers[connection_name] = initializer;
-        return size;
-    }
-    int NetworkBuilder::add_connection_with_initializer(std::string connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, std::string initializer_name){
-        if(initializer_name == "connection_normal_initializer"){
-            return add_connection_with_initializer(connection_name, connection, connection_normal_weight_intializer);
-        }
-        std::cout << "Error: unrecognized connection initializer " << initializer_name << std::endl;
-        assert(false);
     }
 
     std::shared_ptr<snnlib::AbstractSNNNeuron> NetworkBuilder::get_neuron(std::string neuron_name){
