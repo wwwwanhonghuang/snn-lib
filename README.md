@@ -90,7 +90,7 @@ $ ./bin/snn-main
 The share library is generated in <path-to-repository-root>/lib/libshared.a  
 
 Prerequisites:
-    - libyaml-cpp
+1. libyaml-cpp
 
 # Todo List
 ## Framework Interface
