@@ -3,7 +3,9 @@
 #include "recorder/recorder.hpp"
 namespace snnlib
 {
-    bool SNNNetwork::is_neuron_connected(const std::string& presynapse_neuron_name, const std::string& postsynapse_neuron_name) {
+    bool SNNNetwork::is_neuron_connected(const std::string& presynapse_neuron_name, 
+            const std::string& postsynapse_neuron_name) {
+        
         // Check if the neuron names exist in the map
         auto presynapse_it = neuron_id_map.find(presynapse_neuron_name);
         auto postsynapse_it = neuron_id_map.find(postsynapse_neuron_name);
@@ -11,6 +13,7 @@ namespace snnlib
         if (presynapse_it == neuron_id_map.end()) {
             throw std::invalid_argument("Presynapse neuron '" + presynapse_neuron_name + "' not found in the network.");
         }
+
         if (postsynapse_it == neuron_id_map.end()) {
             throw std::invalid_argument("Postsynapse neuron '" + postsynapse_neuron_name + "' not found in the network.");
         }
@@ -28,7 +31,6 @@ namespace snnlib
         // Check if the connection exists
         return static_cast<bool>(connection_matrix[presynapse_neuron_id][postsynapse_neuron_id]);
     }
-
     
     void SNNNetwork::initialize(){
         std::cout << "Build connection matrix" << std::endl;
@@ -66,7 +68,7 @@ namespace snnlib
             connection_matrix[presynapse_neuron_id][postsynapse_neuron_id] = connection_record_item.second;
         }
         
-        // initialize all components
+        // Initialize all components
         std::cout << "initialize network components" << std::endl;
         for(auto& neuron_record_item : neurons){
             neuron_record_item.second->initialize();
@@ -94,8 +96,7 @@ namespace snnlib
 
     void SNNNetwork::evolve_states(int t, double dt, std::shared_ptr<snnlib::RecorderFacade> recorder_facade){
         for(auto& neuron_record_item: neurons){
-            if(neuron_record_item.first == "outputs")
-                std::cout << "!!" << std::endl;
+            
             int neuron_id = neuron_id_map[neuron_record_item.first];
             std::vector<double> input_current(neuron_record_item.second->n_neurons, 0);
             
@@ -106,9 +107,10 @@ namespace snnlib
             // Calculate current input to this neuron. 
             for(int i = 0; i < neuron_id_map.size(); i++){
                 if(!connection_matrix[i][neuron_id]) continue;
+                
                 std::shared_ptr<snnlib::AbstractSNNConnection> current_connection = connection_matrix[i][neuron_id];
                 std::vector<double> synpase_out = current_connection->synapses->output_I();
-
+                
                 assert(current_connection->synapses->presynapse_neurons->n_neurons == synpase_out.size() / neuron_record_item.second->n_neurons);
 
                 int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
@@ -119,14 +121,11 @@ namespace snnlib
                     for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
                         int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
                         input_current[postsyn_idx] += synpase_out[index];
+              
                     }   
                 }
             }
 
-            // snnlib::SimulationStateRecorder recorder;
-            // recorder.record_input_current_to_file(std::string("data/logs/t_") + std::to_string(t) + std::string("_") + 
-            // neuron_record_item.first + std::string(".input_current"), input_current);
-            
             neuron_record_item.second->forward_states_to_buffer(input_current, t, &neuron_record_item.second->P[0], dt);
         }
 
@@ -137,14 +136,20 @@ namespace snnlib
             auto synapse = connection_record_item.second->synapses;
             int n_synapse = synapse->n_presynapse_neurons() * synapse->n_postsynapse_neurons();
             std::vector<double> S(n_synapse, 0.0);
+            
             for(int i = 0; i < synapse->n_presynapse_neurons(); i++){
                 for (int j = 0; j < synapse->n_postsynapse_neurons(); j++)
                 {
                     double presynapse_neuron_output_potential = synapse->presynapse_neurons->output_V(&synapse->presynapse_neurons->x_buffer[i * synapse->presynapse_neurons->get_n_states()], NULL, t, dt);
                     S[i * synapse->n_postsynapse_neurons() + j] = presynapse_neuron_output_potential;
+                    if(presynapse_neuron_output_potential > 0){
+                        // std::cout << synapse->presynapse_neurons->n_neurons << " fired::" << presynapse_neuron_output_potential << std::endl;
+                    }
                 }
             }
-            connection_record_item.second->forward_states_to_buffer(S, t, &connection_record_item.second->synapses->P[0], dt);   
+
+            connection_record_item.second->forward_states_to_buffer(S, t, 
+                &connection_record_item.second->synapses->P[0], dt);
         }
     }
 }

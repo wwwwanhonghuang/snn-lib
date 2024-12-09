@@ -11,6 +11,16 @@ namespace snnlib{
         public:
             virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
     };
+
+    struct IdenticalWeightInitializer: AbstractSNNConnectionInitializer{
+        private:
+            double _weight;
+        public:
+            IdenticalWeightInitializer(double weight){
+                this->_weight = weight;
+            }
+            virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
+    };
 }
 
 #endif

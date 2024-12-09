@@ -17,15 +17,13 @@
 
 #include "simulator/snn_simulator.hpp"
 
-#include "network/initializer/normal_weight_initializer.hpp"
+#include "network/initializer/weight_initializers.hpp"
 
 #include "recorder/recorder.hpp"
 #include "recorder/connection_recorder.hpp"
 #include "recorder/neuron_recorder.hpp"
 
 #include "connections/all_to_all_conntection.hpp"
-
-
 
 void build_neurons(snnlib::NetworkBuilder& network_builder){
     network_builder.build_neuron<snnlib::PossionNeuron>("inputs", nullptr, "", 200, 80);
@@ -35,16 +33,18 @@ void build_neurons(snnlib::NetworkBuilder& network_builder){
 
 void build_synapses(snnlib::NetworkBuilder& network_builder) {
     network_builder.build_synapse<snnlib::CurrentBasedKernalSynapse>(
-        "syn_input_reservoir", "inputs", "reservoir", "single_exponential", 0.1, 0, 0, 0);
+        "syn_input_reservoir", "inputs", "reservoir", "double_exponential", 0.1, 0, 0, 0);
     network_builder.build_synapse<snnlib::CurrentBasedKernalSynapse>(
-        "syn_reservoir_output", "reservoir", "outputs", "single_exponential", 0.1, 0, 0, 0);
+        "syn_reservoir_output", "reservoir", "outputs", "double_exponential", 0.1, 0, 0, 0);
 }
 
 void establish_connections(snnlib::NetworkBuilder& network_builder){
+    std::shared_ptr<snnlib::IdenticalWeightInitializer> initializer =
+        std::make_shared<snnlib::IdenticalWeightInitializer>(0.0005);
     network_builder.build_connection<snnlib::AllToAllConnection>(
-        "conn-input-reservoir", "syn_input_reservoir", nullptr, "connection_normal_initializer");
+        "conn-input-reservoir", "syn_input_reservoir", initializer, "");
     network_builder.build_connection<snnlib::AllToAllConnection>(
-        "conn-reservoir-output", "syn_reservoir_output", nullptr, "connection_normal_initializer");
+        "conn-reservoir-output", "syn_reservoir_output", initializer, "");
 }
 
 void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt,  std::shared_ptr<snnlib::RecorderFacade> recorder_facade = nullptr){
@@ -102,3 +102,5 @@ int main(){
     run_simulation(network, time_steps, dt, recorder_facade);
     config.reset();
 }
+
+

@@ -48,10 +48,12 @@ namespace snnlib{
     };
 
     static SynapseDynamicsModel create_single_exponential_dynamics(int state_current_index, int param_tau_index) {
-        return [state_current_index, param_tau_index](double input, double* x, double t, double* P, double dt) -> std::vector<double> {
+        return [state_current_index, param_tau_index](double input, double* x, double t, double* P, double dt) 
+                -> std::vector<double> {
             double I = x[state_current_index];  // Current state (I)
             double tau = P[param_tau_index]; // Fetch tau using captured index
             double dot_I = (-I / tau) + input;
+
             return {dot_I};
         };
     }
@@ -97,6 +99,7 @@ namespace snnlib{
 
             for(int i = 0; i < pre_neurons * post_neurons; i++){
                 I.push_back(x[i * n_states_per_synapse + 0]);
+
             }
             return I;
         }

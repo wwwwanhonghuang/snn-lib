@@ -9,13 +9,14 @@
 #include "connections/connection.hpp"
 #include "neuron_models/initializer.hpp"
 #include "network/initializer/initializer.hpp"
-#include "network/initializer/normal_weight_initializer.hpp"
+#include "network/initializer/weight_initializers.hpp"
 
 namespace snnlib{
     struct NetworkBuilder
     {        
         std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> connection_normal_weight_intializer =
             std::make_shared<snnlib::NormalWeightInitializer>();
+        
         std::shared_ptr<snnlib::AbstractNeuronInitializer> neuron_rest_potential_initializer = 
             std::make_shared<snnlib::RestPotentialInitializer>();
         

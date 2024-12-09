@@ -290,32 +290,32 @@ src/network/initializer/initializer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.s
 .PHONY : src/network/initializer/initializer.cpp.s
 
-src/network/initializer/normal_weight_initializer.o: src/network/initializer/normal_weight_initializer.cpp.o
-.PHONY : src/network/initializer/normal_weight_initializer.o
+src/network/initializer/weight_initializer.o: src/network/initializer/weight_initializer.cpp.o
+.PHONY : src/network/initializer/weight_initializer.o
 
 # target to build an object file
-src/network/initializer/normal_weight_initializer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/initializer/normal_weight_initializer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/normal_weight_initializer.cpp.o
-.PHONY : src/network/initializer/normal_weight_initializer.cpp.o
+src/network/initializer/weight_initializer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.o
+.PHONY : src/network/initializer/weight_initializer.cpp.o
 
-src/network/initializer/normal_weight_initializer.i: src/network/initializer/normal_weight_initializer.cpp.i
-.PHONY : src/network/initializer/normal_weight_initializer.i
+src/network/initializer/weight_initializer.i: src/network/initializer/weight_initializer.cpp.i
+.PHONY : src/network/initializer/weight_initializer.i
 
 # target to preprocess a source file
-src/network/initializer/normal_weight_initializer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/initializer/normal_weight_initializer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/normal_weight_initializer.cpp.i
-.PHONY : src/network/initializer/normal_weight_initializer.cpp.i
+src/network/initializer/weight_initializer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.i
+.PHONY : src/network/initializer/weight_initializer.cpp.i
 
-src/network/initializer/normal_weight_initializer.s: src/network/initializer/normal_weight_initializer.cpp.s
-.PHONY : src/network/initializer/normal_weight_initializer.s
+src/network/initializer/weight_initializer.s: src/network/initializer/weight_initializer.cpp.s
+.PHONY : src/network/initializer/weight_initializer.s
 
 # target to generate assembly for a file
-src/network/initializer/normal_weight_initializer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/initializer/normal_weight_initializer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/normal_weight_initializer.cpp.s
-.PHONY : src/network/initializer/normal_weight_initializer.cpp.s
+src/network/initializer/weight_initializer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.s
+.PHONY : src/network/initializer/weight_initializer.cpp.s
 
 src/network/network.o: src/network/network.cpp.o
 .PHONY : src/network/network.o
@@ -691,9 +691,9 @@ help:
 	@echo "... src/network/initializer/initializer.o"
 	@echo "... src/network/initializer/initializer.i"
 	@echo "... src/network/initializer/initializer.s"
-	@echo "... src/network/initializer/normal_weight_initializer.o"
-	@echo "... src/network/initializer/normal_weight_initializer.i"
-	@echo "... src/network/initializer/normal_weight_initializer.s"
+	@echo "... src/network/initializer/weight_initializer.o"
+	@echo "... src/network/initializer/weight_initializer.i"
+	@echo "... src/network/initializer/weight_initializer.s"
 	@echo "... src/network/network.o"
 	@echo "... src/network/network.i"
 	@echo "... src/network/network.s"

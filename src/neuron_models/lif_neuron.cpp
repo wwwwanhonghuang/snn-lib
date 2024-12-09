@@ -24,17 +24,17 @@ namespace snnlib
         DYN_SYSTEM_PARAMETER(R);
         DYN_SYSTEM_PARAMETER(t_ref);
 
-        double time_since_last_spike = last_t == -1 ? INFINITY: t * dt - last_t;
+        double time_since_last_spike = (last_t == -1) ? INFINITY : t * dt - last_t;
 
         if (time_since_last_spike < t_ref) {
             return {0.0, 0.0};
         }
 
         double dV = (-(V - V_rest) + I * R) / tau_m * dt; 
-
         if ((V + dV) >= V_th) {
             return {V_reset - V, t * dt - last_t};
         }
+
         return {dV, 0.0};
     }
     

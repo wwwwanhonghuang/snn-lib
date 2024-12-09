@@ -17,8 +17,6 @@ namespace snnlib
         DYN_SYSTEM_STATE(last_t);
         if((rand() / static_cast<double>(RAND_MAX)) < freq * dt){
             return {0.0, t * dt - last_t};
-        }else{
-
         }
         return {0.0, 0.0};
     }   

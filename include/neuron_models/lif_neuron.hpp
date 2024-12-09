@@ -19,7 +19,7 @@ namespace snnlib{
         DEF_DYN_SYSTEM_STATE(1, last_t);
 
         LIFNeuron(int n_neurons, double V_rest = -65.0, double V_th = -50.0, double V_reset = -70.0, 
-            double tau_m = 20.0, double t_ref = 0.0025, double R = 1.0): AbstractSNNNeuron(n_neurons, 2)
+            double tau_m = 20.0, double t_ref = 0.0025, double R = 10.0): AbstractSNNNeuron(n_neurons, 2)
         {
             neuron_dynamics_model = &LIFNeuron::neuron_dynamics;
             this->n_neurons = n_neurons;
