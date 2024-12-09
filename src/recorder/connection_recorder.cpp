@@ -1,4 +1,4 @@
-#include "recorder/weight_recorder.hpp"
+#include "recorder/connection_recorder.hpp"
 
 #include <fstream>
 #include <cassert>

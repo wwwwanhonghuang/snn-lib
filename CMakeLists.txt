@@ -9,6 +9,7 @@ set(CMAKE_CXX_COMPILER clang++)
 
 # Define build types and set default flags
 set(CMAKE_BUILD_TYPE Debug) # Options: Debug, Release, RelWithDebInfo, MinSizeRel
+set(SANITIZE_ADDRESS OFF)
 set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -Werror")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
@@ -51,6 +52,10 @@ set_target_properties(shared PROPERTIES
 add_executable(snn-main src/snn-main.cpp ${SOURCES})
 target_link_libraries(snn-main PRIVATE shared)
 target_link_libraries(snn-main PRIVATE yaml-cpp)
+if (SANITIZE_ADDRESS)
+    target_compile_options(snn-main PRIVATE -fsanitize=address)
+    target_link_options(snn-main PRIVATE -fsanitize=address)
+endif ()
 
 
 # Set the output directory for the executable

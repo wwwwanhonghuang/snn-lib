@@ -1,4 +1,4 @@
-#include "network/initializer/normal_weight_initializer.hpp"
+#include "network/initializer/weight_initializers.hpp"
 
 namespace snnlib
 {
@@ -13,7 +13,16 @@ namespace snnlib
             if(!connection->connected[i]) continue;
             connection->weights[i] = d(gen);
         }
-    }        
+    };
+    
+    void IdenticalWeightInitializer::initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection){
+        int n_synapses = connection->weights.size();
+        
+        for(int i = 0; i < n_synapses; i++){
+            if(!connection->connected[i]) continue;
+            connection->weights[i] = this->_weight;
+        }
+    }
     
 }
 

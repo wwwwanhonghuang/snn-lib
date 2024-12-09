@@ -8,6 +8,9 @@
 #include "neuron_models/neuron.hpp"
 #include "connections/connection.hpp"
 #include "recorder/simulation_state_recorder.hpp"
+#include "neuron_models/initializer.hpp"
+
+#include "recorder/recorder.hpp"
 
 namespace snnlib{
     struct SNNNetwork{
@@ -22,6 +25,11 @@ namespace snnlib{
         std::unordered_map<std::string, int> connection_id_map;
         std::vector<std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>> connection_matrix;
 
+
+        // initializer
+        std::unordered_map<std::string, std::shared_ptr<snnlib::AbstractNeuronInitializer>> neuron_initializers;
+        std::unordered_map<std::string, std::shared_ptr<snnlib::AbstractSNNConnectionInitializer>> connection_initializers;
+
         bool is_neuron_connected(const std::string& presynapse_neuron_name, const std::string& postsynapse_neuron_name);
 
         
@@ -29,7 +37,7 @@ namespace snnlib{
 
         void global_update();
 
-        void evolve_states(int t, int dt);
+        void evolve_states(int t, double dt, std::shared_ptr<snnlib::RecorderFacade> recorder_facade);
     };
 }
 #endif

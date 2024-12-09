@@ -1,16 +1,19 @@
 #ifndef NEURON_INITIALIZER_HPP
 #define NEURON_INITIALIZER_HPP
+#include <memory>
 #include "neuron_models/neuron.hpp"
 namespace snnlib
 {
-    struct AbstractNeuronMembranePotentialInitializer
+    struct AbstractNeuronInitializer
     {
+        virtual void initialize(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron) = 0;
+
     };
 
-    struct RestPotentialInitializer : snnlib::AbstractNeuronMembranePotentialInitializer
+    struct RestPotentialInitializer : snnlib::AbstractNeuronInitializer
     {
-        void initialize(snnlib::AbstractSNNNeuron& neuron){
-            neuron.setMembranePotential(-65.0);
+        void initialize(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron){
+            neuron->setMembranePotential(-65.0);
         }
     };
     

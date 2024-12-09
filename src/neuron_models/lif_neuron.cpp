@@ -1,35 +1,17 @@
 #include "neuron_models/lif_neuron.hpp"
-
+#include <cmath>
 namespace snnlib
 {
     
     void LIFNeuron::initialize(){};
-
-    inline void LIFNeuron::setMembranePotential(double v, int index){
-        x[index * n_states + OFFSET_STATE_V] = v;
-    }
     
-    void LIFNeuron::setMembranePotential(const std::vector<double>& mV){
-        assert(mV.size() <= x.size());
-        for(int i = 0; i < mV.size(); i++){
-            setMembranePotential(i, mV[i]);
-        }
-    }
-
-    void LIFNeuron::setMembranePotential(double mV){
-        for(int i = 0; i < n_neurons; i++){
-            setMembranePotential(i, mV);
-        }
-    }
-    
-    double LIFNeuron::output_V(double* x, double* output_P, int t, int dt){
+    double LIFNeuron::output_V(double* x, double* output_P, int t, double dt){
         if(state_last_t(x) == t * dt){
             return 1.0;
         }else{
             return 0.0;
         }
     }
-
 
     std::vector<double> LIFNeuron::neuron_dynamics(double I, double* x, double t, double* P, double dt){
         DYN_SYSTEM_STATE(V);
@@ -42,15 +24,13 @@ namespace snnlib
         DYN_SYSTEM_PARAMETER(R);
         DYN_SYSTEM_PARAMETER(t_ref);
 
-        double time_since_last_spike = t * dt - last_t;
+        double time_since_last_spike = (last_t == -1) ? INFINITY : t * dt - last_t;
 
-        // Handle refractory period
         if (time_since_last_spike < t_ref) {
-            return {0.0, 0.0};  // No variation in V or last_t
+            return {0.0, 0.0};
         }
 
         double dV = (-(V - V_rest) + I * R) / tau_m * dt; 
-
         if ((V + dV) >= V_th) {
             return {V_reset - V, t * dt - last_t};
         }

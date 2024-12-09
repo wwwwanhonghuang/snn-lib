@@ -1,11 +1,12 @@
 #include "neuron_models/neuron.hpp"
+#include <cassert>
 
 namespace snnlib
 {
     inline void AbstractSNNNeuron::forward_states_to_buffer(int neuron_index, double I, double t, double* P, double dt){
         std::vector<double> dx = neuron_dynamics_model(I, &x[neuron_index * n_states], t, P, dt);
         for(int state_id = 0; state_id < n_states; state_id++){
-            double new_state = x[neuron_index * n_states + state_id] + dx[state_id];
+            double new_state = x[neuron_index * n_states + state_id] + dx[state_id]; // x + dx
             x_buffer[neuron_index * n_states + state_id] = new_state;
         }
     }
@@ -30,6 +31,7 @@ namespace snnlib
     int AbstractSNNNeuron::get_n_states(){
         return n_states;
     }
+
     void AbstractSNNNeuron::_evolve_state(const std::vector<double>& I, double t, double* P, double dt){
         for(int i = 0; i < n_neurons; i++){
             std::vector<double> dx = neuron_dynamics_model(I[i], &x[i * n_states], t, P, dt);
