@@ -26,9 +26,9 @@
 #include "connections/all_to_all_conntection.hpp"
 
 void build_neurons(snnlib::NetworkBuilder& network_builder){
-    network_builder.build_neuron<snnlib::PossionNeuron>("inputs", nullptr, "", 1, 80000);
-    network_builder.build_neuron<snnlib::LIFNeuron>("reservoir", nullptr, "rest_potential_initializer", 1);
-    network_builder.build_neuron<snnlib::LIFNeuron>("outputs", nullptr, "rest_potential_initializer", 1);
+    network_builder.build_neuron<snnlib::PossionNeuron>("inputs", 1, 80000);
+    network_builder.build_neuron<snnlib::LIFNeuron>("reservoir", 1)->add_initializer("rest_potential_initializer");
+    network_builder.build_neuron<snnlib::LIFNeuron>("outputs", 1)->add_initializer("rest_potential_initializer");
 }
 
 void build_synapses(snnlib::NetworkBuilder& network_builder) {
@@ -43,9 +43,9 @@ void establish_connections(snnlib::NetworkBuilder& network_builder){
     std::shared_ptr<snnlib::IdenticalWeightInitializer> initializer =
         std::make_shared<snnlib::IdenticalWeightInitializer>(0.5);
     network_builder.build_connection<snnlib::AllToAllConnection>(
-        "conn-input-reservoir", "syn_input_reservoir", initializer, "");
+        "conn-input-reservoir", "syn_input_reservoir")->add_initializer(initializer);
     network_builder.build_connection<snnlib::AllToAllConnection>(
-        "conn-reservoir-output", "syn_reservoir_output", initializer, "");
+        "conn-reservoir-output", "syn_reservoir_output")->add_initializer(initializer);
 }
 
 void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt,  std::shared_ptr<snnlib::RecorderFacade> recorder_facade = nullptr){
@@ -62,14 +62,14 @@ int main(){
         return -1;
     }
 
-    // Read configuration
+    // Read Configuration
     int time_steps = config["snn-main"]["time-steps"].as<int>();
     double dt = config["snn-main"]["dt"].as<double>();
 
     std::cout << "time_steps = " << time_steps << std::endl;
     std::cout << "dt = " << dt << std::endl;
 
-    // Build network
+    // Build Network
     snnlib::NetworkBuilder network_builder;
     build_neurons(network_builder);
     build_synapses(network_builder);
@@ -77,7 +77,7 @@ int main(){
 
     std::shared_ptr<snnlib::SNNNetwork> network = network_builder.build_network();
 
-    // Build Recorders
+    // Build Recorder
     snnlib::ConnectionRecordCallback weight_recorder = [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
         if(t == 0)
             snnlib::WeightRecorder::record_connection_weights_to_file(std::string("data/logs/") + connection_name + std::string(".weights"), connection);
@@ -92,15 +92,14 @@ int main(){
     };
 
     // Build Recorder
-    std::shared_ptr<snnlib::RecorderFacade> recorder_facade = std::make_shared<snnlib::RecorderFacade>();
+    std::shared_ptr<snnlib::RecorderFacade> recorder_facade = 
+                            std::make_shared<snnlib::RecorderFacade>();
     recorder_facade->add_connection_record_item("conn-input-reservoir", weight_recorder);
     recorder_facade->add_connection_record_item("conn-reservoir-output", weight_recorder);
 
     recorder_facade->add_neuron_record_item("outputs", membrane_potential_recorder);
     recorder_facade->add_neuron_record_item("reservoir", membrane_potential_recorder);
 
-    // Run simulation
+    // Run Simulation
     run_simulation(network, time_steps, dt, recorder_facade);
 }
-
-

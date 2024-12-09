@@ -10,16 +10,18 @@
 #include "neuron_models/initializer.hpp"
 #include "network/initializer/initializer.hpp"
 #include "network/initializer/weight_initializers.hpp"
+#include "network/configurations/neuron_configuration.hpp"
+#include "network/configurations/connection_configuration.hpp"
 
 namespace snnlib{
     struct NetworkBuilder
-    {        
-        std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> connection_normal_weight_intializer =
-            std::make_shared<snnlib::NormalWeightInitializer>();
-        
-        std::shared_ptr<snnlib::AbstractNeuronInitializer> neuron_rest_potential_initializer = 
-            std::make_shared<snnlib::RestPotentialInitializer>();
-        
+    {
+        std::unordered_map<std::string, std::shared_ptr<snnlib::NeuronConfiguration>>
+            neuron_configuration_map;
+
+        std::unordered_map<std::string, std::shared_ptr<snnlib::ConnectionConfiguration>>
+            connection_configuration_map;
+
         template <typename SynapseType, typename... Args>
         std::shared_ptr<snnlib::AbstractSNNSynapse> build_synapse(
             const std::string& synapse_name,
@@ -42,80 +44,53 @@ namespace snnlib{
             return std::make_shared<ConnectionType>(synapse);
         }
 
-
         template <typename NeuronType, typename... Args>
-        int build_neuron(const std::string& neuron_name,
-            std::shared_ptr<snnlib::AbstractNeuronInitializer> custom_initializer = nullptr,
-            const std::string& initializer_name = "", Args&&... args) {
-
-            // Add the neuron to the network
+        std::shared_ptr<snnlib::NeuronConfiguration> build_neuron(const std::string& neuron_name, Args&&... args) {
             int size = _network->neurons.size();
             auto neuron = std::make_shared<NeuronType>(std::forward<Args>(args)...);
 
-            _network->neurons[neuron_name] = neuron;
+            _network->neurons[neuron_name] = neuron;           
 
-            // Determine the initializer
-            std::shared_ptr<snnlib::AbstractNeuronInitializer> initializer;
-            if (custom_initializer) {
-                initializer = custom_initializer;  // Use custom initializer
-            } else if (!initializer_name.empty()) {
-                if (initializer_name == "rest_potential_initializer") {
-                    initializer = neuron_rest_potential_initializer;
-                } else {
-                    std::cerr << "Error: unrecognized neuron initializer " << initializer_name << std::endl;
-                    assert(false);
-                }
+
+            if(neuron_configuration_map.find(neuron_name) != neuron_configuration_map.end()){
+                std::cerr << "Network Build Error: A neuron with name " 
+                    << neuron_name << " has already been recorded." << std::endl;
+                return nullptr;
             }
 
-            // Add the neuron initializer if available
-            if (initializer) {
-                _network->neuron_initializers[neuron_name] = initializer;
-            }
-
-            return size;
+            std::shared_ptr<snnlib::NeuronConfiguration> configuration = std::make_shared<snnlib::NeuronConfiguration>(neuron);
+            neuron_configuration_map[neuron_name] = configuration;
+            return configuration;
         }
 
         template <typename ConnectionType, typename... Args>
-        void build_connection(
+        std::shared_ptr<snnlib::ConnectionConfiguration> build_connection(
             const std::string& connection_name,
             const std::string& synapse_name,
-            std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> custom_initializer = nullptr,
-            const std::string& initializer_name = "",
             Args&&... args
             ) {
             
             auto synapse = synapse_record[synapse_name];
-            // Build the connection using the synapse
             auto connection = std::make_shared<ConnectionType>(synapse, std::forward(args)...);
 
-            // Determine the initializer
-            std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> initializer;
-            if (custom_initializer) {
-                initializer = custom_initializer;
-                add_connection(connection_name, connection, initializer, "");
-
-            } else if (!initializer_name.empty()) {
-                if (initializer_name == "connection_normal_initializer") {
-                    initializer = connection_normal_weight_intializer;
-                } else {
-                    std::cerr << "Error: unrecognized connection initializer " << initializer_name << std::endl;
-                    assert(false);
-                }
-                add_connection(connection_name, connection, nullptr, initializer_name);
-
+            _network->connections[connection_name] = connection;           
+            
+            if(connection_configuration_map.find(connection_name) != connection_configuration_map.end()){
+                std::cerr << "Network Build Error: A connection with name " 
+                    << neuron_name << " has already been recorded." << std::endl;
+                return nullptr;
             }
 
+            std::shared_ptr<snnlib::ConnectionConfiguration> configuration = 
+                std::make_shared<snnlib::ConnectionConfiguration>(connection);
+            connection_configuration_map[connection_name] = configuration;
+            return configuration;
         }
         NetworkBuilder();
         std::shared_ptr<snnlib::SNNNetwork> build_network();
         
         int record_synapse(std::string synapse_name, std::shared_ptr<snnlib::AbstractSNNSynapse> synapse);
-        int add_connection(
-            const std::string& connection_name,
-            std::shared_ptr<snnlib::AbstractSNNConnection> connection,
-            std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> initializer,
-            const std::string& initializer_name);
-
+        
         std::shared_ptr<snnlib::AbstractSNNNeuron> get_neuron(std::string neuron_name);
         std::shared_ptr<snnlib::AbstractSNNConnection> get_connection(std::string connection_name);
         std::shared_ptr<snnlib::AbstractSNNSynapse> get_synapse(std::string synapse_name);

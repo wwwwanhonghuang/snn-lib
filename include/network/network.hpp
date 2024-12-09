@@ -25,11 +25,6 @@ namespace snnlib{
         std::unordered_map<std::string, int> connection_id_map;
         std::vector<std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>> connection_matrix;
 
-
-        // initializer
-        std::unordered_map<std::string, std::shared_ptr<snnlib::AbstractNeuronInitializer>> neuron_initializers;
-        std::unordered_map<std::string, std::shared_ptr<snnlib::AbstractSNNConnectionInitializer>> connection_initializers;
-
         bool is_neuron_connected(const std::string& presynapse_neuron_name, const std::string& postsynapse_neuron_name);
 
         

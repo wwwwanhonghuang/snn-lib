@@ -28,7 +28,6 @@ namespace snnlib
             throw std::out_of_range("Neuron ID is out of range for the connection matrix.");
         }
 
-        // Check if the connection exists
         return static_cast<bool>(connection_matrix[presynapse_neuron_id][postsynapse_neuron_id]);
     }
     
@@ -38,13 +37,11 @@ namespace snnlib
         connection_id_map.clear();
         connection_matrix.clear();
 
-        // Initialize neuron mappings
         for (auto& neuron_record_item : neurons) {
             neuron_id_map[neuron_record_item.first] = neuron_id_map.size();
             neuron_name_map[neuron_record_item.second] = neuron_record_item.first;
         }
 
-        // Initialize connection mappings
         for (auto& connection_record_item : connections) {
             connection_id_map[connection_record_item.first] = connection_id_map.size();
             connection_name_map[connection_record_item.second] = connection_record_item.first;
@@ -64,11 +61,9 @@ namespace snnlib
             int presynapse_neuron_id = neuron_id_map[presynapse_neuron_name];
             int postsynapse_neuron_id = neuron_id_map[postsynapse_neuron_name];
 
-            // Set the connection in the matrix (assuming directed connection)
             connection_matrix[presynapse_neuron_id][postsynapse_neuron_id] = connection_record_item.second;
         }
         
-        // Initialize all components
         std::cout << "initialize network components" << std::endl;
         for(auto& neuron_record_item : neurons){
             neuron_record_item.second->initialize();
@@ -77,12 +72,9 @@ namespace snnlib
             connection_record_item.second->synapses->initialize();
             connection_record_item.second->initialize();
         }
-        for(auto& initializer_record: neuron_initializers){
-            initializer_record.second->initialize(neurons[initializer_record.first]);
-        }
-        for(auto& initializer_record: connection_initializers){
-            initializer_record.second->initialize(connections[initializer_record.first]);
-        }
+
+        
+        
     }
 
     void SNNNetwork::global_update(){
@@ -103,7 +95,6 @@ namespace snnlib
                 recorder_facade->process_neuron_recorder(neuron_record_item.first, neuron_record_item.second, t, dt);
             }
 
-            // Calculate current input to this neuron. 
             for(auto& iter : neuron_id_map){
                 int i = iter.second;
                 if(!connection_matrix[i][neuron_id]) continue;
