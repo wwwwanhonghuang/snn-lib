@@ -1,4 +1,4 @@
-# A C++ Library and Simulator for Simulating and Training Spiking Neural Network
+# A C++ Library for Simulating, Training and Deploying Spiking Neural Network
 This library is incompleted and under developing.
 A reservoir computing sample of current framework frontend usage for is as follows:
 
@@ -80,6 +80,15 @@ int main(){
 ```
 
 # Building 
+
+## Prerequisites
+
+1. libyaml-cpp
+
+
+
+## Build Commands
+
 ``` bash
 $ cd <path-to-repository-root>
 $ cmake .
@@ -87,18 +96,21 @@ $ make
 # run the example program
 $ ./bin/snn-main
 ```
-The share library is generated in <path-to-repository-root>/lib/libshared.a  
+The share library is generated in `<path-to-repository-root>/lib/libshared.a`
 
-Prerequisites:
-1. libyaml-cpp
+
 
 # Todo List
 ## Framework Interface
 - [ ] Simplify the recorder building
 - [ ] Simplify the connection building
 
+
+
 ## Performance
 - [ ] Enable OpenMP
-- [ ] CUDA support
+- [ ] CUDA Support
 
-## Funtionality
+
+
+## Functionality

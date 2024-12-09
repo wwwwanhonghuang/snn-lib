@@ -32,15 +32,16 @@ void build_neurons(snnlib::NetworkBuilder& network_builder){
 }
 
 void build_synapses(snnlib::NetworkBuilder& network_builder) {
+    // rise, decay
     network_builder.build_synapse<snnlib::CurrentBasedKernalSynapse>(
-        "syn_input_reservoir", "inputs", "reservoir", "double_exponential", 0.1, 0, 0, 0);
+        "syn_input_reservoir", "inputs", "reservoir", "double_exponential", 1e-2, 1e-2, 0, 0);
     network_builder.build_synapse<snnlib::CurrentBasedKernalSynapse>(
-        "syn_reservoir_output", "reservoir", "outputs", "double_exponential", 0.1, 0, 0, 0);
+        "syn_reservoir_output", "reservoir", "outputs", "double_exponential",  1e-2,  1e-2, 0, 0);
 }
 
 void establish_connections(snnlib::NetworkBuilder& network_builder){
     std::shared_ptr<snnlib::IdenticalWeightInitializer> initializer =
-        std::make_shared<snnlib::IdenticalWeightInitializer>(0.0005);
+        std::make_shared<snnlib::IdenticalWeightInitializer>(0.5);
     network_builder.build_connection<snnlib::AllToAllConnection>(
         "conn-input-reservoir", "syn_input_reservoir", initializer, "");
     network_builder.build_connection<snnlib::AllToAllConnection>(
@@ -100,7 +101,6 @@ int main(){
 
     // Run simulation
     run_simulation(network, time_steps, dt, recorder_facade);
-    config.reset();
 }
 
 

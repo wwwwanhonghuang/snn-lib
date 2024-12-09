@@ -14,9 +14,11 @@ namespace snnlib{
         std::shared_ptr<snnlib::AbstractSNNNeuron> postsynapse_neurons;
         
         int n_states_per_synapse;
+
         std::vector<double> x;
         std::vector<double> x_buffer;
         std::vector<double> P;
+
         DEF_DYN_SYSTEM_STATE(0, I);
 
         int n_presynapse_neurons();
@@ -24,7 +26,9 @@ namespace snnlib{
         virtual void initialize(){
                 
         }
+        
         virtual std::vector<double> output_I() = 0;
+
         AbstractSNNSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons, 
             std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons, int n_states_per_synapse)
         : presynapse_neurons(presynapse_neurons), postsynapse_neurons(postsynpase_neurons) {
@@ -33,14 +37,14 @@ namespace snnlib{
             x_buffer.assign(n_states_per_synapse * presynapse_neurons->n_neurons * postsynpase_neurons->n_neurons, 0);
         }
         
-        
         virtual ~AbstractSNNSynapse() = default;
+        
         void forward_states_to_buffer(
             const std::vector<double>& weights, // synaptic weights
-            const std::vector<double>& S,      // presynaptic spike train
-            double t,                          // current time
-            double* P,                         // parameters
-            double dt                          // time step
+            const std::vector<double>& S,       // presynaptic spike train
+            double t,                           // current time
+            double* P,                          // parameters
+            double dt                           // time step
         );
 
         void _evolve_state(int weight, const std::vector<double>& S, double t, double* P, double dt);
@@ -58,15 +62,15 @@ namespace snnlib{
         };
     }
 
-    static SynapseDynamicsModel create_double_exponential_dynamics(int state_current_index, int state_aux_index, int param_tau_rise_index, int param_tau_decay_index) {
-        return [state_current_index, state_aux_index, param_tau_rise_index, param_tau_decay_index](double input, double* x, double t, double* P, double dt) -> std::vector<double> {
-            double I = x[state_current_index];
+    static SynapseDynamicsModel create_double_exponential_dynamics(int state_response_index, int state_aux_index, int param_tau_rise_index, int param_tau_decay_index) {
+        return [state_response_index, state_aux_index, param_tau_rise_index, param_tau_decay_index](double input, double* x, double t, double* P, double dt) -> std::vector<double> {
+            double response = x[state_response_index];
             double aux = x[state_aux_index];
             double tau_rise = P[param_tau_rise_index];
             double tau_decay = P[param_tau_decay_index];
-            double dot_aux = (-aux / tau_rise) + input;
-            double dot_I = -I / tau_decay + aux;
-            return {dot_I, dot_aux};
+            double dot_response = -response * dt / tau_decay + aux * dt;
+            double dot_aux = (-aux * dt / tau_rise) + (1 / (tau_decay * tau_rise)) * (input);
+            return {dot_response, dot_aux};
         };
     }
 
@@ -89,8 +93,9 @@ namespace snnlib{
                 this->synapse_dynamics = create_double_exponential_dynamics(0, 1, 0, 1);
             }
             P.assign({kernel_param_tau, kernel_param_tau_2, g_syn, E_syn});
-
         }
+
+       
         
         std::vector<double> output_I(){
             int pre_neurons = n_presynapse_neurons();
