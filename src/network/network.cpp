@@ -96,7 +96,6 @@ namespace snnlib
 
     void SNNNetwork::evolve_states(int t, double dt, std::shared_ptr<snnlib::RecorderFacade> recorder_facade){
         for(auto& neuron_record_item: neurons){
-            
             int neuron_id = neuron_id_map[neuron_record_item.first];
             std::vector<double> input_current(neuron_record_item.second->n_neurons, 0);
             
@@ -105,10 +104,12 @@ namespace snnlib
             }
 
             // Calculate current input to this neuron. 
-            for(int i = 0; i < neuron_id_map.size(); i++){
+            for(auto& iter : neuron_id_map){
+                int i = iter.second;
                 if(!connection_matrix[i][neuron_id]) continue;
                 
-                std::shared_ptr<snnlib::AbstractSNNConnection> current_connection = connection_matrix[i][neuron_id];
+                std::shared_ptr<snnlib::AbstractSNNConnection> current_connection = 
+                                                            connection_matrix[i][neuron_id];
                 std::vector<double> synpase_out = current_connection->synapses->output_I();
                 
                 assert(current_connection->synapses->presynapse_neurons->n_neurons == synpase_out.size() / neuron_record_item.second->n_neurons);
@@ -121,7 +122,7 @@ namespace snnlib
                     for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
                         int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
                         input_current[postsyn_idx] += synpase_out[index];
-              
+                        std::cout << "input current for neuron " <<neuron_record_item.first<< " from " <<  iter.first << " += " << synpase_out[index] << std::endl;
                     }   
                 }
             }

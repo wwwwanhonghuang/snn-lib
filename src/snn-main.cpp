@@ -26,9 +26,9 @@
 #include "connections/all_to_all_conntection.hpp"
 
 void build_neurons(snnlib::NetworkBuilder& network_builder){
-    network_builder.build_neuron<snnlib::PossionNeuron>("inputs", nullptr, "", 200, 80);
-    network_builder.build_neuron<snnlib::LIFNeuron>("reservoir", nullptr, "rest_potential_initializer", 1000);
-    network_builder.build_neuron<snnlib::LIFNeuron>("outputs", nullptr, "rest_potential_initializer", 16);
+    network_builder.build_neuron<snnlib::PossionNeuron>("inputs", nullptr, "", 1, 80000);
+    network_builder.build_neuron<snnlib::LIFNeuron>("reservoir", nullptr, "rest_potential_initializer", 1);
+    network_builder.build_neuron<snnlib::LIFNeuron>("outputs", nullptr, "rest_potential_initializer", 1);
 }
 
 void build_synapses(snnlib::NetworkBuilder& network_builder) {
