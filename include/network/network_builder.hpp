@@ -10,10 +10,12 @@
 #include "neuron_models/initializer.hpp"
 #include "network/initializer/initializer.hpp"
 #include "network/initializer/weight_initializers.hpp"
-#include "network/configurations/neuron_configuration.hpp"
-#include "network/configurations/connection_configuration.hpp"
 
 namespace snnlib{
+    class SynapseConfiguration;
+    class NeuronConfiguration;
+    class ConnectionConfiguration;
+
     struct NetworkBuilder
     {
         std::unordered_map<std::string, std::shared_ptr<snnlib::NeuronConfiguration>>
@@ -23,7 +25,7 @@ namespace snnlib{
             connection_configuration_map;
 
         template <typename SynapseType, typename... Args>
-        std::shared_ptr<snnlib::AbstractSNNSynapse> build_synapse(
+        std::shared_ptr<snnlib::SynapseConfiguration> build_synapse(
             const std::string& synapse_name,
             const std::string& source_neuron,
             const std::string& target_neuron,
@@ -35,7 +37,7 @@ namespace snnlib{
                 std::forward<Args>(args)...
             );
             record_synapse(synapse_name, synapse);
-            return synapse;
+            return std::make_shared<snnlib::SynapseConfiguration>(synapse);
         }
         
         template <typename ConnectionType>
@@ -63,6 +65,11 @@ namespace snnlib{
             return configuration;
         }
 
+
+        std::shared_ptr<snnlib::ConnectionConfiguration> 
+            register_connection(const std::string& connection_name, 
+            std::shared_ptr<snnlib::AbstractSNNConnection> connection);
+            
         template <typename ConnectionType, typename... Args>
         std::shared_ptr<snnlib::ConnectionConfiguration> build_connection(
             const std::string& connection_name,
@@ -77,7 +84,7 @@ namespace snnlib{
             
             if(connection_configuration_map.find(connection_name) != connection_configuration_map.end()){
                 std::cerr << "Network Build Error: A connection with name " 
-                    << neuron_name << " has already been recorded." << std::endl;
+                    << connection_name << " has already been recorded." << std::endl;
                 return nullptr;
             }
 
@@ -97,6 +104,69 @@ namespace snnlib{
         private:
             std::shared_ptr<snnlib::SNNNetwork> _network;
             std::unordered_map<std::string, std::shared_ptr<snnlib::AbstractSNNSynapse>> synapse_record;
+    };
+
+    class SynapseConfiguration :  public std::enable_shared_from_this<SynapseConfiguration>{
+        public:
+            SynapseConfiguration(std::shared_ptr<snnlib::AbstractSNNSynapse> synapse);
+
+            template<typename ConnectionType>
+            std::shared_ptr<snnlib::ConnectionConfiguration> 
+                build_connection(const std::string& connection_name, 
+                std::shared_ptr<snnlib::NetworkBuilder> network_builder){
+                    std::shared_ptr<ConnectionType> connection = 
+                        std::make_shared<ConnectionType>(this->_synapse);
+                    network_builder->register_connection(connection_name, connection);
+                    return std::make_shared<snnlib::ConnectionConfiguration>(connection);
+            }
+        private:
+            std::shared_ptr<snnlib::AbstractSNNSynapse> _synapse;
+    };
+
+    
+    class NeuronConfiguration : public std::enable_shared_from_this<NeuronConfiguration> {
+        public:
+            std::shared_ptr<snnlib::AbstractNeuronInitializer> 
+                get_predefined_initializer(const std::string& initializer_name);
+
+            // Add an initializer and return the current instance for chaining
+            std::shared_ptr<snnlib::NeuronConfiguration> add_initializer(const std::string& initializer_name);
+            std::shared_ptr<snnlib::NeuronConfiguration> add_initializer(std::shared_ptr<snnlib::AbstractNeuronInitializer> 
+                initializer);
+
+            // Apply configurations to finalize
+            void apply_initializer();
+
+            NeuronConfiguration(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron);
+        private:
+            std::shared_ptr<snnlib::AbstractNeuronInitializer> neuron_rest_potential_initializer = 
+            std::make_shared<snnlib::RestPotentialInitializer>();
+        
+            std::vector<std::shared_ptr<snnlib::AbstractNeuronInitializer>> _initializers;
+            std::shared_ptr<snnlib::AbstractSNNNeuron> _neuron;
+    };
+
+
+    class ConnectionConfiguration :  public std::enable_shared_from_this<ConnectionConfiguration>{
+        public:
+            std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> 
+                get_predefined_initializer(const std::string& initializer_name);
+
+            std::shared_ptr<snnlib::ConnectionConfiguration> add_initializer(const std::string& initializer_name);
+
+            std::shared_ptr<snnlib::ConnectionConfiguration> add_initializer(std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> 
+                initializer);
+
+            void apply_initializer();
+
+            ConnectionConfiguration(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
+        private:
+            std::shared_ptr<snnlib::AbstractSNNConnectionInitializer> connection_normal_weight_intializer =
+            std::make_shared<snnlib::NormalWeightInitializer>();
+          
+        
+            std::vector<std::shared_ptr<snnlib::AbstractSNNConnectionInitializer>> _initializers;
+            std::shared_ptr<snnlib::AbstractSNNConnection> _connection;
     };
 }
 #endif

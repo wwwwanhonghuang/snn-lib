@@ -19,8 +19,6 @@ namespace snnlib{
         return _network;
     }
    
-
-
     int NetworkBuilder::record_synapse(std::string synapse_name, std::shared_ptr<snnlib::AbstractSNNSynapse> synapse){
         int size = synapse_record.size();
         synapse_record[synapse_name] = synapse;
@@ -38,4 +36,19 @@ namespace snnlib{
     std::shared_ptr<snnlib::AbstractSNNSynapse> NetworkBuilder::get_synapse(std::string synapse_name){
         return synapse_record[synapse_name];
     }
+
+    std::shared_ptr<snnlib::ConnectionConfiguration> 
+        NetworkBuilder::register_connection(const std::string& connection_name, 
+        std::shared_ptr<snnlib::AbstractSNNConnection> connection){
+        if(connection_configuration_map.find(connection_name) != connection_configuration_map.end()){
+            std::cerr << "Network Build Error: A connection with name " 
+                << connection_name << " has already been recorded." << std::endl;
+            return nullptr;
+        }
+        _network->connections[connection_name] = connection;
+        return std::make_shared<snnlib::ConnectionConfiguration>(connection);
+    }
+
+   
+        
 }

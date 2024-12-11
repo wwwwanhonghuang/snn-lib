@@ -25,30 +25,30 @@
 
 #include "connections/all_to_all_conntection.hpp"
 
-void build_neurons(snnlib::NetworkBuilder& network_builder){
-    network_builder.build_neuron<snnlib::PossionNeuron>("inputs", 1, 80000);
-    network_builder.build_neuron<snnlib::LIFNeuron>("reservoir", 1)->add_initializer("rest_potential_initializer");
-    network_builder.build_neuron<snnlib::LIFNeuron>("outputs", 1)->add_initializer("rest_potential_initializer");
+void build_neurons(std::shared_ptr<snnlib::NetworkBuilder> network_builder){
+    network_builder->build_neuron<snnlib::PossionNeuron>("inputs", 1, 80000);
+    network_builder->build_neuron<snnlib::LIFNeuron>("reservoir", 1)->add_initializer("rest_potential_initializer");
+    network_builder->build_neuron<snnlib::LIFNeuron>("outputs", 1)->add_initializer("rest_potential_initializer");
 }
 
-void build_synapses(snnlib::NetworkBuilder& network_builder) {
-    // rise, decay
-    network_builder.build_synapse<snnlib::CurrentBasedKernalSynapse>(
-        "syn_input_reservoir", "inputs", "reservoir", "double_exponential", 1e-2, 1e-2, 0, 0);
-    network_builder.build_synapse<snnlib::CurrentBasedKernalSynapse>(
-        "syn_reservoir_output", "reservoir", "outputs", "double_exponential",  1e-2,  1e-2, 0, 0);
-}
-
-void establish_connections(snnlib::NetworkBuilder& network_builder){
+void build_connections(std::shared_ptr<snnlib::NetworkBuilder> network_builder) {
     std::shared_ptr<snnlib::IdenticalWeightInitializer> initializer =
         std::make_shared<snnlib::IdenticalWeightInitializer>(0.5);
-    network_builder.build_connection<snnlib::AllToAllConnection>(
-        "conn-input-reservoir", "syn_input_reservoir")->add_initializer(initializer);
-    network_builder.build_connection<snnlib::AllToAllConnection>(
-        "conn-reservoir-output", "syn_reservoir_output")->add_initializer(initializer);
+    // rise, decay
+    network_builder->build_synapse<snnlib::CurrentBasedKernalSynapse>(
+        "syn_input_reservoir", "inputs", "reservoir", "double_exponential", 1e-2, 1e-2, 0.0, 0.0)
+        ->build_connection<snnlib::AllToAllConnection>("conn-input-reservoir", network_builder)
+        ->add_initializer(initializer);
+
+    network_builder->build_synapse<snnlib::CurrentBasedKernalSynapse>(
+        "syn_reservoir_output", "reservoir", "outputs", "double_exponential",  1e-2,  1e-2, 0.0, 0.0)
+        ->build_connection<snnlib::AllToAllConnection>("conn-reservoir-output", network_builder)
+        ->add_initializer(initializer);
 }
 
-void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, int time_steps, double dt,  std::shared_ptr<snnlib::RecorderFacade> recorder_facade = nullptr){
+void run_simulation(std::shared_ptr<snnlib::SNNNetwork> network, 
+                        int time_steps, double dt, 
+                        std::shared_ptr<snnlib::RecorderFacade> recorder_facade = nullptr){
     snnlib::SNNSimulator simulator;
     simulator.simulate(network, time_steps, dt, recorder_facade);
 }
@@ -70,12 +70,13 @@ int main(){
     std::cout << "dt = " << dt << std::endl;
 
     // Build Network
-    snnlib::NetworkBuilder network_builder;
+    std::shared_ptr<snnlib::NetworkBuilder> network_builder = 
+        std::make_shared<snnlib::NetworkBuilder>();
+    
     build_neurons(network_builder);
-    build_synapses(network_builder);
-    establish_connections(network_builder);
+    build_connections(network_builder);
 
-    std::shared_ptr<snnlib::SNNNetwork> network = network_builder.build_network();
+    std::shared_ptr<snnlib::SNNNetwork> network = network_builder->build_network();
 
     // Build Recorder
     snnlib::ConnectionRecordCallback weight_recorder = [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{

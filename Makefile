@@ -263,6 +263,87 @@ src/interfaces/function.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/interfaces/function.cpp.s
 .PHONY : src/interfaces/function.cpp.s
 
+src/network/configurations/connection_configuration.o: src/network/configurations/connection_configuration.cpp.o
+.PHONY : src/network/configurations/connection_configuration.o
+
+# target to build an object file
+src/network/configurations/connection_configuration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.o
+.PHONY : src/network/configurations/connection_configuration.cpp.o
+
+src/network/configurations/connection_configuration.i: src/network/configurations/connection_configuration.cpp.i
+.PHONY : src/network/configurations/connection_configuration.i
+
+# target to preprocess a source file
+src/network/configurations/connection_configuration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.i
+.PHONY : src/network/configurations/connection_configuration.cpp.i
+
+src/network/configurations/connection_configuration.s: src/network/configurations/connection_configuration.cpp.s
+.PHONY : src/network/configurations/connection_configuration.s
+
+# target to generate assembly for a file
+src/network/configurations/connection_configuration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.s
+.PHONY : src/network/configurations/connection_configuration.cpp.s
+
+src/network/configurations/neuron_configuration.o: src/network/configurations/neuron_configuration.cpp.o
+.PHONY : src/network/configurations/neuron_configuration.o
+
+# target to build an object file
+src/network/configurations/neuron_configuration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.o
+.PHONY : src/network/configurations/neuron_configuration.cpp.o
+
+src/network/configurations/neuron_configuration.i: src/network/configurations/neuron_configuration.cpp.i
+.PHONY : src/network/configurations/neuron_configuration.i
+
+# target to preprocess a source file
+src/network/configurations/neuron_configuration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.i
+.PHONY : src/network/configurations/neuron_configuration.cpp.i
+
+src/network/configurations/neuron_configuration.s: src/network/configurations/neuron_configuration.cpp.s
+.PHONY : src/network/configurations/neuron_configuration.s
+
+# target to generate assembly for a file
+src/network/configurations/neuron_configuration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.s
+.PHONY : src/network/configurations/neuron_configuration.cpp.s
+
+src/network/configurations/synapse_configuration.o: src/network/configurations/synapse_configuration.cpp.o
+.PHONY : src/network/configurations/synapse_configuration.o
+
+# target to build an object file
+src/network/configurations/synapse_configuration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.o
+.PHONY : src/network/configurations/synapse_configuration.cpp.o
+
+src/network/configurations/synapse_configuration.i: src/network/configurations/synapse_configuration.cpp.i
+.PHONY : src/network/configurations/synapse_configuration.i
+
+# target to preprocess a source file
+src/network/configurations/synapse_configuration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.i
+.PHONY : src/network/configurations/synapse_configuration.cpp.i
+
+src/network/configurations/synapse_configuration.s: src/network/configurations/synapse_configuration.cpp.s
+.PHONY : src/network/configurations/synapse_configuration.s
+
+# target to generate assembly for a file
+src/network/configurations/synapse_configuration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shared.dir/build.make CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/snn-main.dir/build.make CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.s
+.PHONY : src/network/configurations/synapse_configuration.cpp.s
+
 src/network/initializer/initializer.o: src/network/initializer/initializer.cpp.o
 .PHONY : src/network/initializer/initializer.o
 
@@ -688,6 +769,15 @@ help:
 	@echo "... src/interfaces/function.o"
 	@echo "... src/interfaces/function.i"
 	@echo "... src/interfaces/function.s"
+	@echo "... src/network/configurations/connection_configuration.o"
+	@echo "... src/network/configurations/connection_configuration.i"
+	@echo "... src/network/configurations/connection_configuration.s"
+	@echo "... src/network/configurations/neuron_configuration.o"
+	@echo "... src/network/configurations/neuron_configuration.i"
+	@echo "... src/network/configurations/neuron_configuration.s"
+	@echo "... src/network/configurations/synapse_configuration.o"
+	@echo "... src/network/configurations/synapse_configuration.i"
+	@echo "... src/network/configurations/synapse_configuration.s"
 	@echo "... src/network/initializer/initializer.o"
 	@echo "... src/network/initializer/initializer.i"
 	@echo "... src/network/initializer/initializer.s"

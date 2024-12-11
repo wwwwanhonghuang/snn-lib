@@ -72,9 +72,6 @@ namespace snnlib
             connection_record_item.second->synapses->initialize();
             connection_record_item.second->initialize();
         }
-
-        
-        
     }
 
     void SNNNetwork::global_update(){

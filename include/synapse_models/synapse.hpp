@@ -81,7 +81,8 @@ namespace snnlib{
         DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau);
         DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2);
 
-        CurrentBasedKernalSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
+        CurrentBasedKernalSynapse(
+                            std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
                             std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
                             std::string synapse_dynamics_model_name,
                             double kernel_param_tau, double kernel_param_tau_2, double g_syn, double E_syn):
