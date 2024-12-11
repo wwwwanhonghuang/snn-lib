@@ -14,6 +14,10 @@ namespace snnlib{
         for(auto& neuron_configuration_record : neuron_configuration_map){
             neuron_configuration_record.second->apply_initializer();
         }
+        for(auto& connection_configuration_record : connection_configuration_map){
+            connection_configuration_record.second->apply_initializer();
+        }
+
 
         _network->initialize();
         return _network;
@@ -46,9 +50,9 @@ namespace snnlib{
             return nullptr;
         }
         _network->connections[connection_name] = connection;
-        return std::make_shared<snnlib::ConnectionConfiguration>(connection);
+        std::shared_ptr<snnlib::ConnectionConfiguration> configuration = std::make_shared<snnlib::ConnectionConfiguration>(connection);
+        connection_configuration_map[connection_name] = configuration;
+        return configuration;
     }
 
-   
-        
 }

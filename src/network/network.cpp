@@ -110,7 +110,7 @@ namespace snnlib
                     for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
                         int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
                         input_current[postsyn_idx] += synpase_out[index];
-                        std::cout << "input current for neuron " <<neuron_record_item.first<< " from " <<  iter.first << " += " << synpase_out[index] << std::endl;
+                        // std::cout << "input current for neuron " <<neuron_record_item.first<< " from " <<  iter.first << " += " << synpase_out[index] << std::endl;
                     }   
                 }
             }
@@ -131,9 +131,9 @@ namespace snnlib
                 {
                     double presynapse_neuron_output_potential = synapse->presynapse_neurons->output_V(&synapse->presynapse_neurons->x_buffer[i * synapse->presynapse_neurons->get_n_states()], NULL, t, dt);
                     S[i * synapse->n_postsynapse_neurons() + j] = presynapse_neuron_output_potential;
-                    if(presynapse_neuron_output_potential > 0){
-                        // std::cout << synapse->presynapse_neurons->n_neurons << " fired::" << presynapse_neuron_output_potential << std::endl;
-                    }
+                    // if(presynapse_neuron_output_potential > 0){
+                    //     std::cout << synapse->presynapse_neurons->n_neurons << " neurons fired::" << presynapse_neuron_output_potential << std::endl;
+                    // }
                 }
             }
 

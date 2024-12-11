@@ -31,11 +31,13 @@ namespace snnlib
                 
                 // Get the synaptic weight for this synapse
                 double weight = weights[index];
-                assert(weight >= 0);
+                assert(weight > 0);
 
                 double input_value = S[index] * weight; // Scale the presynaptic spike train by the weight
                 assert(input_value >= 0);
-                
+                // if(input_value > 0){
+                //     std::cout <<  " possitive input feed into synapse dynamics, input == " << input_value << std::endl;
+                // }
                 std::vector<double> dx = synapse_dynamics(
                     input_value,  
                     &x[index * n_states_per_synapse],  // Synaptic state

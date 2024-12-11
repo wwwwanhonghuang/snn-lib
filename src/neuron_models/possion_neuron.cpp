@@ -7,10 +7,8 @@ namespace snnlib
     
     double PossionNeuron::output_V(double* x, double* output_P, int t, double dt){
         if(state_last_t(x) == t * dt){
-            std::cout << "spiking." << std::endl;
+            // std::cout << "possion spiking." << std::endl;
             return 1.0;
-        }else{
-            // std::cout << "no spiking. because " << state_last_t(x) << "*" << dt << "!=" << t  << std::endl;
         }
         return 0.0;
     }

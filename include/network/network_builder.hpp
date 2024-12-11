@@ -116,8 +116,8 @@ namespace snnlib{
                 std::shared_ptr<snnlib::NetworkBuilder> network_builder){
                     std::shared_ptr<ConnectionType> connection = 
                         std::make_shared<ConnectionType>(this->_synapse);
-                    network_builder->register_connection(connection_name, connection);
-                    return std::make_shared<snnlib::ConnectionConfiguration>(connection);
+                    
+                    return network_builder->register_connection(connection_name, connection);
             }
         private:
             std::shared_ptr<snnlib::AbstractSNNSynapse> _synapse;
