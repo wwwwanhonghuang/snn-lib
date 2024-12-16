@@ -2,7 +2,7 @@
 This library is incompleted and under developing.
 A reservoir computing sample of current framework frontend usage for is as follows:
 
-## Code Eample
+## Code Eamples
 ### Example 1. Construct a reservoir computing architecture with predefine neurons. 
 ``` c++
 /* Omit header inclusions. */
@@ -102,7 +102,7 @@ int main(){
 }
 ```
 
-### Example 2: Dynamically create a new kind of neuron that dynamics and potential according to custom strategies.
+### Example 2: Dynamically Create Neurons with Custom Dynamics and Potentials
 ``` C++
 std::shared_ptr<data::EEGRecord> record = data::RecordLoader::load_bin_file("eeg_dataset/ethz-ieeg/ID01_1h.bin");
 std::cout << "Reading eeg record from " << "eeg_dataset/ethz-ieeg/ID01_1h.bin" << std::endl;
