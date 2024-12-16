@@ -10,12 +10,14 @@
 #include "neuron_models/initializer.hpp"
 #include "network/initializer/initializer.hpp"
 #include "network/initializer/weight_initializers.hpp"
+#include "neuron_models/dynamical_neuron.hpp"
+#include "neuron_models/neuron_meta_structure.hpp"
 
 namespace snnlib{
     class SynapseConfiguration;
     class NeuronConfiguration;
     class ConnectionConfiguration;
-
+  
     struct NetworkBuilder
     {
         std::unordered_map<std::string, std::shared_ptr<snnlib::NeuronConfiguration>>
@@ -24,6 +26,8 @@ namespace snnlib{
         std::unordered_map<std::string, std::shared_ptr<snnlib::ConnectionConfiguration>>
             connection_configuration_map;
 
+
+        std::shared_ptr<SNNNeuronMetaStructure> new_neuron_structure();
         template <typename SynapseType, typename... Args>
         std::shared_ptr<snnlib::SynapseConfiguration> build_synapse(
             const std::string& synapse_name,
@@ -53,7 +57,6 @@ namespace snnlib{
 
             _network->neurons[neuron_name] = neuron;           
 
-
             if(neuron_configuration_map.find(neuron_name) != neuron_configuration_map.end()){
                 std::cerr << "Network Build Error: A neuron with name " 
                     << neuron_name << " has already been recorded." << std::endl;
@@ -65,6 +68,8 @@ namespace snnlib{
             return configuration;
         }
 
+
+        std::shared_ptr<snnlib::AbstractSNNNeuron> initialize_from(std::shared_ptr<snnlib::SNNNeuronMetaStructure> neuron_structure, int n_neurons);
 
         std::shared_ptr<snnlib::ConnectionConfiguration> 
             register_connection(const std::string& connection_name, 

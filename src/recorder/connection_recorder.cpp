@@ -29,7 +29,7 @@ namespace snnlib{
     void WeightRecorder::_record_connection_weights(std::ostream& output_stream, std::shared_ptr<snnlib::AbstractSNNConnection> connection) {
         int n_presynapse_neuronsn = connection->synapses->presynapse_neurons->n_neurons;
         int n_postsynapse_neuronsn = connection->synapses->postsynapse_neurons->n_neurons;
-        assert(connection->weights.size() == n_presynapse_neuronsn * n_postsynapse_neuronsn);
+        assert((int)connection->weights.size() == n_presynapse_neuronsn * n_postsynapse_neuronsn);
 
         for(int i = 0; i < n_presynapse_neuronsn; i++){
             for(int j = 0; j < n_postsynapse_neuronsn; j++){

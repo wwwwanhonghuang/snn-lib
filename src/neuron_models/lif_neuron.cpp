@@ -5,7 +5,7 @@ namespace snnlib
     
     void LIFNeuron::initialize(){};
     
-    double LIFNeuron::output_V(double* x, double* output_P, int t, double dt){
+    double LIFNeuron::output_V(int neuron_id, double* x, double* output_P, int t, double dt){
         if(state_last_t(x) == t * dt){
             return 1.0;
         }else{
@@ -13,7 +13,7 @@ namespace snnlib
         }
     }
 
-    std::vector<double> LIFNeuron::neuron_dynamics(double I, double* x, double t, double* P, double dt){
+    std::vector<double> LIFNeuron::neuron_dynamics(int neuron_id, double I, double* x, double t, double* P, double dt){
         DYN_SYSTEM_STATE(V);
         DYN_SYSTEM_STATE(last_t);
 

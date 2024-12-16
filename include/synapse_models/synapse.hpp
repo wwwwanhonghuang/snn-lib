@@ -19,7 +19,7 @@ namespace snnlib{
         std::vector<double> x_buffer;
         std::vector<double> P;
 
-        DEF_DYN_SYSTEM_STATE(0, I);
+        DEF_DYN_SYSTEM_STATE(0, I)
 
         int n_presynapse_neurons();
         int n_postsynapse_neurons();
@@ -76,10 +76,10 @@ namespace snnlib{
 
     struct CurrentBasedKernalSynapse: public AbstractSNNSynapse{
         bool kernel_param_tau;
-        DEF_DYN_SYSTEM_STATE(1, aux);
+        DEF_DYN_SYSTEM_STATE(1, aux)
 
-        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau);
-        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2);
+        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau)
+        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2)
 
         CurrentBasedKernalSynapse(
                             std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
@@ -113,13 +113,13 @@ namespace snnlib{
 
     struct ConductanceBasedKernalSynapse: public AbstractSNNSynapse{
         bool kernel_param_tau;
-        DEF_DYN_SYSTEM_STATE(1, aux);
+        DEF_DYN_SYSTEM_STATE(1, aux)
         
 
-        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau);
-        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2);
-        DEF_DYN_SYSTEM_PARAM(2, g_syn);
-        DEF_DYN_SYSTEM_PARAM(3, E_syn);
+        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau)
+        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2)
+        DEF_DYN_SYSTEM_PARAM(2, g_syn)
+        DEF_DYN_SYSTEM_PARAM(3, E_syn)
 
         ConductanceBasedKernalSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
                             std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
@@ -147,7 +147,7 @@ namespace snnlib{
             }
             std::vector<double> I(synpase_strength.size(), 0);
          
-            for(int i = 0; i < synpase_strength.size(); i++){
+            for(size_t i = 0; i < synpase_strength.size(); i++){
                 I[i] = synpase_strength[i] * param_g_syn(this->P.data()) 
                                            * (postsynapse_neurons->state_V(this->x.data()) - param_E_syn(this->P.data()));
             }

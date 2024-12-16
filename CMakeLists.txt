@@ -11,7 +11,7 @@ set(CMAKE_CXX_COMPILER clang++)
 set(CMAKE_BUILD_TYPE Debug) # Options: Debug, Release, RelWithDebInfo, MinSizeRel
 set(SANITIZE_ADDRESS OFF)
 set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -Werror")
-set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 # Directory paths
 set(SRC_DIR src)

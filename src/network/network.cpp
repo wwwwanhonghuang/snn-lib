@@ -23,8 +23,8 @@ namespace snnlib
         int postsynapse_neuron_id = postsynapse_it->second;
 
         // Bounds check for connection matrix
-        if (presynapse_neuron_id < 0 || presynapse_neuron_id >= connection_matrix.size() ||
-            postsynapse_neuron_id < 0 || postsynapse_neuron_id >= connection_matrix[presynapse_neuron_id].size()) {
+        if (presynapse_neuron_id < 0 || presynapse_neuron_id >= (int)connection_matrix.size() ||
+            postsynapse_neuron_id < 0 || postsynapse_neuron_id >= (int)connection_matrix[presynapse_neuron_id].size()) {
             throw std::out_of_range("Neuron ID is out of range for the connection matrix.");
         }
 
@@ -100,11 +100,11 @@ namespace snnlib
                                                             connection_matrix[i][neuron_id];
                 std::vector<double> synpase_out = current_connection->synapses->output_I();
                 
-                assert(current_connection->synapses->presynapse_neurons->n_neurons == synpase_out.size() / neuron_record_item.second->n_neurons);
+                assert((int)current_connection->synapses->presynapse_neurons->n_neurons == (int)synpase_out.size() / neuron_record_item.second->n_neurons);
 
                 int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
                 int n_postsynpase_neurons = current_connection->synapses->n_postsynapse_neurons();
-                assert(current_connection->weights.size() == n_presynpase_neurons * n_postsynpase_neurons);
+                assert((int)current_connection->weights.size() == n_presynpase_neurons * n_postsynpase_neurons);
 
                 for(int presyn_idx = 0; presyn_idx < n_presynpase_neurons; presyn_idx++){
                     for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
@@ -129,7 +129,7 @@ namespace snnlib
             for(int i = 0; i < synapse->n_presynapse_neurons(); i++){
                 for (int j = 0; j < synapse->n_postsynapse_neurons(); j++)
                 {
-                    double presynapse_neuron_output_potential = synapse->presynapse_neurons->output_V(&synapse->presynapse_neurons->x_buffer[i * synapse->presynapse_neurons->get_n_states()], NULL, t, dt);
+                    double presynapse_neuron_output_potential = synapse->presynapse_neurons->output_V(i, &synapse->presynapse_neurons->x_buffer[i * synapse->presynapse_neurons->get_n_states()], NULL, t, dt);
                     S[i * synapse->n_postsynapse_neurons() + j] = presynapse_neuron_output_potential;
                     // if(presynapse_neuron_output_potential > 0){
                     //     std::cout << synapse->presynapse_neurons->n_neurons << " neurons fired::" << presynapse_neuron_output_potential << std::endl;

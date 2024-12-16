@@ -33,6 +33,10 @@ namespace snnlib{
         return _network->neurons[neuron_name];
     }
     
+    std::shared_ptr<SNNNeuronMetaStructure> NetworkBuilder::new_neuron_structure(){
+        return std::make_shared<SNNNeuronMetaStructure>();
+    }
+
     std::shared_ptr<snnlib::AbstractSNNConnection> NetworkBuilder::get_connection(std::string connection_name){
         return _network->connections[connection_name];
     }
@@ -53,6 +57,12 @@ namespace snnlib{
         std::shared_ptr<snnlib::ConnectionConfiguration> configuration = std::make_shared<snnlib::ConnectionConfiguration>(connection);
         connection_configuration_map[connection_name] = configuration;
         return configuration;
+    }
+
+    std::shared_ptr<snnlib::AbstractSNNNeuron> NetworkBuilder::initialize_from(std::shared_ptr<snnlib::SNNNeuronMetaStructure> neuron_structure, int n_neurons){
+            int n_states = neuron_structure->state_variables.size() + 1;
+            std::shared_ptr<DynamicalNeuron> dynamical_neuron = std::make_shared<DynamicalNeuron>(n_neurons, n_states, neuron_structure);
+            return dynamical_neuron;
     }
 
 }

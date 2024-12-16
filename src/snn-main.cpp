@@ -27,8 +27,10 @@
 
 void build_neurons(std::shared_ptr<snnlib::NetworkBuilder> network_builder){
     network_builder->build_neuron<snnlib::PossionNeuron>("inputs", 1, 80000);
-    network_builder->build_neuron<snnlib::LIFNeuron>("reservoir", 1)->add_initializer("rest_potential_initializer");
-    network_builder->build_neuron<snnlib::LIFNeuron>("outputs", 1)->add_initializer("rest_potential_initializer");
+    network_builder->build_neuron<snnlib::LIFNeuron>("reservoir", 1)->
+        add_initializer("rest_potential_initializer");
+    network_builder->build_neuron<snnlib::LIFNeuron>("outputs", 1)->
+        add_initializer("rest_potential_initializer");
 }
 
 void build_connections(std::shared_ptr<snnlib::NetworkBuilder> network_builder) {
@@ -86,12 +88,14 @@ int main(){
         std::make_shared<snnlib::ConnectionRecorder>();
 
     // Build Recorder
-    snnlib::ConnectionRecordCallback weight_recorder = [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+    snnlib::ConnectionRecordCallback weight_recorder = 
+    [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
         if(t == 0)
             snnlib::WeightRecorder::record_connection_weights_to_file(std::string("data/logs/") + connection_name + std::string(".weights"), connection);
     };
 
-    snnlib::ConnectionRecordCallback response_recorder = [connection_recorder](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+    snnlib::ConnectionRecordCallback response_recorder = 
+        [connection_recorder](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
         connection_recorder->record_synapse_response_to_file(std::string("data/logs/") + connection_name + std::string(".r"), connection, t);
     };
 

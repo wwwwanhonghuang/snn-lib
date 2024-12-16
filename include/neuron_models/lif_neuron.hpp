@@ -16,7 +16,7 @@ namespace snnlib{
         DEF_DYN_SYSTEM_PARAM(4, R);
         DEF_DYN_SYSTEM_PARAM(5, t_ref);
 
-        DEF_DYN_SYSTEM_STATE(1, last_t);
+        DEF_DYN_SYSTEM_STATE(1, last_t)
 
         LIFNeuron(int n_neurons, double V_rest = -65.0, double V_th = -40.0, double V_reset = -60.0, 
             double tau_m = 1e-2, double t_ref = 5e-3, double R = 10.0): AbstractSNNNeuron(n_neurons, 2)
@@ -31,9 +31,9 @@ namespace snnlib{
 
         virtual void initialize();
         
-        virtual double output_V(double* x, double* output_P, int t, double dt);
+        virtual double output_V(int neuron_id, double* x, double* output_P, int t, double dt);
 
-        static std::vector<double> neuron_dynamics(double I, double* x, double t, double* P, double dt);
+        static std::vector<double> neuron_dynamics(int neuron_id, double I, double* x, double t, double* P, double dt);
     };
 
 }

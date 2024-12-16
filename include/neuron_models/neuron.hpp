@@ -11,7 +11,7 @@ namespace snnlib{
     struct AbstractSNNNeuron
     {
         public:
-            DEF_DYN_SYSTEM_STATE(0, V);
+            DEF_DYN_SYSTEM_STATE(0, V)
 
             int n_neurons;
             std::vector<double> P;
@@ -26,7 +26,7 @@ namespace snnlib{
             
             void setMembranePotential(const std::vector<double>& mV){
                 assert(mV.size() <= x.size());
-                for(int i = 0; i < mV.size(); i++){
+                for(size_t i = 0; i < mV.size(); i++){
                     setMembranePotential(i, mV[i]);
                 }
             }
@@ -37,7 +37,7 @@ namespace snnlib{
                 }
             }
             
-            virtual double output_V(double* x, double* output_P, int t, double dt) = 0;
+            virtual double output_V(int neuron_id, double* x, double* output_P, int t, double dt) = 0;
             inline void forward_states_to_buffer(int neuron_index, double I, double t, double* P, double dt);
             void forward_states_to_buffer(const std::vector<double>& I, double t, double* P, double dt);
 

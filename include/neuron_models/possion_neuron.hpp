@@ -6,9 +6,9 @@
 namespace snnlib{
     struct PossionNeuron: public AbstractSNNNeuron
     {
-        DEF_DYN_SYSTEM_PARAM(0, freq);
+        DEF_DYN_SYSTEM_PARAM(0, freq)
 
-        DEF_DYN_SYSTEM_STATE(1, last_t);
+        DEF_DYN_SYSTEM_STATE(1, last_t)
 
         PossionNeuron(int n_neurons, int frequency, double t_ref = 0.0): AbstractSNNNeuron(n_neurons, 2)
         {
@@ -19,9 +19,9 @@ namespace snnlib{
 
         virtual void initialize();
         
-        virtual double output_V(double* x, double* output_P, int t, double dt);
+        virtual double output_V(int neuron_id, double* x, double* output_P, int t, double dt);
 
-        static std::vector<double> neuron_dynamics(double I, double* x, double t, double* P, double dt);
+        static std::vector<double> neuron_dynamics(int neuron_id, double I, double* x, double t, double* P, double dt);
     };
 
 }

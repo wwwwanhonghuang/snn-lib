@@ -13,7 +13,7 @@ namespace snnlib
     }
     
     void SimulationStateRecorder::_record_input_current(std::ostream& output_stream, const std::vector<double>& input_current){
-        for(int i = 0; i < input_current.size(); i++){
+        for(size_t i = 0; i < input_current.size(); i++){
             output_stream << input_current[i] << std::endl;
         }
     }
