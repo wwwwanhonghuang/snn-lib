@@ -3,7 +3,7 @@ This library is incompleted and under developing.
 A reservoir computing sample of current framework frontend usage for is as follows:
 
 ## Code Eamples
-### Example 1. Construct a reservoir computing architecture with predefine neurons. 
+### Example 1. Reservoir Computing Architecture with Pre-define Neuron Dynamics. 
 ``` c++
 /* Omit header inclusions. */
 
