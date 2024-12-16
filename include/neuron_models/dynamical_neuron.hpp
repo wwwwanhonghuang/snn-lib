@@ -14,7 +14,7 @@ namespace snnlib{
         std::shared_ptr<SNNNeuronMetaStructure> meta_neuron_structure;
 
         void initialize();
-        
+        double get_state(const std::string& state_name, double* x);
         double output_V(int neuron_id, double* x, double* output_P, int t, double dt);
         std::vector<double> neuron_dynamics(std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, double t, double* P, double dt);
     };

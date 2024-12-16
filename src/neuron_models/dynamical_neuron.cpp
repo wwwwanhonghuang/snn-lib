@@ -18,6 +18,14 @@ namespace snnlib{
         return meta_neuron_structure->output_V_callback(shared_this, neuron_id, x, output_P, t, dt);
     }
 
+    double DynamicalNeuron::get_state(const std::string& state_name, double* x){
+        if(meta_neuron_structure->state_variables.find(state_name) != meta_neuron_structure->state_variables.end()){
+            int state_index = meta_neuron_structure->state_variables[state_name];
+            return x[state_index];
+        }else{
+            assert(false);
+        }
+    }
     std::vector<double> DynamicalNeuron::neuron_dynamics(std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, double t, double* P, double dt){
         return meta_neuron_structure->neuron_dynamics(shared_this, neuron_id, I, x, t, P, dt);
     }
