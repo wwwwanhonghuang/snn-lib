@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research/snn-lib-cpp
+# Install script for directory: /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation/snn-lib-cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -23,7 +23,7 @@ namespace snnlib{
         // name -> id mapping
         std::unordered_map<std::string, int> neuron_id_map;
         std::unordered_map<std::string, int> connection_id_map;
-        std::vector<std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>> connection_matrix;
+        std::vector<std::vector<std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>>> connection_matrix;
 
         bool is_neuron_connected(const std::string& presynapse_neuron_name, const std::string& postsynapse_neuron_name);
 

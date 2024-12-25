@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research
+CMAKE_SOURCE_DIR = /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research
+CMAKE_BINARY_DIR = /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research/CMakeFiles /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research/snn-lib-cpp//CMakeFiles/progress.marks
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research/CMakeFiles 0
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation/CMakeFiles /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation/snn-lib-cpp//CMakeFiles/progress.marks
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/clean
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/preinstall
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/preinstall
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 snn-lib-cpp/CMakeFiles/shared.dir/rule:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/CMakeFiles/shared.dir/rule
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/CMakeFiles/shared.dir/rule
 .PHONY : snn-lib-cpp/CMakeFiles/shared.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ shared: snn-lib-cpp/CMakeFiles/shared.dir/rule
 
 # fast build rule for target.
 shared/fast:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/build
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/build
 .PHONY : shared/fast
 
 # Convenience name for target.
 snn-lib-cpp/CMakeFiles/snn-main.dir/rule:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/CMakeFiles/snn-main.dir/rule
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/CMakeFiles/snn-main.dir/rule
 .PHONY : snn-lib-cpp/CMakeFiles/snn-main.dir/rule
 
 # Convenience name for target.
@@ -141,12 +141,12 @@ snn-main: snn-lib-cpp/CMakeFiles/snn-main.dir/rule
 
 # fast build rule for target.
 snn-main/fast:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/build
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/build
 .PHONY : snn-main/fast
 
 # Convenience name for target.
 snn-lib-cpp/CMakeFiles/custom_clean.dir/rule:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/CMakeFiles/custom_clean.dir/rule
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 snn-lib-cpp/CMakeFiles/custom_clean.dir/rule
 .PHONY : snn-lib-cpp/CMakeFiles/custom_clean.dir/rule
 
 # Convenience name for target.
@@ -155,7 +155,7 @@ custom_clean: snn-lib-cpp/CMakeFiles/custom_clean.dir/rule
 
 # fast build rule for target.
 custom_clean/fast:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/custom_clean.dir/build.make snn-lib-cpp/CMakeFiles/custom_clean.dir/build
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/custom_clean.dir/build.make snn-lib-cpp/CMakeFiles/custom_clean.dir/build
 .PHONY : custom_clean/fast
 
 src/connections/all_to_all_conntection.o: src/connections/all_to_all_conntection.cpp.o
@@ -163,8 +163,8 @@ src/connections/all_to_all_conntection.o: src/connections/all_to_all_conntection
 
 # target to build an object file
 src/connections/all_to_all_conntection.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/all_to_all_conntection.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/all_to_all_conntection.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/all_to_all_conntection.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/all_to_all_conntection.cpp.o
 .PHONY : src/connections/all_to_all_conntection.cpp.o
 
 src/connections/all_to_all_conntection.i: src/connections/all_to_all_conntection.cpp.i
@@ -172,8 +172,8 @@ src/connections/all_to_all_conntection.i: src/connections/all_to_all_conntection
 
 # target to preprocess a source file
 src/connections/all_to_all_conntection.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/all_to_all_conntection.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/all_to_all_conntection.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/all_to_all_conntection.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/all_to_all_conntection.cpp.i
 .PHONY : src/connections/all_to_all_conntection.cpp.i
 
 src/connections/all_to_all_conntection.s: src/connections/all_to_all_conntection.cpp.s
@@ -181,8 +181,8 @@ src/connections/all_to_all_conntection.s: src/connections/all_to_all_conntection
 
 # target to generate assembly for a file
 src/connections/all_to_all_conntection.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/all_to_all_conntection.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/all_to_all_conntection.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/all_to_all_conntection.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/all_to_all_conntection.cpp.s
 .PHONY : src/connections/all_to_all_conntection.cpp.s
 
 src/connections/connection.o: src/connections/connection.cpp.o
@@ -190,8 +190,8 @@ src/connections/connection.o: src/connections/connection.cpp.o
 
 # target to build an object file
 src/connections/connection.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/connection.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/connection.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/connection.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/connection.cpp.o
 .PHONY : src/connections/connection.cpp.o
 
 src/connections/connection.i: src/connections/connection.cpp.i
@@ -199,8 +199,8 @@ src/connections/connection.i: src/connections/connection.cpp.i
 
 # target to preprocess a source file
 src/connections/connection.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/connection.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/connection.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/connection.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/connection.cpp.i
 .PHONY : src/connections/connection.cpp.i
 
 src/connections/connection.s: src/connections/connection.cpp.s
@@ -208,8 +208,8 @@ src/connections/connection.s: src/connections/connection.cpp.s
 
 # target to generate assembly for a file
 src/connections/connection.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/connection.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/connection.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/connections/connection.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/connections/connection.cpp.s
 .PHONY : src/connections/connection.cpp.s
 
 src/context/global_runtime_context/global_runtime_context.o: src/context/global_runtime_context/global_runtime_context.cpp.o
@@ -217,8 +217,8 @@ src/context/global_runtime_context/global_runtime_context.o: src/context/global_
 
 # target to build an object file
 src/context/global_runtime_context/global_runtime_context.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.o
 .PHONY : src/context/global_runtime_context/global_runtime_context.cpp.o
 
 src/context/global_runtime_context/global_runtime_context.i: src/context/global_runtime_context/global_runtime_context.cpp.i
@@ -226,8 +226,8 @@ src/context/global_runtime_context/global_runtime_context.i: src/context/global_
 
 # target to preprocess a source file
 src/context/global_runtime_context/global_runtime_context.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.i
 .PHONY : src/context/global_runtime_context/global_runtime_context.cpp.i
 
 src/context/global_runtime_context/global_runtime_context.s: src/context/global_runtime_context/global_runtime_context.cpp.s
@@ -235,8 +235,8 @@ src/context/global_runtime_context/global_runtime_context.s: src/context/global_
 
 # target to generate assembly for a file
 src/context/global_runtime_context/global_runtime_context.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/context/global_runtime_context/global_runtime_context.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/context/global_runtime_context/global_runtime_context.cpp.s
 .PHONY : src/context/global_runtime_context/global_runtime_context.cpp.s
 
 src/interfaces/function.o: src/interfaces/function.cpp.o
@@ -244,8 +244,8 @@ src/interfaces/function.o: src/interfaces/function.cpp.o
 
 # target to build an object file
 src/interfaces/function.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/interfaces/function.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/interfaces/function.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/interfaces/function.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/interfaces/function.cpp.o
 .PHONY : src/interfaces/function.cpp.o
 
 src/interfaces/function.i: src/interfaces/function.cpp.i
@@ -253,8 +253,8 @@ src/interfaces/function.i: src/interfaces/function.cpp.i
 
 # target to preprocess a source file
 src/interfaces/function.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/interfaces/function.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/interfaces/function.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/interfaces/function.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/interfaces/function.cpp.i
 .PHONY : src/interfaces/function.cpp.i
 
 src/interfaces/function.s: src/interfaces/function.cpp.s
@@ -262,8 +262,8 @@ src/interfaces/function.s: src/interfaces/function.cpp.s
 
 # target to generate assembly for a file
 src/interfaces/function.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/interfaces/function.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/interfaces/function.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/interfaces/function.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/interfaces/function.cpp.s
 .PHONY : src/interfaces/function.cpp.s
 
 src/network/configurations/connection_configuration.o: src/network/configurations/connection_configuration.cpp.o
@@ -271,8 +271,8 @@ src/network/configurations/connection_configuration.o: src/network/configuration
 
 # target to build an object file
 src/network/configurations/connection_configuration.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.o
 .PHONY : src/network/configurations/connection_configuration.cpp.o
 
 src/network/configurations/connection_configuration.i: src/network/configurations/connection_configuration.cpp.i
@@ -280,8 +280,8 @@ src/network/configurations/connection_configuration.i: src/network/configuration
 
 # target to preprocess a source file
 src/network/configurations/connection_configuration.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.i
 .PHONY : src/network/configurations/connection_configuration.cpp.i
 
 src/network/configurations/connection_configuration.s: src/network/configurations/connection_configuration.cpp.s
@@ -289,8 +289,8 @@ src/network/configurations/connection_configuration.s: src/network/configuration
 
 # target to generate assembly for a file
 src/network/configurations/connection_configuration.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/connection_configuration.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/connection_configuration.cpp.s
 .PHONY : src/network/configurations/connection_configuration.cpp.s
 
 src/network/configurations/neuron_configuration.o: src/network/configurations/neuron_configuration.cpp.o
@@ -298,8 +298,8 @@ src/network/configurations/neuron_configuration.o: src/network/configurations/ne
 
 # target to build an object file
 src/network/configurations/neuron_configuration.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.o
 .PHONY : src/network/configurations/neuron_configuration.cpp.o
 
 src/network/configurations/neuron_configuration.i: src/network/configurations/neuron_configuration.cpp.i
@@ -307,8 +307,8 @@ src/network/configurations/neuron_configuration.i: src/network/configurations/ne
 
 # target to preprocess a source file
 src/network/configurations/neuron_configuration.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.i
 .PHONY : src/network/configurations/neuron_configuration.cpp.i
 
 src/network/configurations/neuron_configuration.s: src/network/configurations/neuron_configuration.cpp.s
@@ -316,8 +316,8 @@ src/network/configurations/neuron_configuration.s: src/network/configurations/ne
 
 # target to generate assembly for a file
 src/network/configurations/neuron_configuration.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/neuron_configuration.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/neuron_configuration.cpp.s
 .PHONY : src/network/configurations/neuron_configuration.cpp.s
 
 src/network/configurations/synapse_configuration.o: src/network/configurations/synapse_configuration.cpp.o
@@ -325,8 +325,8 @@ src/network/configurations/synapse_configuration.o: src/network/configurations/s
 
 # target to build an object file
 src/network/configurations/synapse_configuration.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.o
 .PHONY : src/network/configurations/synapse_configuration.cpp.o
 
 src/network/configurations/synapse_configuration.i: src/network/configurations/synapse_configuration.cpp.i
@@ -334,8 +334,8 @@ src/network/configurations/synapse_configuration.i: src/network/configurations/s
 
 # target to preprocess a source file
 src/network/configurations/synapse_configuration.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.i
 .PHONY : src/network/configurations/synapse_configuration.cpp.i
 
 src/network/configurations/synapse_configuration.s: src/network/configurations/synapse_configuration.cpp.s
@@ -343,8 +343,8 @@ src/network/configurations/synapse_configuration.s: src/network/configurations/s
 
 # target to generate assembly for a file
 src/network/configurations/synapse_configuration.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/configurations/synapse_configuration.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/configurations/synapse_configuration.cpp.s
 .PHONY : src/network/configurations/synapse_configuration.cpp.s
 
 src/network/initializer/initializer.o: src/network/initializer/initializer.cpp.o
@@ -352,8 +352,8 @@ src/network/initializer/initializer.o: src/network/initializer/initializer.cpp.o
 
 # target to build an object file
 src/network/initializer/initializer.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/initializer.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/initializer.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.o
 .PHONY : src/network/initializer/initializer.cpp.o
 
 src/network/initializer/initializer.i: src/network/initializer/initializer.cpp.i
@@ -361,8 +361,8 @@ src/network/initializer/initializer.i: src/network/initializer/initializer.cpp.i
 
 # target to preprocess a source file
 src/network/initializer/initializer.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/initializer.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/initializer.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.i
 .PHONY : src/network/initializer/initializer.cpp.i
 
 src/network/initializer/initializer.s: src/network/initializer/initializer.cpp.s
@@ -370,8 +370,8 @@ src/network/initializer/initializer.s: src/network/initializer/initializer.cpp.s
 
 # target to generate assembly for a file
 src/network/initializer/initializer.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/initializer.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/initializer.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/initializer.cpp.s
 .PHONY : src/network/initializer/initializer.cpp.s
 
 src/network/initializer/weight_initializer.o: src/network/initializer/weight_initializer.cpp.o
@@ -379,8 +379,8 @@ src/network/initializer/weight_initializer.o: src/network/initializer/weight_ini
 
 # target to build an object file
 src/network/initializer/weight_initializer.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.o
 .PHONY : src/network/initializer/weight_initializer.cpp.o
 
 src/network/initializer/weight_initializer.i: src/network/initializer/weight_initializer.cpp.i
@@ -388,8 +388,8 @@ src/network/initializer/weight_initializer.i: src/network/initializer/weight_ini
 
 # target to preprocess a source file
 src/network/initializer/weight_initializer.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.i
 .PHONY : src/network/initializer/weight_initializer.cpp.i
 
 src/network/initializer/weight_initializer.s: src/network/initializer/weight_initializer.cpp.s
@@ -397,8 +397,8 @@ src/network/initializer/weight_initializer.s: src/network/initializer/weight_ini
 
 # target to generate assembly for a file
 src/network/initializer/weight_initializer.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/initializer/weight_initializer.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/initializer/weight_initializer.cpp.s
 .PHONY : src/network/initializer/weight_initializer.cpp.s
 
 src/network/network.o: src/network/network.cpp.o
@@ -406,8 +406,8 @@ src/network/network.o: src/network/network.cpp.o
 
 # target to build an object file
 src/network/network.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network.cpp.o
 .PHONY : src/network/network.cpp.o
 
 src/network/network.i: src/network/network.cpp.i
@@ -415,8 +415,8 @@ src/network/network.i: src/network/network.cpp.i
 
 # target to preprocess a source file
 src/network/network.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network.cpp.i
 .PHONY : src/network/network.cpp.i
 
 src/network/network.s: src/network/network.cpp.s
@@ -424,8 +424,8 @@ src/network/network.s: src/network/network.cpp.s
 
 # target to generate assembly for a file
 src/network/network.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network.cpp.s
 .PHONY : src/network/network.cpp.s
 
 src/network/network_builder.o: src/network/network_builder.cpp.o
@@ -433,8 +433,8 @@ src/network/network_builder.o: src/network/network_builder.cpp.o
 
 # target to build an object file
 src/network/network_builder.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network_builder.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network_builder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network_builder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network_builder.cpp.o
 .PHONY : src/network/network_builder.cpp.o
 
 src/network/network_builder.i: src/network/network_builder.cpp.i
@@ -442,8 +442,8 @@ src/network/network_builder.i: src/network/network_builder.cpp.i
 
 # target to preprocess a source file
 src/network/network_builder.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network_builder.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network_builder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network_builder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network_builder.cpp.i
 .PHONY : src/network/network_builder.cpp.i
 
 src/network/network_builder.s: src/network/network_builder.cpp.s
@@ -451,8 +451,8 @@ src/network/network_builder.s: src/network/network_builder.cpp.s
 
 # target to generate assembly for a file
 src/network/network_builder.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network_builder.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network_builder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/network/network_builder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/network/network_builder.cpp.s
 .PHONY : src/network/network_builder.cpp.s
 
 src/neuron_models/dynamical_neuron.o: src/neuron_models/dynamical_neuron.cpp.o
@@ -460,8 +460,8 @@ src/neuron_models/dynamical_neuron.o: src/neuron_models/dynamical_neuron.cpp.o
 
 # target to build an object file
 src/neuron_models/dynamical_neuron.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/dynamical_neuron.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/dynamical_neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/dynamical_neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/dynamical_neuron.cpp.o
 .PHONY : src/neuron_models/dynamical_neuron.cpp.o
 
 src/neuron_models/dynamical_neuron.i: src/neuron_models/dynamical_neuron.cpp.i
@@ -469,8 +469,8 @@ src/neuron_models/dynamical_neuron.i: src/neuron_models/dynamical_neuron.cpp.i
 
 # target to preprocess a source file
 src/neuron_models/dynamical_neuron.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/dynamical_neuron.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/dynamical_neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/dynamical_neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/dynamical_neuron.cpp.i
 .PHONY : src/neuron_models/dynamical_neuron.cpp.i
 
 src/neuron_models/dynamical_neuron.s: src/neuron_models/dynamical_neuron.cpp.s
@@ -478,8 +478,8 @@ src/neuron_models/dynamical_neuron.s: src/neuron_models/dynamical_neuron.cpp.s
 
 # target to generate assembly for a file
 src/neuron_models/dynamical_neuron.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/dynamical_neuron.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/dynamical_neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/dynamical_neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/dynamical_neuron.cpp.s
 .PHONY : src/neuron_models/dynamical_neuron.cpp.s
 
 src/neuron_models/initializer.o: src/neuron_models/initializer.cpp.o
@@ -487,8 +487,8 @@ src/neuron_models/initializer.o: src/neuron_models/initializer.cpp.o
 
 # target to build an object file
 src/neuron_models/initializer.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.o
 .PHONY : src/neuron_models/initializer.cpp.o
 
 src/neuron_models/initializer.i: src/neuron_models/initializer.cpp.i
@@ -496,8 +496,8 @@ src/neuron_models/initializer.i: src/neuron_models/initializer.cpp.i
 
 # target to preprocess a source file
 src/neuron_models/initializer.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.i
 .PHONY : src/neuron_models/initializer.cpp.i
 
 src/neuron_models/initializer.s: src/neuron_models/initializer.cpp.s
@@ -505,8 +505,8 @@ src/neuron_models/initializer.s: src/neuron_models/initializer.cpp.s
 
 # target to generate assembly for a file
 src/neuron_models/initializer.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/initializer.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/initializer.cpp.s
 .PHONY : src/neuron_models/initializer.cpp.s
 
 src/neuron_models/lif_neuron.o: src/neuron_models/lif_neuron.cpp.o
@@ -514,8 +514,8 @@ src/neuron_models/lif_neuron.o: src/neuron_models/lif_neuron.cpp.o
 
 # target to build an object file
 src/neuron_models/lif_neuron.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/lif_neuron.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/lif_neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/lif_neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/lif_neuron.cpp.o
 .PHONY : src/neuron_models/lif_neuron.cpp.o
 
 src/neuron_models/lif_neuron.i: src/neuron_models/lif_neuron.cpp.i
@@ -523,8 +523,8 @@ src/neuron_models/lif_neuron.i: src/neuron_models/lif_neuron.cpp.i
 
 # target to preprocess a source file
 src/neuron_models/lif_neuron.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/lif_neuron.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/lif_neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/lif_neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/lif_neuron.cpp.i
 .PHONY : src/neuron_models/lif_neuron.cpp.i
 
 src/neuron_models/lif_neuron.s: src/neuron_models/lif_neuron.cpp.s
@@ -532,8 +532,8 @@ src/neuron_models/lif_neuron.s: src/neuron_models/lif_neuron.cpp.s
 
 # target to generate assembly for a file
 src/neuron_models/lif_neuron.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/lif_neuron.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/lif_neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/lif_neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/lif_neuron.cpp.s
 .PHONY : src/neuron_models/lif_neuron.cpp.s
 
 src/neuron_models/neuron.o: src/neuron_models/neuron.cpp.o
@@ -541,8 +541,8 @@ src/neuron_models/neuron.o: src/neuron_models/neuron.cpp.o
 
 # target to build an object file
 src/neuron_models/neuron.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.o
 .PHONY : src/neuron_models/neuron.cpp.o
 
 src/neuron_models/neuron.i: src/neuron_models/neuron.cpp.i
@@ -550,8 +550,8 @@ src/neuron_models/neuron.i: src/neuron_models/neuron.cpp.i
 
 # target to preprocess a source file
 src/neuron_models/neuron.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.i
 .PHONY : src/neuron_models/neuron.cpp.i
 
 src/neuron_models/neuron.s: src/neuron_models/neuron.cpp.s
@@ -559,8 +559,8 @@ src/neuron_models/neuron.s: src/neuron_models/neuron.cpp.s
 
 # target to generate assembly for a file
 src/neuron_models/neuron.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron.cpp.s
 .PHONY : src/neuron_models/neuron.cpp.s
 
 src/neuron_models/neuron_meta_structure.o: src/neuron_models/neuron_meta_structure.cpp.o
@@ -568,8 +568,8 @@ src/neuron_models/neuron_meta_structure.o: src/neuron_models/neuron_meta_structu
 
 # target to build an object file
 src/neuron_models/neuron_meta_structure.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron_meta_structure.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron_meta_structure.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron_meta_structure.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron_meta_structure.cpp.o
 .PHONY : src/neuron_models/neuron_meta_structure.cpp.o
 
 src/neuron_models/neuron_meta_structure.i: src/neuron_models/neuron_meta_structure.cpp.i
@@ -577,8 +577,8 @@ src/neuron_models/neuron_meta_structure.i: src/neuron_models/neuron_meta_structu
 
 # target to preprocess a source file
 src/neuron_models/neuron_meta_structure.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron_meta_structure.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron_meta_structure.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron_meta_structure.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron_meta_structure.cpp.i
 .PHONY : src/neuron_models/neuron_meta_structure.cpp.i
 
 src/neuron_models/neuron_meta_structure.s: src/neuron_models/neuron_meta_structure.cpp.s
@@ -586,8 +586,8 @@ src/neuron_models/neuron_meta_structure.s: src/neuron_models/neuron_meta_structu
 
 # target to generate assembly for a file
 src/neuron_models/neuron_meta_structure.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron_meta_structure.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron_meta_structure.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/neuron_meta_structure.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/neuron_meta_structure.cpp.s
 .PHONY : src/neuron_models/neuron_meta_structure.cpp.s
 
 src/neuron_models/possion_neuron.o: src/neuron_models/possion_neuron.cpp.o
@@ -595,8 +595,8 @@ src/neuron_models/possion_neuron.o: src/neuron_models/possion_neuron.cpp.o
 
 # target to build an object file
 src/neuron_models/possion_neuron.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.o
 .PHONY : src/neuron_models/possion_neuron.cpp.o
 
 src/neuron_models/possion_neuron.i: src/neuron_models/possion_neuron.cpp.i
@@ -604,8 +604,8 @@ src/neuron_models/possion_neuron.i: src/neuron_models/possion_neuron.cpp.i
 
 # target to preprocess a source file
 src/neuron_models/possion_neuron.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.i
 .PHONY : src/neuron_models/possion_neuron.cpp.i
 
 src/neuron_models/possion_neuron.s: src/neuron_models/possion_neuron.cpp.s
@@ -613,8 +613,8 @@ src/neuron_models/possion_neuron.s: src/neuron_models/possion_neuron.cpp.s
 
 # target to generate assembly for a file
 src/neuron_models/possion_neuron.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/neuron_models/possion_neuron.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/neuron_models/possion_neuron.cpp.s
 .PHONY : src/neuron_models/possion_neuron.cpp.s
 
 src/recorder/connection_recorder.o: src/recorder/connection_recorder.cpp.o
@@ -622,8 +622,8 @@ src/recorder/connection_recorder.o: src/recorder/connection_recorder.cpp.o
 
 # target to build an object file
 src/recorder/connection_recorder.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.o
 .PHONY : src/recorder/connection_recorder.cpp.o
 
 src/recorder/connection_recorder.i: src/recorder/connection_recorder.cpp.i
@@ -631,8 +631,8 @@ src/recorder/connection_recorder.i: src/recorder/connection_recorder.cpp.i
 
 # target to preprocess a source file
 src/recorder/connection_recorder.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.i
 .PHONY : src/recorder/connection_recorder.cpp.i
 
 src/recorder/connection_recorder.s: src/recorder/connection_recorder.cpp.s
@@ -640,8 +640,8 @@ src/recorder/connection_recorder.s: src/recorder/connection_recorder.cpp.s
 
 # target to generate assembly for a file
 src/recorder/connection_recorder.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/connection_recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/connection_recorder.cpp.s
 .PHONY : src/recorder/connection_recorder.cpp.s
 
 src/recorder/neuron_recorder.o: src/recorder/neuron_recorder.cpp.o
@@ -649,8 +649,8 @@ src/recorder/neuron_recorder.o: src/recorder/neuron_recorder.cpp.o
 
 # target to build an object file
 src/recorder/neuron_recorder.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.o
 .PHONY : src/recorder/neuron_recorder.cpp.o
 
 src/recorder/neuron_recorder.i: src/recorder/neuron_recorder.cpp.i
@@ -658,8 +658,8 @@ src/recorder/neuron_recorder.i: src/recorder/neuron_recorder.cpp.i
 
 # target to preprocess a source file
 src/recorder/neuron_recorder.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.i
 .PHONY : src/recorder/neuron_recorder.cpp.i
 
 src/recorder/neuron_recorder.s: src/recorder/neuron_recorder.cpp.s
@@ -667,8 +667,8 @@ src/recorder/neuron_recorder.s: src/recorder/neuron_recorder.cpp.s
 
 # target to generate assembly for a file
 src/recorder/neuron_recorder.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/neuron_recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/neuron_recorder.cpp.s
 .PHONY : src/recorder/neuron_recorder.cpp.s
 
 src/recorder/recorder.o: src/recorder/recorder.cpp.o
@@ -676,8 +676,8 @@ src/recorder/recorder.o: src/recorder/recorder.cpp.o
 
 # target to build an object file
 src/recorder/recorder.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/recorder.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.o
 .PHONY : src/recorder/recorder.cpp.o
 
 src/recorder/recorder.i: src/recorder/recorder.cpp.i
@@ -685,8 +685,8 @@ src/recorder/recorder.i: src/recorder/recorder.cpp.i
 
 # target to preprocess a source file
 src/recorder/recorder.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/recorder.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.i
 .PHONY : src/recorder/recorder.cpp.i
 
 src/recorder/recorder.s: src/recorder/recorder.cpp.s
@@ -694,8 +694,8 @@ src/recorder/recorder.s: src/recorder/recorder.cpp.s
 
 # target to generate assembly for a file
 src/recorder/recorder.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/recorder.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/recorder.cpp.s
 .PHONY : src/recorder/recorder.cpp.s
 
 src/recorder/simulation_state_recorder.o: src/recorder/simulation_state_recorder.cpp.o
@@ -703,8 +703,8 @@ src/recorder/simulation_state_recorder.o: src/recorder/simulation_state_recorder
 
 # target to build an object file
 src/recorder/simulation_state_recorder.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.o
 .PHONY : src/recorder/simulation_state_recorder.cpp.o
 
 src/recorder/simulation_state_recorder.i: src/recorder/simulation_state_recorder.cpp.i
@@ -712,8 +712,8 @@ src/recorder/simulation_state_recorder.i: src/recorder/simulation_state_recorder
 
 # target to preprocess a source file
 src/recorder/simulation_state_recorder.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.i
 .PHONY : src/recorder/simulation_state_recorder.cpp.i
 
 src/recorder/simulation_state_recorder.s: src/recorder/simulation_state_recorder.cpp.s
@@ -721,8 +721,8 @@ src/recorder/simulation_state_recorder.s: src/recorder/simulation_state_recorder
 
 # target to generate assembly for a file
 src/recorder/simulation_state_recorder.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/recorder/simulation_state_recorder.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/recorder/simulation_state_recorder.cpp.s
 .PHONY : src/recorder/simulation_state_recorder.cpp.s
 
 src/simulator/snn_simulator.o: src/simulator/snn_simulator.cpp.o
@@ -730,8 +730,8 @@ src/simulator/snn_simulator.o: src/simulator/snn_simulator.cpp.o
 
 # target to build an object file
 src/simulator/snn_simulator.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/simulator/snn_simulator.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/simulator/snn_simulator.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/simulator/snn_simulator.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/simulator/snn_simulator.cpp.o
 .PHONY : src/simulator/snn_simulator.cpp.o
 
 src/simulator/snn_simulator.i: src/simulator/snn_simulator.cpp.i
@@ -739,8 +739,8 @@ src/simulator/snn_simulator.i: src/simulator/snn_simulator.cpp.i
 
 # target to preprocess a source file
 src/simulator/snn_simulator.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/simulator/snn_simulator.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/simulator/snn_simulator.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/simulator/snn_simulator.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/simulator/snn_simulator.cpp.i
 .PHONY : src/simulator/snn_simulator.cpp.i
 
 src/simulator/snn_simulator.s: src/simulator/snn_simulator.cpp.s
@@ -748,8 +748,8 @@ src/simulator/snn_simulator.s: src/simulator/snn_simulator.cpp.s
 
 # target to generate assembly for a file
 src/simulator/snn_simulator.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/simulator/snn_simulator.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/simulator/snn_simulator.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/simulator/snn_simulator.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/simulator/snn_simulator.cpp.s
 .PHONY : src/simulator/snn_simulator.cpp.s
 
 src/snn-main.o: src/snn-main.cpp.o
@@ -757,7 +757,7 @@ src/snn-main.o: src/snn-main.cpp.o
 
 # target to build an object file
 src/snn-main.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/snn-main.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/snn-main.cpp.o
 .PHONY : src/snn-main.cpp.o
 
 src/snn-main.i: src/snn-main.cpp.i
@@ -765,7 +765,7 @@ src/snn-main.i: src/snn-main.cpp.i
 
 # target to preprocess a source file
 src/snn-main.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/snn-main.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/snn-main.cpp.i
 .PHONY : src/snn-main.cpp.i
 
 src/snn-main.s: src/snn-main.cpp.s
@@ -773,7 +773,7 @@ src/snn-main.s: src/snn-main.cpp.s
 
 # target to generate assembly for a file
 src/snn-main.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/snn-main.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/snn-main.cpp.s
 .PHONY : src/snn-main.cpp.s
 
 src/synapse_models/synapse.o: src/synapse_models/synapse.cpp.o
@@ -781,8 +781,8 @@ src/synapse_models/synapse.o: src/synapse_models/synapse.cpp.o
 
 # target to build an object file
 src/synapse_models/synapse.cpp.o:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/synapse_models/synapse.cpp.o
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/synapse_models/synapse.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/synapse_models/synapse.cpp.o
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/synapse_models/synapse.cpp.o
 .PHONY : src/synapse_models/synapse.cpp.o
 
 src/synapse_models/synapse.i: src/synapse_models/synapse.cpp.i
@@ -790,8 +790,8 @@ src/synapse_models/synapse.i: src/synapse_models/synapse.cpp.i
 
 # target to preprocess a source file
 src/synapse_models/synapse.cpp.i:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/synapse_models/synapse.cpp.i
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/synapse_models/synapse.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/synapse_models/synapse.cpp.i
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/synapse_models/synapse.cpp.i
 .PHONY : src/synapse_models/synapse.cpp.i
 
 src/synapse_models/synapse.s: src/synapse_models/synapse.cpp.s
@@ -799,8 +799,8 @@ src/synapse_models/synapse.s: src/synapse_models/synapse.cpp.s
 
 # target to generate assembly for a file
 src/synapse_models/synapse.cpp.s:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/synapse_models/synapse.cpp.s
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/synapse_models/synapse.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/shared.dir/build.make snn-lib-cpp/CMakeFiles/shared.dir/src/synapse_models/synapse.cpp.s
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(MAKE) $(MAKESILENT) -f snn-lib-cpp/CMakeFiles/snn-main.dir/build.make snn-lib-cpp/CMakeFiles/snn-main.dir/src/synapse_models/synapse.cpp.s
 .PHONY : src/synapse_models/synapse.cpp.s
 
 # Help Target
@@ -897,6 +897,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/74202/Desktop/ieeg_seizure_prediction_research && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/Micro/Desktop/MainResearch/SNN-deployment/network-simulation && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

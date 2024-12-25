@@ -28,7 +28,7 @@ namespace snnlib
             throw std::out_of_range("Neuron ID is out of range for the connection matrix.");
         }
 
-        return static_cast<bool>(connection_matrix[presynapse_neuron_id][postsynapse_neuron_id]);
+        return connection_matrix[presynapse_neuron_id][postsynapse_neuron_id].size() > 0;
     }
     
     void SNNNetwork::initialize(){
@@ -48,7 +48,10 @@ namespace snnlib
         }
 
         size_t num_neurons = neuron_id_map.size();
-        connection_matrix.assign(num_neurons, std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>(num_neurons, nullptr));
+        connection_matrix.assign(num_neurons, 
+            std::vector<std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>>(
+                num_neurons, 
+                std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>()));
 
         // Populate the connection matrix
         for (auto& connection_record_item : connections) {
@@ -61,7 +64,7 @@ namespace snnlib
             int presynapse_neuron_id = neuron_id_map[presynapse_neuron_name];
             int postsynapse_neuron_id = neuron_id_map[postsynapse_neuron_name];
 
-            connection_matrix[presynapse_neuron_id][postsynapse_neuron_id] = connection_record_item.second;
+            connection_matrix[presynapse_neuron_id][postsynapse_neuron_id].emplace_back(connection_record_item.second);
         }
         
         std::cout << "initialize network components" << std::endl;
@@ -94,25 +97,28 @@ namespace snnlib
 
             for(auto& iter : neuron_id_map){
                 int i = iter.second;
-                if(!connection_matrix[i][neuron_id]) continue;
+                if(connection_matrix[i][neuron_id].empty()) continue;
                 
-                std::shared_ptr<snnlib::AbstractSNNConnection> current_connection = 
-                                                            connection_matrix[i][neuron_id];
-                std::vector<double> synpase_out = current_connection->synapses->output_I();
-                
-                assert((int)current_connection->synapses->presynapse_neurons->n_neurons == (int)synpase_out.size() / neuron_record_item.second->n_neurons);
+                std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>& 
+                    connections = connection_matrix[i][neuron_id];
+                for(auto current_connection : connections){
+                    std::vector<double> synpase_out = current_connection->synapses->output_I();
+                    
+                    assert((int)current_connection->synapses->presynapse_neurons->n_neurons == (int)synpase_out.size() / neuron_record_item.second->n_neurons);
 
-                int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
-                int n_postsynpase_neurons = current_connection->synapses->n_postsynapse_neurons();
-                assert((int)current_connection->weights.size() == n_presynpase_neurons * n_postsynpase_neurons);
+                    int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
+                    int n_postsynpase_neurons = current_connection->synapses->n_postsynapse_neurons();
+                    assert((int)current_connection->weights.size() == n_presynpase_neurons * n_postsynpase_neurons);
 
-                for(int presyn_idx = 0; presyn_idx < n_presynpase_neurons; presyn_idx++){
-                    for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
-                        int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
-                        input_current[postsyn_idx] += synpase_out[index];
-                        // std::cout << "input current for neuron " <<neuron_record_item.first<< " from " <<  iter.first << " += " << synpase_out[index] << std::endl;
-                    }   
+                    for(int presyn_idx = 0; presyn_idx < n_presynpase_neurons; presyn_idx++){
+                        for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
+                            int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
+                            input_current[postsyn_idx] += synpase_out[index];
+                            // std::cout << "input current for neuron " <<neuron_record_item.first<< " from " <<  iter.first << " += " << synpase_out[index] << std::endl;
+                        }   
+                    }
                 }
+                
             }
 
             neuron_record_item.second->forward_states_to_buffer(input_current, t, &neuron_record_item.second->P[0], dt);
