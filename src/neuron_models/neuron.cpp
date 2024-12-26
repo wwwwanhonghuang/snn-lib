@@ -3,14 +3,14 @@
 
 namespace snnlib
 {
-    inline void AbstractSNNNeuron::forward_states_to_buffer(int neuron_index, double I, double t, double* P, double dt){
+    inline void AbstractSNNNeuron::forward_states_to_buffer(int neuron_index, double I, int t, double* P, double dt){
         std::vector<double> dx = neuron_dynamics_model(neuron_index, I, &x[neuron_index * n_states], t, P, dt);
         for(int state_id = 0; state_id < n_states; state_id++){
             double new_state = x[neuron_index * n_states + state_id] + dx[state_id]; // x + dx
             x_buffer[neuron_index * n_states + state_id] = new_state;
         }
     }
-    void AbstractSNNNeuron::forward_states_to_buffer(const std::vector<double>& I, double t, double* P, double dt){
+    void AbstractSNNNeuron::forward_states_to_buffer(const std::vector<double>& I, int t, double* P, double dt){
         for(int neuron_index = 0; neuron_index < n_neurons; neuron_index++){
             forward_states_to_buffer(neuron_index, I[neuron_index], t, P, dt);
         }
@@ -32,7 +32,7 @@ namespace snnlib
         return n_states;
     }
 
-    void AbstractSNNNeuron::_evolve_state(const std::vector<double>& I, double t, double* P, double dt){
+    void AbstractSNNNeuron::_evolve_state(const std::vector<double>& I, int t, double* P, double dt){
         for(int i = 0; i < n_neurons; i++){
             std::vector<double> dx = neuron_dynamics_model(i, I[i], &x[i * n_states], t, P, dt);
             for(int state_id = 0; state_id < n_states; state_id++){

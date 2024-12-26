@@ -6,7 +6,10 @@ namespace snnlib
         NeuronConfiguration::get_predefined_initializer(const std::string& initializer_name){
         if (initializer_name == "rest_potential_initializer") {
             return neuron_rest_potential_initializer;
-        } else {
+        } else if (initializer_name == "reset_potential_initializer") {
+            return neuron_reset_potential_initializer;
+        }
+        else {
             std::cerr << "Error: unrecognized neuron initializer " << initializer_name << std::endl;
             assert(false);
         }

@@ -120,7 +120,7 @@ std::shared_ptr<snnlib::SNNNeuronMetaStructure> meta_neuron =
         if(value > threshold) return 1.0;
         return 0.0;
     })
-    ->build_neuron_dynamics([&record](std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, double t, double* P, double dt)->std::vector<double>{
+    ->build_neuron_dynamics([&record](std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, int t, double* P, double dt)->std::vector<double>{
 
         int last_spiking_t = self->get_state("last_t", x);
         const double threshold = 0.5;

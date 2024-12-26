@@ -14,6 +14,9 @@ namespace snnlib{
         {
             neuron_dynamics_model = &PossionNeuron::neuron_dynamics;
             this->n_neurons = n_neurons;
+            for(int i = 0; i < n_neurons; i++){
+                x[i * n_states + OFFSET_STATE_last_t] = -1;
+            }
             P.assign({(double)frequency});
         }
 
@@ -21,7 +24,7 @@ namespace snnlib{
         
         virtual double output_V(int neuron_id, double* x, double* output_P, int t, double dt);
 
-        static std::vector<double> neuron_dynamics(int neuron_id, double I, double* x, double t, double* P, double dt);
+        static std::vector<double> neuron_dynamics(int neuron_id, double I, double* x, int t, double* P, double dt);
     };
 
 }

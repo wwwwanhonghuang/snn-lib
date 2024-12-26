@@ -2,14 +2,19 @@
 #define NORMAL_WRIGHT_INITIALIZER_HPP
 
 #include <random>
+#include <vector>
 #include "connections/connection.hpp"
 #include "network/initializer/initializer.hpp"
 
 namespace snnlib{
     struct NormalWeightInitializer: AbstractSNNConnectionInitializer
     {
+        private:
+            double _scale = 1.0;
         public:
             virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
+            NormalWeightInitializer(){}
+            NormalWeightInitializer(double scale);
     };
 
     struct IdenticalWeightInitializer: AbstractSNNConnectionInitializer{
@@ -21,6 +26,19 @@ namespace snnlib{
             }
             virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
     };
+
+    struct SpecificWeightInitializer: AbstractSNNConnectionInitializer{
+        private:
+            std::vector<double> _weights;
+        public:
+            SpecificWeightInitializer(std::vector<double> weights): _weights(weights)
+            {
+                std::cout << weights.size() << std::endl;
+            }
+            virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
+    };
+
+    
 }
 
 #endif

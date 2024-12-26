@@ -26,7 +26,7 @@ namespace snnlib{
             assert(false);
         }
     }
-    std::vector<double> DynamicalNeuron::neuron_dynamics(std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, double t, double* P, double dt){
+    std::vector<double> DynamicalNeuron::neuron_dynamics(std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, int t, double* P, double dt){
         return meta_neuron_structure->neuron_dynamics(shared_this, neuron_id, I, x, t, P, dt);
     }
 

@@ -1,6 +1,7 @@
 #include "network/network.hpp"
 #include "recorder/neuron_recorder.hpp"
 #include "recorder/recorder.hpp"
+#include <cassert>
 namespace snnlib
 {
     bool SNNNetwork::is_neuron_connected(const std::string& presynapse_neuron_name, 
@@ -108,7 +109,6 @@ namespace snnlib
 
                     int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
                     int n_postsynpase_neurons = current_connection->synapses->n_postsynapse_neurons();
-                    assert((int)current_connection->weights.size() == n_presynpase_neurons * n_postsynpase_neurons);
 
                     for(int presyn_idx = 0; presyn_idx < n_presynpase_neurons; presyn_idx++){
                         for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
@@ -146,5 +146,8 @@ namespace snnlib
             connection_record_item.second->forward_states_to_buffer(S, t, 
                 &connection_record_item.second->synapses->P[0], dt);
         }
+
+
+
     }
 }

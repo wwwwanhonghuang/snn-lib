@@ -13,9 +13,13 @@ namespace snnlib
     struct RestPotentialInitializer : snnlib::AbstractNeuronInitializer
     {
         void initialize(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron){
-            neuron->setMembranePotential(-65.0);
+            neuron->setMembranePotential(neuron->get_parameters("V_rest"));
         }
     };
-    
+    struct ResetPotentialInitializer : snnlib::AbstractNeuronInitializer {
+        void initialize(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron){
+            neuron->setMembranePotential(neuron->get_parameters("V_reset"));
+        }
+    };
 }
 #endif

@@ -145,7 +145,9 @@ namespace snnlib{
             NeuronConfiguration(std::shared_ptr<snnlib::AbstractSNNNeuron> neuron);
         private:
             std::shared_ptr<snnlib::AbstractNeuronInitializer> neuron_rest_potential_initializer = 
-            std::make_shared<snnlib::RestPotentialInitializer>();
+                std::make_shared<snnlib::RestPotentialInitializer>();
+            std::shared_ptr<snnlib::AbstractNeuronInitializer> neuron_reset_potential_initializer =
+                std::make_shared<snnlib::ResetPotentialInitializer>();
         
             std::vector<std::shared_ptr<snnlib::AbstractNeuronInitializer>> _initializers;
             std::shared_ptr<snnlib::AbstractSNNNeuron> _neuron;

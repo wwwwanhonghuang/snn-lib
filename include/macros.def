@@ -9,7 +9,7 @@
 #define DEF_DYN_SYSTEM_PARAM(index, name)       \
     static double param_##name(double* P) {                         \
         return P[index];                    \
-    }
+    } 
 
 #define DYN_SYSTEM_STATE(name) \
     double name = state_##name(x);

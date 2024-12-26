@@ -40,19 +40,18 @@ namespace snnlib{
         virtual ~AbstractSNNSynapse() = default;
         
         void forward_states_to_buffer(
-            const std::vector<double>& weights, // synaptic weights
             const std::vector<double>& S,       // presynaptic spike train
-            double t,                           // current time
+            int t,                           // current time
             double* P,                          // parameters
             double dt                           // time step
         );
 
-        void _evolve_state(int weight, const std::vector<double>& S, double t, double* P, double dt);
+        void _evolve_state(int weight, const std::vector<double>& S, int t, double* P, double dt);
         void update_states_from_buffer();
     };
 
     static SynapseDynamicsModel create_single_exponential_dynamics(int state_current_index, int param_tau_index) {
-        return [state_current_index, param_tau_index](double input, double* x, double t, double* P, double dt) 
+        return [state_current_index, param_tau_index](double input, double* x, int t, double* P, double dt) 
                 -> std::vector<double> {
             double I = x[state_current_index];  // Current state (I)
             double tau = P[param_tau_index]; // Fetch tau using captured index
@@ -63,13 +62,22 @@ namespace snnlib{
     }
 
     static SynapseDynamicsModel create_double_exponential_dynamics(int state_response_index, int state_aux_index, int param_tau_rise_index, int param_tau_decay_index) {
-        return [state_response_index, state_aux_index, param_tau_rise_index, param_tau_decay_index](double input, double* x, double t, double* P, double dt) -> std::vector<double> {
+        return [state_response_index, state_aux_index, param_tau_rise_index, param_tau_decay_index](double input, double* x, int t, double* P, double dt) -> std::vector<double> {
             double response = x[state_response_index];
             double aux = x[state_aux_index];
             double tau_rise = P[param_tau_rise_index];
             double tau_decay = P[param_tau_decay_index];
-            double dot_response = -response * dt / tau_decay + aux * dt;
-            double dot_aux = (-aux * dt / tau_rise) + (1 / (tau_decay * tau_rise)) * (input);
+            // std::cout << "  -- get response = " << response << " aux = " << aux << std::endl;
+            double dot_response = (-response * dt / tau_rise) + aux * dt;
+            double dot_aux = (-aux * dt / tau_decay) + (input / (tau_decay * tau_rise));
+            
+            // std::cout << "response r = " << response << " * (" << 1 << "-" << dt << " / " << tau_rise << ")"
+            //           << " + " << aux << " * " << dt << ") == " << response + dot_response <<  std::endl;
+
+            // std::cout << "auxility hr = " << aux << " * (" << 1 << "-" << dt << ") / " << tau_decay << ")"
+            //           << " + " <<
+            //           input << " / " << "(" << tau_decay << " * " << tau_rise << ") == " << aux + dot_aux << std::endl;
+            // std::cout << "   return {" << dot_response << ", " << dot_aux << std::endl;
             return {dot_response, dot_aux};
         };
     }
