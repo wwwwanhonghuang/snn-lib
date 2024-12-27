@@ -5,7 +5,7 @@
 #include "neuron.hpp"
 
 #include "macros.def"
-#include "neuron_models/parameters.hpp"
+#include "network/parameters.hpp"
 
 namespace snnlib{
     struct LIFNeuron: public AbstractSNNNeuron
@@ -20,7 +20,7 @@ namespace snnlib{
 
         DEF_DYN_SYSTEM_STATE(1, last_t)
 
-        static std::shared_ptr<snnlib::SNNNeuronParameters> new_parameters(){
+        static std::shared_ptr<snnlib::BaseParameters> default_parameters(){
             std::shared_ptr<snnlib::SNNNeuronParameters> parameters = 
                 std::make_shared<snnlib::SNNNeuronParameters>();
             return parameters->push("V_rest", 0, -65.0)
@@ -32,7 +32,7 @@ namespace snnlib{
                 ->push("V_peak", 6, 20);
         }
         
-        LIFNeuron(int n_neurons, std::shared_ptr<snnlib::SNNNeuronParameters> parameters): AbstractSNNNeuron(n_neurons, 2)
+        LIFNeuron(int n_neurons, std::shared_ptr<snnlib::BaseParameters> parameters): AbstractSNNNeuron(n_neurons, 2)
         {
             neuron_dynamics_model = &LIFNeuron::neuron_dynamics;
             this->n_neurons = n_neurons;
@@ -43,10 +43,8 @@ namespace snnlib{
             P.assign({parameters->get("V_rest"), parameters->get("V_th"), 
                 parameters->get("V_reset"), parameters->get("tau_m"), 
                 parameters->get("R"), parameters->get("t_ref"), parameters->get("V_peak")});
-              std::cout << "Assigned parameters to P: ";
           
         
-            std::cout << std::endl;
             parameter_map["V_rest"] = 0;
             parameter_map["V_th"] = 1;
             parameter_map["V_reset"] = 2;

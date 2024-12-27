@@ -5,6 +5,7 @@
 #include "interfaces/function.hpp"
 #include "neuron_models/neuron.hpp"
 #include "macros.def"
+#include "network/parameters.hpp"
 namespace snnlib{
     struct AbstractSNNSynapse
     {
@@ -86,14 +87,37 @@ namespace snnlib{
         bool kernel_param_tau;
         DEF_DYN_SYSTEM_STATE(1, aux)
 
-        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau, 1e-2)
-        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(0, tau_rise, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(1, tau_decay, 1e-2)
+
+
+        static std::shared_ptr<snnlib::BaseParameters> default_parameters(){
+            std::shared_ptr<snnlib::SynapseParameters> synapse_parameters = 
+                std::make_shared<snnlib::SynapseParameters>();
+            return synapse_parameters->push("tau_rise", 0, 1e-2)->push("tau_decay", 1, 1e-2);
+        }
 
         CurrentBasedKernalSynapse(
                             std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
                             std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
                             std::string synapse_dynamics_model_name,
-                            double kernel_param_tau, double kernel_param_tau_2, double g_syn, double E_syn):
+                            std::shared_ptr<snnlib::BaseParameters> synapse_parameters):
+            AbstractSNNSynapse(presynapse_neurons, postsynpase_neurons, 2)
+        {
+            if(synapse_dynamics_model_name == "single_exponential"){
+                this->synapse_dynamics = create_single_exponential_dynamics(0, 0);
+                P.assign({synapse_parameters->get("tau_rise")});
+            }else if(synapse_dynamics_model_name == "double_exponential"){
+                this->synapse_dynamics = create_double_exponential_dynamics(0, 1, 0, 1);
+                P.assign({synapse_parameters->get("tau_rise"), synapse_parameters->get("tau_decay")});
+            }            
+        }
+
+        CurrentBasedKernalSynapse(
+                            std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
+                            std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
+                            std::string synapse_dynamics_model_name,
+                            double tau_rise, double tau_decay, double g_syn, double E_syn):
             AbstractSNNSynapse(presynapse_neurons, postsynpase_neurons, 2)
         {
             if(synapse_dynamics_model_name == "single_exponential"){
@@ -101,7 +125,7 @@ namespace snnlib{
             }else if(synapse_dynamics_model_name == "double_exponential"){
                 this->synapse_dynamics = create_double_exponential_dynamics(0, 1, 0, 1);
             }
-            P.assign({kernel_param_tau, kernel_param_tau_2, g_syn, E_syn});
+            P.assign({tau_rise, tau_decay, g_syn, E_syn});
         }
 
        
@@ -118,21 +142,46 @@ namespace snnlib{
             return I;
         }
     };
-
+  
     struct ConductanceBasedKernalSynapse: public AbstractSNNSynapse{
         bool kernel_param_tau;
         DEF_DYN_SYSTEM_STATE(1, aux)
         
 
-        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau, 1e-2)
-        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(0, tau_rise, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(1, tau_decay, 1e-2)
         DEF_DYN_SYSTEM_PARAM(2, g_syn, 1e-2)
         DEF_DYN_SYSTEM_PARAM(3, E_syn, 1e-2)
+
+
+        static std::shared_ptr<snnlib::BaseParameters> default_parameters(){
+            std::shared_ptr<snnlib::SynapseParameters> synapse_parameters = 
+                std::make_shared<snnlib::SynapseParameters>();
+            return synapse_parameters->push("tau_rise", 0, 1e-2)->push("tau_decay", 1, 1e-2)
+            ->push("g_syn", 2, 1e-2)->push("E_syn", 3, 1e-2);
+        }
 
         ConductanceBasedKernalSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
                             std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
                             std::string synapse_dynamics_model_name,
-                            double kernel_param_tau, double kernel_param_tau_2, double g_syn, double E_syn):
+                            std::shared_ptr<snnlib::SynapseParameters> synapse_parameters):
+            AbstractSNNSynapse(presynapse_neurons, postsynpase_neurons, 2)
+        {
+            if(synapse_dynamics_model_name == "single_exponential"){
+                this->synapse_dynamics = create_single_exponential_dynamics(0, 0);
+                P.assign({synapse_parameters->get("tau_rise")});
+            }else if(synapse_dynamics_model_name == "double_exponential"){
+                this->synapse_dynamics = create_double_exponential_dynamics(0, 1, 0, 1);
+                P.assign({synapse_parameters->get("tau_rise"), synapse_parameters->get("tau_decay")});
+            }
+            P.emplace_back(synapse_parameters->get("g_syn"));
+            P.emplace_back(synapse_parameters->get("E_syn"));
+        }
+
+        ConductanceBasedKernalSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
+                            std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
+                            std::string synapse_dynamics_model_name,
+                            double tau_rise, double tau_decay, double g_syn, double E_syn):
             AbstractSNNSynapse(presynapse_neurons, postsynpase_neurons, 2)
         {
             if(synapse_dynamics_model_name == "single_exponential"){
@@ -140,7 +189,7 @@ namespace snnlib{
             }else if(synapse_dynamics_model_name == "double_exponential"){
                 this->synapse_dynamics = create_double_exponential_dynamics(0, 1, 0, 1);
             }
-            P.assign({kernel_param_tau, kernel_param_tau_2, g_syn, E_syn});
+            P.assign({tau_rise, tau_decay, g_syn, E_syn});
         }
         
         std::vector<double> output_I(){

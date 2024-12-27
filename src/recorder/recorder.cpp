@@ -12,7 +12,7 @@ namespace snnlib {
         connection_recorder_callback[connection_name].push_back(callback);
     }
 
-    void RecorderFacade::process_neuron_recorder(const std::string& neuron_name, std::shared_ptr<AbstractSNNNeuron> neuron, int t, int dt) {
+    void RecorderFacade::process_neuron_recorder(const std::string& neuron_name, std::shared_ptr<AbstractSNNNeuron> neuron, int t, double dt) {
         auto it = neuron_recorder_callback.find(neuron_name);
         if (it != neuron_recorder_callback.end()) {
             for (const auto& callback : it->second) {
@@ -21,7 +21,7 @@ namespace snnlib {
         }
     }
 
-    void RecorderFacade::process_connection_recorder(const std::string& connection_name, std::shared_ptr<AbstractSNNConnection> connection, int t, int dt) {
+    void RecorderFacade::process_connection_recorder(const std::string& connection_name, std::shared_ptr<AbstractSNNConnection> connection, int t, double dt) {
         auto it = connection_recorder_callback.find(connection_name);
         if (it != connection_recorder_callback.end()) {
             for (const auto& callback : it->second) {

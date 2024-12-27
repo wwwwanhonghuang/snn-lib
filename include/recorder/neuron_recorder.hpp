@@ -9,6 +9,7 @@ namespace snnlib
     struct NeuronRecorder
     {
     public:
+        
         void record_membrane_potential_to_file(const std::string& filepath, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t){
             if(file_streams.find(filepath) == file_streams.end()){
                 std::unique_ptr<std::ofstream> output_stream_ptr = std::make_unique<std::ofstream>(filepath);

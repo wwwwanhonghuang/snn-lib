@@ -9,8 +9,8 @@
 namespace snnlib
 {
         
-    using NeuroRecordCallback = std::function<void(const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, int dt)>;
-    using ConnectionRecordCallback = std::function<void(const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt)>;
+    using NeuroRecordCallback = std::function<void(const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, double dt)>;
+    using ConnectionRecordCallback = std::function<void(const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, double dt)>;
 
 
     struct RecorderFacade
@@ -20,8 +20,8 @@ namespace snnlib
 
         void add_neuron_record_item(const std::string& neuron, NeuroRecordCallback callback);
         void add_connection_record_item(const std::string& connection, ConnectionRecordCallback callback);
-        void process_neuron_recorder(const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, int dt);
-        void process_connection_recorder(const std::string& connection_name, std::shared_ptr<AbstractSNNConnection> connection, int t, int dt);
+        void process_neuron_recorder(const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, double dt);
+        void process_connection_recorder(const std::string& connection_name, std::shared_ptr<AbstractSNNConnection> connection, int t, double dt);
     };
 } // namespace snnlib
 

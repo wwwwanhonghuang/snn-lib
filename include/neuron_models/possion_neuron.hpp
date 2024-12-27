@@ -2,14 +2,14 @@
 #define POSSION_NEURON_HPP
 #include "macros.def"
 #include "neuron_models/neuron.hpp"
-#include "neuron_models/parameters.hpp"
+#include "network/parameters.hpp"
 #include <memory>
 namespace snnlib{
     
 
     struct PossionNeuron: public AbstractSNNNeuron
     {
-        static std::shared_ptr<snnlib::SNNNeuronParameters> new_parameters(){
+        static std::shared_ptr<snnlib::BaseParameters> default_parameters(){
             std::shared_ptr<snnlib::SNNNeuronParameters> parameters = 
                 std::make_shared<snnlib::SNNNeuronParameters>();
             return parameters->push("freq", 0, 30)->push("t_ref", 1, 0);
@@ -22,7 +22,7 @@ namespace snnlib{
 
         DEF_DYN_SYSTEM_STATE(1, last_t)
 
-        PossionNeuron(int n_neurons, std::shared_ptr<snnlib::SNNNeuronParameters> parameters): AbstractSNNNeuron(n_neurons, 2){
+        PossionNeuron(int n_neurons, std::shared_ptr<snnlib::BaseParameters> parameters): AbstractSNNNeuron(n_neurons, 2){
             double frequency = parameters->get("freq");
             double t_ref = parameters->get("t_ref");
             neuron_dynamics_model = &PossionNeuron::neuron_dynamics;

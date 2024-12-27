@@ -88,17 +88,17 @@ int main(){
 
     // Build Recorder
     snnlib::ConnectionRecordCallback weight_recorder = 
-    [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+    [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, double dt) -> void{
         if(t == 0)
             snnlib::WeightRecorder::record_connection_weights_to_file(std::string("data/logs/") + connection_name + std::string(".weights"), connection);
     };
 
     snnlib::ConnectionRecordCallback response_recorder = 
-        [connection_recorder](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+        [connection_recorder](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, double dt) -> void{
         connection_recorder->record_synapse_response_to_file(std::string("data/logs/") + connection_name + std::string(".r"), connection, t);
     };
 
-    snnlib::NeuroRecordCallback membrane_potential_recorder = [neuron_recorder](const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, int dt) -> void{
+    snnlib::NeuroRecordCallback membrane_potential_recorder = [neuron_recorder](const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, double dt) -> void{
         neuron_recorder->record_membrane_potential_to_file(
             std::string("data/logs/")  + neuron_name
             + std::string(".v"), neuron, t

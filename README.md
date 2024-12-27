@@ -71,17 +71,17 @@ int main(){
 
     // Build Recorder [optional]
     snnlib::ConnectionRecordCallback weight_recorder = 
-    [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+    [](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, double dt) -> void{
         if(t == 0)
             snnlib::WeightRecorder::record_connection_weights_to_file(std::string("data/logs/") + connection_name + std::string(".weights"), connection);
     };
 
     snnlib::ConnectionRecordCallback response_recorder = 
-        [connection_recorder](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, int dt) -> void{
+        [connection_recorder](const std::string& connection_name, std::shared_ptr<snnlib::AbstractSNNConnection> connection, int t, double dt) -> void{
         connection_recorder->record_synapse_response_to_file(std::string("data/logs/") + connection_name + std::string(".r"), connection, t);
     };
 
-    snnlib::NeuroRecordCallback membrane_potential_recorder = [neuron_recorder](const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, int dt) -> void{
+    snnlib::NeuroRecordCallback membrane_potential_recorder = [neuron_recorder](const std::string& neuron_name, std::shared_ptr<snnlib::AbstractSNNNeuron> neuron, int t, double dt) -> void{
         neuron_recorder->record_membrane_potential_to_file(
             std::string("data/logs/")  + neuron_name
             + std::string(".v"), neuron, t
@@ -180,11 +180,11 @@ void run_example(){
 
     // build neurons and connections.
     builder->build_neuron<snnlib::PossionNeuron>("possion_input_30hz", 10,
-        snnlib::PossionNeuron::new_parameters()->set("freq", 30)
+        snnlib::PossionNeuron::default_parameters()->set("freq", 30)
     );
 
     builder->build_neuron<snnlib::LIFNeuron>("lif_neuron", 10,
-            snnlib::LIFNeuron::new_parameters()
+            snnlib::LIFNeuron::default_parameters()
                 ->set("V_rest", -65.0)
                 ->set("V_th", -40.0)
                 ->set("V_reset", -60.0)
@@ -250,7 +250,6 @@ int main(){
 
 1. libyaml-cpp
 2. OpenMP
-
 
 
 ## Build Commands
