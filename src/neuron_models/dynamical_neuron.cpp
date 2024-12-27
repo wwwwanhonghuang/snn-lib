@@ -24,6 +24,7 @@ namespace snnlib{
             return x[state_index];
         }else{
             assert(false);
+            return -1;
         }
     }
     std::vector<double> DynamicalNeuron::neuron_dynamics(std::shared_ptr<snnlib::DynamicalNeuron> self, int neuron_id, double I, double* x, int t, double* P, double dt){

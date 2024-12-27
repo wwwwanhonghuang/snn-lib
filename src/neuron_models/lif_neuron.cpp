@@ -26,7 +26,6 @@ namespace snnlib
 
 
         double time_since_last_spike = (last_t == -1) ? INFINITY : t * dt - last_t;
-        // std::cout << " - in neurodynamics " << "input = " << I << std::endl;
         if (time_since_last_spike < t_ref) {
             // std::cout << " - return because in refactory time." << std::endl;
             return {0.0, 0.0};
@@ -38,7 +37,9 @@ namespace snnlib
             // set to V_reset
             return {V_reset - V, t * dt - last_t};
         }
-        // std::cout << " - variate V = " << "(-(" << V << "-" << V_rest << ")" << "+" << I << "*" << R << ")/tau_m * dt  == " << dV  << std::endl;
+        
+        // std::cout << " - variate V = " << "(-(" << V << "-" << V_rest << ")" << "+" << I << "*" << R << ")/" << 
+        // tau_m << " * " << dt <<"  == " << dV  << std::endl;
         
         return {dV, 0.0};
     }

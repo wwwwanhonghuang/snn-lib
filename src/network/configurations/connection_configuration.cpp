@@ -9,6 +9,7 @@ namespace snnlib
         } else {
             std::cerr << "Error: unrecognized connection initializer " << initializer_name << std::endl;
             assert(false);
+            return nullptr;
         }
     }
 

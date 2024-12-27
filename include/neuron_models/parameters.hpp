@@ -9,7 +9,7 @@ namespace snnlib
 {
     struct SNNNeuronParameters : public std::enable_shared_from_this<snnlib::SNNNeuronParameters>{
         std::unordered_map<std::string, int> parameter_index_map;
-        std::unordered_map<std::string, int> parameter_value_map;
+        std::unordered_map<std::string, double> parameter_value_map;
 
         std::shared_ptr<snnlib::SNNNeuronParameters> 
             push(const std::string& parameter_name, int parameter_id, double value){

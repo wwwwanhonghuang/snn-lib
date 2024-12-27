@@ -1,13 +1,16 @@
 #include "neuron_models/neuron.hpp"
 #include <cassert>
-
+#include <cmath>
+#include <algorithm>
 namespace snnlib
 {
     inline void AbstractSNNNeuron::forward_states_to_buffer(int neuron_index, double I, int t, double* P, double dt){
         std::vector<double> dx = neuron_dynamics_model(neuron_index, I, &x[neuron_index * n_states], t, P, dt);
         for(int state_id = 0; state_id < n_states; state_id++){
             double new_state = x[neuron_index * n_states + state_id] + dx[state_id]; // x + dx
+     
             x_buffer[neuron_index * n_states + state_id] = new_state;
+
         }
     }
     void AbstractSNNNeuron::forward_states_to_buffer(const std::vector<double>& I, int t, double* P, double dt){

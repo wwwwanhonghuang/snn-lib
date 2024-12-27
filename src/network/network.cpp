@@ -121,7 +121,7 @@ namespace snnlib
                     for(int presyn_idx = 0; presyn_idx < n_presynpase_neurons; presyn_idx++){
                         for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
                             int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
-                            input_current.data()[postsyn_idx] += synpase_out[index];
+                            input_current[postsyn_idx] += synpase_out[index];
                         }   
                     }
                 }

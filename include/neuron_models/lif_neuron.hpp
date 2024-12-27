@@ -43,6 +43,10 @@ namespace snnlib{
             P.assign({parameters->get("V_rest"), parameters->get("V_th"), 
                 parameters->get("V_reset"), parameters->get("tau_m"), 
                 parameters->get("R"), parameters->get("t_ref"), parameters->get("V_peak")});
+              std::cout << "Assigned parameters to P: ";
+          
+        
+            std::cout << std::endl;
             parameter_map["V_rest"] = 0;
             parameter_map["V_th"] = 1;
             parameter_map["V_reset"] = 2;
