@@ -2,25 +2,10 @@
 #define SNN_SIMULATOR_HPP
 #include <iostream>
 #include "network/network.hpp"
-
+#include "utils/simulation_utils.hpp"
 #include "recorder/recorder.hpp"
 
 
-void displayProgressBar(int progress, int total, int barWidth = 50) {
-    // Calculate the fraction of completion
-    double fraction = static_cast<double>(progress) / total;
-
-    // Compute the number of '=' to display
-    int completed = static_cast<int>(fraction * barWidth);
-
-    // Construct the bar
-    std::string bar(completed, '=');
-    bar.resize(barWidth, ' ');
-
-    // Display the bar
-    std::cout << "\r[" << bar << "] " << static_cast<int>(fraction * 100) << "%";
-    std::cout.flush();
-}
 
 namespace snnlib {
     struct SNNSimulator

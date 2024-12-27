@@ -24,6 +24,7 @@ namespace snnlib
         abort();
     }    
         // Iterate over presynaptic and postsynaptic neurons to update states (wS(t)) * K
+        #pragma omp parallel for collapse(2)
         for (int i = 0; i < n_presynapse_neurons(); i++) {
             for (int j = 0; j < n_postsynapse_neurons(); j++) {
                 int index = i * n_postsynapse_neurons() + j;  // Synapse index
@@ -72,6 +73,7 @@ namespace snnlib
         }
     }
     void AbstractSNNSynapse::update_states_from_buffer(){
+        #pragma omp parallel for
         for(int i = 0; i < n_presynapse_neurons() * n_postsynapse_neurons() * n_states_per_synapse; i++){
             x[i] = x_buffer[i];
             // std::cout << "      - connection global updation: x_buffer[i] = " << x_buffer[i] << "(" << 

@@ -11,6 +11,7 @@ namespace snnlib
         }
     }
     void AbstractSNNNeuron::forward_states_to_buffer(const std::vector<double>& I, int t, double* P, double dt){
+        #pragma omp parallel for
         for(int neuron_index = 0; neuron_index < n_neurons; neuron_index++){
             forward_states_to_buffer(neuron_index, I[neuron_index], t, P, dt);
         }

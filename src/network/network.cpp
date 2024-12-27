@@ -2,6 +2,7 @@
 #include "recorder/neuron_recorder.hpp"
 #include "recorder/recorder.hpp"
 #include <cassert>
+#include <omp.h>
 namespace snnlib
 {
     bool SNNNetwork::is_neuron_connected(const std::string& presynapse_neuron_name, 
@@ -88,7 +89,11 @@ namespace snnlib
     }
 
     void SNNNetwork::evolve_states(int t, double dt, std::shared_ptr<snnlib::RecorderFacade> recorder_facade){
-        for(auto& neuron_record_item: neurons){
+        std::vector<decltype(neurons)::value_type> neuron_vector(neurons.begin(), neurons.end());
+
+        #pragma omp parallel for
+        for(size_t neuron_idx = 0; neuron_idx < neuron_vector.size(); ++neuron_idx){
+            auto& neuron_record_item = neuron_vector[neuron_idx];
             int neuron_id = neuron_id_map[neuron_record_item.first];
             std::vector<double> input_current(neuron_record_item.second->n_neurons, 0);
             
@@ -102,6 +107,7 @@ namespace snnlib
                 
                 std::vector<std::shared_ptr<snnlib::AbstractSNNConnection>>& 
                     connections = connection_matrix[i][neuron_id];
+                
                 for(auto current_connection : connections){
                     std::vector<double> synpase_out = current_connection->synapses->output_I();
                     
@@ -110,11 +116,12 @@ namespace snnlib
                     int n_presynpase_neurons = current_connection->synapses->n_presynapse_neurons();
                     int n_postsynpase_neurons = current_connection->synapses->n_postsynapse_neurons();
 
+
+                    #pragma omp parallel for
                     for(int presyn_idx = 0; presyn_idx < n_presynpase_neurons; presyn_idx++){
                         for(int postsyn_idx = 0; postsyn_idx < n_postsynpase_neurons; postsyn_idx++){
                             int index = presyn_idx * n_postsynpase_neurons + postsyn_idx;
-                            input_current[postsyn_idx] += synpase_out[index];
-                            // std::cout << "input current for neuron " <<neuron_record_item.first<< " from " <<  iter.first << " += " << synpase_out[index] << std::endl;
+                            input_current.data()[postsyn_idx] += synpase_out[index];
                         }   
                     }
                 }
@@ -124,6 +131,7 @@ namespace snnlib
             neuron_record_item.second->forward_states_to_buffer(input_current, t, &neuron_record_item.second->P[0], dt);
         }
 
+        #pragma omp parallel
         for(auto& connection_record_item: connections){
             if(recorder_facade){
                 recorder_facade->process_connection_recorder(connection_record_item.first, connection_record_item.second, t, dt);
@@ -132,6 +140,7 @@ namespace snnlib
             int n_synapse = synapse->n_presynapse_neurons() * synapse->n_postsynapse_neurons();
             std::vector<double> S(n_synapse, 0.0);
             
+            #pragma omp parallel for collapse(2)
             for(int i = 0; i < synapse->n_presynapse_neurons(); i++){
                 for (int j = 0; j < synapse->n_postsynapse_neurons(); j++)
                 {

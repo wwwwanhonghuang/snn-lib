@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 # Project name and the language used
 project(SNNLIB LANGUAGES CXX)
 
+
 # Set the C++ compiler explicitly (optional if using clang++)
 set(CMAKE_CXX_COMPILER clang++)
 
@@ -21,9 +22,7 @@ set(OBJ_DIR ${BUILD_DIR}/obj)
 set(BIN_DIR ${BUILD_DIR}/bin)
 set(LIB_DIR ${BUILD_DIR}/lib)
 
-
 file(GLOB_RECURSE SOURCES "src/**/*.cpp")
-
 
 # Include directories
 include_directories(${INCLUDE_DIR})
@@ -42,11 +41,20 @@ file(MAKE_DIRECTORY ${LIB_DIR} ${BIN_DIR})
 
 find_package(yaml-cpp REQUIRED)
 
+# Find OpenMP
+find_package(OpenMP REQUIRED)
+
 # Add a static library target
 add_library(shared STATIC ${SOURCES})
 set_target_properties(shared PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY ${LIB_DIR}
 )
+
+# Add OpenMP to the target if available
+if(OpenMP_CXX_FOUND)
+    target_compile_options(shared PRIVATE ${OpenMP_CXX_FLAGS})
+    target_link_libraries(shared PRIVATE OpenMP::OpenMP_CXX)
+endif()
 
 # Add the executable target
 add_executable(snn-main src/snn-main.cpp ${SOURCES})

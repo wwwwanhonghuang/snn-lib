@@ -33,7 +33,7 @@ namespace snnlib{
         public:
             SpecificWeightInitializer(std::vector<double> weights): _weights(weights)
             {
-                std::cout << weights.size() << std::endl;
+                
             }
             virtual void initialize(std::shared_ptr<snnlib::AbstractSNNConnection> connection);
     };
