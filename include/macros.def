@@ -2,14 +2,16 @@
 #define SNNLIB_MACROS
 #define DEF_DYN_SYSTEM_STATE(index, name)         \
     static double state_##name(double* x) {     \
-        return x[index];                     \
+        return x[OFFSET_STATE_##name];                     \
     } \
-    const int OFFSET_STATE_##name = index;
+    static const int OFFSET_STATE_##name = index; 
 
-#define DEF_DYN_SYSTEM_PARAM(index, name)       \
-    static double param_##name(double* P) {                         \
-        return P[index];                    \
-    } 
+
+#define DEF_DYN_SYSTEM_PARAM(index, name, default_value)                                         \
+    static double param_##name(double* P) {                                \
+        return P[OFFSET_PARAM_##name];                                      \
+    }                                                                       \
+    static const int OFFSET_PARAM_##name = index;
 
 #define DYN_SYSTEM_STATE(name) \
     double name = state_##name(x);

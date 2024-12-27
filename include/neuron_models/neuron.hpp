@@ -11,8 +11,8 @@ namespace snnlib{
     struct AbstractSNNNeuron
     {
         public:
-            DEF_DYN_SYSTEM_STATE(0, V)
 
+            DEF_DYN_SYSTEM_STATE(0, V)
             int n_neurons;
             std::vector<double> P;
             std::unordered_map<std::string, int> parameter_map;

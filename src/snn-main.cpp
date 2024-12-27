@@ -81,7 +81,6 @@ int main(){
 
     std::shared_ptr<snnlib::SNNNetwork> network = network_builder->build_network();
 
-
     std::shared_ptr<snnlib::NeuronRecorder> neuron_recorder =
         std::make_shared<snnlib::NeuronRecorder>();
     std::shared_ptr<snnlib::ConnectionRecorder> connection_recorder =
@@ -115,6 +114,5 @@ int main(){
     recorder_facade->add_neuron_record_item("outputs", membrane_potential_recorder);
     recorder_facade->add_neuron_record_item("reservoir", membrane_potential_recorder);
 
-    // Run Simulation
     run_simulation(network, time_steps, dt, recorder_facade);
 }

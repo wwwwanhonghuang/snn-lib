@@ -86,8 +86,8 @@ namespace snnlib{
         bool kernel_param_tau;
         DEF_DYN_SYSTEM_STATE(1, aux)
 
-        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau)
-        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2)
+        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2, 1e-2)
 
         CurrentBasedKernalSynapse(
                             std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
@@ -124,10 +124,10 @@ namespace snnlib{
         DEF_DYN_SYSTEM_STATE(1, aux)
         
 
-        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau)
-        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2)
-        DEF_DYN_SYSTEM_PARAM(2, g_syn)
-        DEF_DYN_SYSTEM_PARAM(3, E_syn)
+        DEF_DYN_SYSTEM_PARAM(0, kernel_param_tau, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(1, kernel_param_tau_2, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(2, g_syn, 1e-2)
+        DEF_DYN_SYSTEM_PARAM(3, E_syn, 1e-2)
 
         ConductanceBasedKernalSynapse(std::shared_ptr<snnlib::AbstractSNNNeuron> presynapse_neurons,
                             std::shared_ptr<snnlib::AbstractSNNNeuron> postsynpase_neurons,
