@@ -10,6 +10,6 @@ void displayProgressBar(int progress, int total, int barWidth) {
     std::string bar(completed, '=');
     bar.resize(barWidth, ' ');
 
-    std::cout << "\r[" << bar << "] " << static_cast<int>(fraction * 100) << "%";
+    std::cout << "\r[" << bar << "] " << static_cast<int>(fraction * 100) << "% " << progress << " / " << total;
     std::cout.flush();
 }
